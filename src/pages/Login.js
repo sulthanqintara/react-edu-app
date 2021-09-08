@@ -13,7 +13,7 @@ function Login() {
                         <input type="text" placeholder=""></input>
                         <label>Password</label>
                         <input type="password" placeholder=""></input>
-                        <Link><p>Forgot password?</p></Link>
+                        <Link to="#"><p>Forgot password?</p></Link>
                         <button className="btn-login mb-3" type="submit">Login</button>
                         <button className="btn-login-google d-flex" type="submit">
                             <i className="google fab fa-google" /><p>Login with Google</p>
