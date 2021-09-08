@@ -1,5 +1,5 @@
 .main-login {
-  background: #e5e5e5;
+  background: #e6edf6;
 }
 
 .main-login .google {
@@ -19,6 +19,13 @@
   font-size: 1.5rem;
 }
 
+.main-login form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
 .main-login h1 {
   font-family: Kanit;
   font-style: normal;
@@ -32,11 +39,10 @@
 
 .main-login label {
   font-family: Kanit;
-  font-style: normal;
-  font-weight: normal;
   font-size: 14px;
   line-height: 21px;
   color: #ada9bb;
+  margin-top: 20px;
 }
 
 .main-login input {
@@ -90,22 +96,8 @@
   background: rgba(0, 13, 79, 0.08);
 }
 
-.main-login .btn-login-google p{
-    margin: 0%;
-}
-
-.main-login p,
-.main-login span {
-  font-family: Kanit;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
-}
-
-.main-login p {
-  text-align: center;
-  color: #ada9bb;
+.main-login .btn-login-google p {
+  margin: 0%;
 }
 
 .main-login span {
@@ -114,8 +106,4 @@
 
 .main-login a {
   text-decoration: none;
-}
-
-.main-login span:hover {
-  color: teal;
 }

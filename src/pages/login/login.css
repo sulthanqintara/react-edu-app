@@ -1,0 +1,127 @@
+.main-login {
+  background: #e6edf6;
+}
+
+.main-login .google {
+  background: conic-gradient(
+      from -45deg,
+      #ea4335 110deg,
+      #4285f4 90deg 180deg,
+      #34a853 180deg 270deg,
+      #fbbc05 270deg
+    )
+    110% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.main-login form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
+.main-login h1 {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 72px;
+  color: #010620;
+  text-align: center;
+  padding-top: 8rem;
+}
+
+.main-login label {
+  font-family: Kanit;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ada9bb;
+  margin-top: 20px;
+}
+
+.main-login input {
+  width: 480px;
+  height: 61px;
+  background: #ffffff;
+  border: 1px solid #ada9bb;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0 1rem;
+}
+
+.main-login input:focus-visible {
+  outline: none;
+}
+
+.main-login form p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.main-login button {
+  width: 480px;
+  height: 61px;
+  border-radius: 10px;
+}
+
+.main-login .btn-login {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ffffff;
+  background: #5784ba;
+}
+
+.main-login .btn-login-google {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #010620;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 13, 79, 0.08);
+}
+
+.main-login .btn-login-google p {
+  margin: 0%;
+}
+
+.main-login p,
+.main-login span {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.main-login p {
+  text-align: center;
+  color: #ada9bb;
+}
+
+.main-login span {
+  color: #5784ba;
+}
+
+.main-login a {
+  text-decoration: none;
+}
+
+.main-login span:hover {
+  color: teal;
+}
