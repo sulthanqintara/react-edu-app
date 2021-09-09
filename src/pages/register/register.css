@@ -1,8 +1,4 @@
-.main-login {
-  background: #e6edf6;
-}
-
-.main-login .google {
+.main-register .google {
   background: conic-gradient(
       from -45deg,
       #ea4335 110deg,
@@ -19,14 +15,14 @@
   font-size: 1.5rem;
 }
 
-.main-login form {
+.main-register form {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 35%;
 }
 
-.main-login h1 {
+.main-register h1 {
   font-family: Kanit;
   font-style: normal;
   font-weight: 500;
@@ -37,7 +33,7 @@
   padding-top: 8rem;
 }
 
-.main-login label {
+.main-register label {
   font-family: Kanit;
   font-size: 14px;
   line-height: 21px;
@@ -45,7 +41,7 @@
   margin-top: 20px;
 }
 
-.main-login input {
+.main-register input {
   width: 480px;
   height: 61px;
   background: #ffffff;
@@ -55,11 +51,11 @@
   padding: 0 1rem;
 }
 
-.main-login input:focus-visible {
+.main-register input:focus-visible {
   outline: none;
 }
 
-.main-login form p {
+.main-register form p {
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -68,13 +64,13 @@
   color: #000000;
 }
 
-.main-login button {
+.main-register button {
   width: 480px;
   height: 61px;
   border-radius: 10px;
 }
 
-.main-login .btn-login {
+.main-register .btn-register {
   font-family: Kanit;
   font-style: normal;
   font-weight: 500;
@@ -84,7 +80,7 @@
   background: #5784ba;
 }
 
-.main-login .btn-login-google {
+.main-register .btn-register-google {
   font-family: Kanit;
   font-style: normal;
   font-weight: 500;
@@ -96,14 +92,14 @@
   background: rgba(0, 13, 79, 0.08);
 }
 
-.main-login .btn-login-google p {
+.main-register .btn-register-google p {
   margin: 0%;
 }
 
-.main-login span {
+.main-register span {
   color: #5784ba;
 }
 
-.main-login a {
+.main-register a {
   text-decoration: none;
 }
