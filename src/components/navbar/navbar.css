@@ -1,8 +1,5 @@
-
-
 body {
   background: #e6edf6; /* fallback for old browsers */
-
 }
 
 i {
@@ -79,7 +76,7 @@ i {
   margin-top: 5px;
 }
 
-#navbarSupportedContent .logout{
+#navbarSupportedContent .logout {
   color: #ff1313;
 }
 
