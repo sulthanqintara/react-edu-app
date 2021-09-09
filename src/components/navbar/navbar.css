@@ -1,0 +1,101 @@
+
+
+body {
+  background: #e6edf6; /* fallback for old browsers */
+
+}
+
+i {
+  margin-right: 10px;
+}
+
+.navbar {
+  width: 252px;
+  height: 940px;
+  flex-direction: column;
+  border-radius: 20px;
+  position: fixed;
+  margin: 1rem 1rem;
+}
+.navbar-logo {
+  padding: 1px;
+  pointer-events: none;
+  color: #f9f9f9;
+}
+
+.navbar-mainbg {
+  background-color: #5784ba;
+  padding: 0px;
+}
+
+/* pembungkus ul */
+#navbarSupportedContent {
+  overflow: hidden;
+  position: relative;
+}
+
+#navbarSupportedContent ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+#navbarSupportedContent ul li a i {
+  margin-right: 10px;
+}
+
+/* non active color and transaction after active */
+#navbarSupportedContent ul li a {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 4rem;
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  width: 252px;
+  padding-left: 4rem;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+
+/* active color and transation delay*/
+#navbarSupportedContent > ul > li.active > a {
+  color: #000000;
+  background-color: transparent;
+  transition: all 0.7s;
+}
+
+/* transation hori */
+.hori-selector {
+  display: inline-block;
+  position: absolute;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  background-color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: 5px;
+}
+
+#navbarSupportedContent .logout{
+  color: #ff1313;
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    flex-direction: row;
+  }
+
+  #navbarSupportedContent ul li a {
+    padding: 10px 50px;
+  }
+  .hori-selector {
+    margin-top: 0px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
