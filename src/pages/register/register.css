@@ -15,91 +15,99 @@
   font-size: 1.5rem;
 }
 
-.main-register form {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35%;
-}
-
-.main-register h1 {
-  font-family: Kanit;
-  font-style: normal;
-  font-weight: 500;
+.auth-page h1 {
   font-size: 48px;
-  line-height: 72px;
-  color: #010620;
+  font-family: Kanit;
+  margin-top: 90px;
   text-align: center;
-  padding-top: 8rem;
 }
 
-.main-register label {
+.auth-page form {
+  display: inline-block;
+  text-align: left;
+  margin-top: 100px;
   font-family: Kanit;
-  font-size: 14px;
-  line-height: 21px;
   color: #ada9bb;
+}
+
+.auth-page input {
+  width: 480px;
+  height: 61px;
+  border-radius: 8px;
+}
+
+.auth-page .btn-register {
+  width: 100%;
+  background-color: #5784ba;
+  color: white;
+  height: 61px;
+  margin-top: 90px;
+  border-radius: 8px;
+}
+
+.auth-page .btn-register-google {
+  width: 100%;
+  background-color: #cdd0d4;
+  color: black;
+  height: 61px;
   margin-top: 20px;
+  font-weight: 700;
+  border-radius: 8px;
 }
 
-.main-register input {
-  width: 480px;
-  height: 61px;
-  background: #ffffff;
-  border: 1px solid #ada9bb;
-  box-sizing: border-box;
-  border-radius: 10px;
-  padding: 0 1rem;
-}
-
-.main-register input:focus-visible {
-  outline: none;
-}
-
-.main-register form p {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 16px;
-  line-height: 16px;
-  color: #000000;
-}
-
-.main-register button {
-  width: 480px;
-  height: 61px;
-  border-radius: 10px;
-}
-
-.main-register .btn-register {
+.auth-page p {
   font-family: Kanit;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
-  color: #ffffff;
-  background: #5784ba;
+  color: #ada9bb;
+  margin-top: 90px;
 }
 
-.main-register .btn-register-google {
+.auth-page span {
   font-family: Kanit;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  color: #010620;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 13, 79, 0.08);
-}
-
-.main-register .btn-register-google p {
-  margin: 0%;
-}
-
-.main-register span {
   color: #5784ba;
 }
 
-.main-register a {
+.auth-page a {
   text-decoration: none;
+}
+
+@media (max-width: 425px) {
+  .auth-page form {
+    display: inline-block;
+    width: 300px;
+    height: 71px;
+  }
+
+  .auth-page input {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .auth-page form {
+    display: inline-block;
+    width: 300px;
+    height: 71px;
+  }
+
+  .auth-page input {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .auth-page form {
+    display: inline-block;
+    width: 300px;
+    height: 71px;
+  }
+
+  .auth-page input {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+  }
 }

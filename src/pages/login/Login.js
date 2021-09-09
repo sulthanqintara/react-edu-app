@@ -1,11 +1,52 @@
 import React from "react";
 import "../login/login.css";
+import iconGoogle from "../../assets/img/icon/icon-google.svg";
 import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <>
-      <main className="main-login vh-100">
+      <main>
+        <section className="auth-page ">
+          <div className="container container-fluid">
+            <div className="row">
+              <div className="col-md-12">
+                <h1>Login</h1>
+              </div>
+            </div>
+            <div className="row text-center">
+              <div className="col-md-12 col-12">
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label">Username or Email</label>
+                    <input type="text" class="form-control"></input>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control"></input>
+                  </div>
+                  <button className="btn btn-register">Login</button>
+                  <button className="btn btn-register-google">
+                    <img
+                      src={iconGoogle}
+                      alt=""
+                      style={{ marginRight: "13px" }}
+                    />
+                    Login with Google
+                  </button>
+                </form>
+                <p className="pb-5">
+                  New user?
+                  <Link to="/register">
+                    <span> Register</span>
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      {/* <main className="main-login vh-100">
         <section className="container d-flex vh-100 flex-column justify-content-between">
           <h1 className="m-0">Login</h1>
           <form className="d-flex flex-column align-items-center mt-2">
@@ -33,7 +74,7 @@ function Login() {
             </Link>
           </p>
         </section>
-      </main>
+      </main> */}
     </>
   );
 }
