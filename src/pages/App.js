@@ -5,6 +5,7 @@ import Login from "./login/Login";
 import Register from "./register/Register";
 import ForgetPassword from "./forgetPassword/ForgetPassword";
 import Profile from "./profile/Profile";
+import Activity from "./activity/Activity";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/register" component={Register} />
       <Route path="/forget-password" component={ForgetPassword} />
       <Route path="/profile" component={Profile} />
+      <Route path="/activity" component={Activity} />
     </Router>
   );
 }
