@@ -1,0 +1,237 @@
+.home {
+  background-color: #e6edf6;
+}
+
+.section-sidebar {
+  grid-area: left;
+}
+.image-carousel {
+  grid-area: top;
+}
+.schedule {
+  grid-area: bottom;
+}
+.messages {
+  grid-area: right;
+}
+
+.main-home {
+  display: grid;
+  grid-template-areas:
+    "left top right"
+    "left bottom right";
+}
+
+.main-home .image-carousel {
+  width: 835px;
+  height: 430px;
+  position: relative;
+  left: 1rem;
+}
+
+.main-home .img-card img {
+  width: 835px;
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-home .title-card,
+.main-home .title-chat,
+.main-home .title-date {
+  height: 80px;
+  background-color: #ffffff;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.main-home .title-card h1,
+.main-home .title-chat h1,
+.main-home .title-date h1 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 26px;
+  line-height: 29px;
+  color: #000000;
+  margin: 0;
+}
+
+.main-home .schedule {
+  width: 835px;
+  background: #ffffff;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  position: relative;
+  left: 1rem;
+  top: 0.3rem;
+  height: 485px;
+}
+
+.main-home .bg-days h5,
+.main-home .bg-number h5 {
+  width: 2rem;
+  text-align: center;
+}
+
+.main-home .bg-days h5 {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #989898;
+}
+.main-home .option-schedule {
+  justify-content: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 1rem;
+}
+
+.main-home .option-all {
+  color: #5784ba;
+  margin-right: 1rem;
+}
+
+.main-home .option-self {
+  color: #ada9bb;
+  margin-left: 1rem;
+}
+
+
+.main-home .bg-card {
+  width: 334.29px;
+  background: #e6edf6;
+  border-radius: 10.7679px;
+  margin-left: 2rem;
+  /* padding: 10px 15px 10px 15px; */
+}
+
+.main-home .bg-card h1 {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.5357px;
+  line-height: 22px;
+  color: #000000;
+  padding-right: 4rem;
+}
+
+.main-home .bg-card p {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+  padding-left: 1rem;
+  padding-top: 3rem;
+}
+
+.main-home .schedule-scroll {
+  height: 280px;
+  overflow-y: scroll;
+  overflow-x: auto;
+
+}
+
+.main-home .messages {
+  width: 500px;
+  background: #ffffff;
+  border-radius: 20px;
+  position: relative;
+  left: 4.2rem;
+  margin-bottom: 1rem;
+  max-height: 1080;
+}
+
+.main-home .title-chat,
+.main-home .title-date {
+  display: flex;
+  padding-right: 2rem;
+  justify-content: space-between;
+}
+
+.main-home .box-search {
+  text-align: center;
+}
+
+.main-home .box-search i {
+  position: relative;
+  left: 2rem;
+}
+.main-home .box-search input {
+  width: 404px;
+  height: 47.88px;
+  background: #e6edf6;
+  border-radius: 17.9544px;
+}
+
+.main-home .box-search::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14.8257px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+
+.main-home .box-search input:focus-visible {
+  outline: none;
+}
+
+.main-home .text-chat h2 {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.2012px;
+  line-height: 32px;
+  color: #000000;
+}
+
+.main-home .text-chat h5 {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.1341px;
+  line-height: 21px;
+  color: #787878;
+}
+
+.main-home .text-chat {
+  height: 775px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.line {
+  border: 1px solid #000000;
+  height: 1px;
+  width: 1px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {
+} */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */
