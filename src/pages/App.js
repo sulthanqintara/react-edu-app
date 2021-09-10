@@ -27,13 +27,13 @@ class App extends Component {
           <AuthRoute path="/forget-password">
             <ForgetPassword />
           </AuthRoute>
-          <PrivateRoute path="/">
+          <PrivateRoute path="/" exact>
             <Home />
           </PrivateRoute>
-          <PrivateRoute path="/profile" >
+          <PrivateRoute path="/profile">
             <Profile />
           </PrivateRoute>
-          <PrivateRoute path="/activity" >
+          <PrivateRoute path="/activity">
             <Activity />
           </PrivateRoute>
         </Router>

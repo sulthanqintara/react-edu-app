@@ -6,7 +6,7 @@ const defaultState = {
   isPending: false,
   isFulfilled: false,
   isRejected: false,
-  isLogin: false,
+  isLogin: localStorage.getItem("userInfo") ? true : false,
   error: {},
 };
 
