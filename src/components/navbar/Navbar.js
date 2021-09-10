@@ -1,117 +1,124 @@
-import { useEffect } from 'react'
+import React, { useState } from 'react'
+import Navbar from "react-bootstrap/Navbar";
+// import NavDropdown from "react-bootstrap/NavDropdown";
+import Nav from "react-bootstrap/Nav";
+import { Link, withRouter } from "react-router-dom";
 import './navbar.css';
-import { NavLink } from 'react-router-dom';
-import $ from 'jquery';
 import Profile from "../../assets/img/icon/pp.png";
 
-function Navbar() {
 
-  const animation = () => {
-    var tabsNewAnim = $('#navbarSupportedContent');
-    var activeItemNewAnim = tabsNewAnim.find('.active');
-    var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-    var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-    var itemPosNewAnimTop = activeItemNewAnim.position();
-    var itemPosNewAnimbottom = activeItemNewAnim.position();
-    $(".hori-selector").css({
-      "top": itemPosNewAnimTop.top + "px",
-      "bottom": itemPosNewAnimbottom.bottom + "px",
-      "height": activeWidthNewAnimHeight + "px",
-      "width": activeWidthNewAnimWidth + "px"
-    });
-    $("#navbarSupportedContent").on("click", "li", function (e) {
-      $('#navbarSupportedContent ul li').removeClass("active");
-      $(this).addClass('active');
-      var activeWidthNewAnimHeight = $(this).innerHeight();
-      var activeWidthNewAnimWidth = $(this).innerWidth();
-      var itemPosNewAnimTop = $(this).position();
-      var itemPosNewAnimbottom = $(this).position();
-      $(".hori-selector").css({
-        "top": itemPosNewAnimTop.top + "px",
-        "bottom": itemPosNewAnimbottom.bottom + "px",
-        "height": activeWidthNewAnimHeight + "px",
-        "width": activeWidthNewAnimWidth + "px"
-      });
-    });
+function Sidebar(props) {
+  const [activeNotification, setActiveNotification] = useState(false)
+
+  const clickBellIcon = () => {
+    setActiveNotification(true)
   }
 
-  useEffect(() => {
-    animation();
-    $(window).on('resize', function () {
-      setTimeout(function () { animation(); }, 500);
-    });
+  const clickCloseIcon = () => {
+    setActiveNotification(false)
+  }
 
-  }, []);
+  const changeBellIcon = () => {
+    if (activeNotification) {
+      return <i className="fas fa-bell fa-lg d-none"></i>
+    } else {
+      return <i className="fas fa-bell fa-lg " onClick={clickBellIcon}></i>
+    }
+  }
+
+  const changeCloseIcon = () => {
+    if (activeNotification) {
+      return <i className="fas fa-times fa-lg " onClick={clickCloseIcon}></i>
+    } else {
+      return <i className="fas fa-times fa-lg d-none"></i>
+    }
+  }
+
+  const path = props.location.pathname
 
   return (
-    <nav className="navbar d-flex navbar-expand-lg navbar-mainbg">
-      <img
-        src={Profile}
-        alt="images"
-      />
-      <NavLink className="navbar-brand navbar-logo" to="#">
-        Erik Kharisma
-      </NavLink>
-      <p>online</p>
-      <button
-        className="navbar-toggler"
-        onClick={function () {
-          setTimeout(function () { animation(); });
-        }}
-        type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i className="fas fa-bars text-white"></i>
-      </button>
+    <>
+      <section className="section-sidebar mw-100">
+        <Navbar className="" expand="lg">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse className="flex-column" id="basic-navbar-nav">
+            <div className="navbar-profile w-100 ps-5">
+              {changeBellIcon()}
+              <div className="d-flex flex-column align-items-start text-align-start">
+                <img src={Profile} height={56} width={56} alt="pict" />
+                <h1>Emir Kharisma</h1>
+                <p>online</p>
+              </div>
+            </div>
 
-      <div
-        className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav flex-column ml-auto">
-
-          <div className="hori-selector">
-            {/* <div className="left"></div>
-              <div className="right"></div> */}
-          </div>
-
-          <li className="nav-item active">
-            <NavLink className="nav-link" to="#">
-              <i
-                className="fas fa-tachometer-alt">
-              </i>Dashboard
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink className="nav-link" to="#">
-              <i
-                className="far fa-address-book">
-              </i>Activity
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
-            <NavLink className="nav-link" to="#">
-              <i
-                className="far fa-clone">
-              </i>Setting
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="#">
-              <i
-                className="far fa-chart-bar">
-              </i>Help
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link logout" to="#">
-              <i
-                className="far fa-copy">
-              </i>Logout
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-    </nav>
+            {activeNotification ?
+              (
+                <section className="icon-notification">
+                  {changeCloseIcon()}
+                  <h1>Notification</h1>
+                  <div>
+                    <h3>Today</h3>
+                    <div className="d-flex">
+                      <img src={Profile} alt="pict" />
+                      <p>There are 10 news update for today. Don’t miss it!</p>
+                      <p>2 min</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h3>Yesterday</h3>
+                    <div className="d-flex">
+                      <img src={Profile} alt="pict" />
+                      <p>There are 10 news update for today. Don’t miss it!</p>
+                      <p>2 min</p>
+                    </div>
+                  </div>
+                </section>
+              ) : (
+                ""
+              )
+            }
+            <div className="menu-items w-100 ps-5" >
+              <Nav className="flex-column align-items-start">
+                <Link className={path === "/" ? "active" : ""} to="/">
+                  <i className="fab fa-microsoft"></i>
+                  Dashboard
+                </Link>
+                <Link
+                  className={path === "/vehicles" ? "active" : ""}
+                  to="/vehicles"
+                >
+                  <i className="fas fa-book"></i>
+                  Activity
+                </Link>
+                <Link
+                  className={path === "/history" ? "active" : ""}
+                  to="/history"
+                >
+                  <i className="fas fa-cog"></i>
+                  Setting
+                </Link>
+                <Link
+                  className={path === "/history" ? "active" : ""}
+                  to="/history"
+                >
+                  <i className="fas fa-question-circle"></i>
+                  Help
+                </Link>
+                <Link
+                  className={path === "/history" ? "active" : ""}
+                  to="/history"
+                >
+                  <span><i className="fas fa-long-arrow-alt-left"></i>
+                  Logout</span>
+                </Link>
+              </Nav>
+            </div>
+          </Navbar.Collapse>
+        </Navbar>
+      </section>
+    </>
   )
 }
 
-export default Navbar;
+
+export default withRouter(Sidebar);
