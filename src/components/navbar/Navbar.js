@@ -84,29 +84,29 @@ function Sidebar(props) {
                   Dashboard
                 </Link>
                 <Link
-                  className={path === "/vehicles" ? "active" : ""}
-                  to="/vehicles"
+                  className={path === "/activity" ? "active" : ""}
+                  to="/activity"
                 >
                   <i className="fas fa-book"></i>
                   Activity
                 </Link>
                 <Link
-                  className={path === "/history" ? "active" : ""}
-                  to="/history"
+                  className={path === "/profile" ? "active" : ""}
+                  to="/profile"
                 >
                   <i className="fas fa-cog"></i>
                   Setting
                 </Link>
                 <Link
-                  className={path === "/history" ? "active" : ""}
-                  to="/history"
+                  className={path === "/help" ? "active" : ""}
+                  to="/help"
                 >
                   <i className="fas fa-question-circle"></i>
                   Help
                 </Link>
                 <Link
-                  className={path === "/history" ? "active" : ""}
-                  to="/history"
+                  className={path === "/logout" ? "active" : ""}
+                  to="/logout"
                 >
                   <span><i className="fas fa-long-arrow-alt-left"></i>
                   Logout</span>

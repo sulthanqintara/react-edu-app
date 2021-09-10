@@ -1,5 +1,8 @@
-import React from "react";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { Component } from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import { PrivateRoute, AuthRoute } from "../components/PrivateRoute";
+import reduxStore from "../redux/store";
 import Home from "./home/Home";
 import Login from "./login/Login";
 import Register from "./register/Register";
@@ -7,24 +10,35 @@ import ForgetPassword from "./forgetPassword/ForgetPassword";
 import Profile from "./profile/Profile";
 import Activity from "./activity/Activity";
 
-function App() {
-  return (
-    <Router>
-<<<<<<< HEAD
-        <Route path="/" exact component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/forget-password" component={ForgetPassword} />
-=======
-      <Route path="/" exact component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/forget-password" component={ForgetPassword} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/activity" component={Activity} />
->>>>>>> bcc8cd349e0f955fe5905b2eb4c218ef82ba3553
-    </Router>
-  );
+class App extends Component {
+  state = {
+    isLogin: false,
+  };
+  render() {
+    return (
+      <Provider store={reduxStore}>
+        <Router>
+          <AuthRoute path="/login">
+            <Login />
+          </AuthRoute>
+          <AuthRoute path="/register">
+            <Register />
+          </AuthRoute>
+          <AuthRoute path="/forget-password">
+            <ForgetPassword />
+          </AuthRoute>
+          <PrivateRoute path="/">
+            <Home />
+          </PrivateRoute>
+          <PrivateRoute path="/profile" >
+            <Profile />
+          </PrivateRoute>
+          <PrivateRoute path="/activity" >
+            <Activity />
+          </PrivateRoute>
+        </Router>
+      </Provider>
+    );
+  }
 }
-
 export default App;
