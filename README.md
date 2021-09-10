@@ -1,4 +1,4 @@
-# **TOVrent WEB**
+# **EDU APP WEB**
 EDU APP is an example of various aplication education websites aimed at helping people make it easier if they want to study online or looking for additional knowledge
 
 <br>
