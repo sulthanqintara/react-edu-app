@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { createLogger } from "redux-logger";
 import rpm from "redux-promise-middleware";
+import authReducer from "./reducer/auth";
+
 
 const reducers = combineReducers({
-  //add reducer here
+  auth: authReducer,
 });
 const logger = createLogger();
 const enhancers = applyMiddleware(rpm, logger);
