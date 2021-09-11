@@ -1,43 +1,48 @@
-import React, { useState } from 'react'
-import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from "react-bootstrap/NavDropdown";
-import Nav from "react-bootstrap/Nav";
+import React, { useState } from "react";
+import { logoutAction } from "../../redux/actionCreators/auth";
 import { Link, withRouter } from "react-router-dom";
-import './navbar.css';
+import { connect } from "react-redux";
+
+// import NavDropdown from "react-bootstrap/NavDropdown";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import "./navbar.css";
 import Profile from "../../assets/img/icon/pp.png";
 
-
 function Sidebar(props) {
-  const [activeNotification, setActiveNotification] = useState(false)
+  const [activeNotification, setActiveNotification] = useState(false);
+  const path = props.location.pathname;
 
   const clickBellIcon = () => {
-    setActiveNotification(true)
-  }
-
+    setActiveNotification(true);
+  };
   const clickCloseIcon = () => {
-    setActiveNotification(false)
-  }
-
+    setActiveNotification(false);
+  };
   const changeBellIcon = () => {
     if (activeNotification) {
-      return <i className="fas fa-bell fa-lg d-none"></i>
+      return <i className="fas fa-bell fa-lg d-none"></i>;
     } else {
-      return <i className="fas fa-bell fa-lg " onClick={clickBellIcon}></i>
+      return <i className="fas fa-bell fa-lg " onClick={clickBellIcon}></i>;
     }
-  }
+  };
 
   const changeCloseIcon = () => {
     if (activeNotification) {
-      return <i className="fas fa-times fa-lg " onClick={clickCloseIcon}></i>
+      return <i className="fas fa-times fa-lg " onClick={clickCloseIcon}></i>;
     } else {
-      return <i className="fas fa-times fa-lg d-none"></i>
+      return <i className="fas fa-times fa-lg d-none"></i>;
     }
-  }
+  };
 
-  const path = props.location.pathname
+  const signOutHandler = () => {
+    props.logoutAction();
+    !props.auth.isLogin && props.history.push("/login");
+  };
 
   return (
     <>
+      {console.log("")}
       <section className="section-sidebar mw-100">
         <Navbar className="" expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -51,33 +56,31 @@ function Sidebar(props) {
               </div>
             </div>
 
-            {activeNotification ?
-              (
-                <section className="icon-notification">
-                  {changeCloseIcon()}
-                  <h1>Notification</h1>
-                  <div>
-                    <h3>Today</h3>
-                    <div className="d-flex">
-                      <img src={Profile} alt="pict" />
-                      <p>There are 10 news update for today. Don’t miss it!</p>
-                      <p>2 min</p>
-                    </div>
+            {activeNotification ? (
+              <section className="icon-notification">
+                {changeCloseIcon()}
+                <h1>Notification</h1>
+                <div>
+                  <h3>Today</h3>
+                  <div className="d-flex">
+                    <img src={Profile} alt="pict" />
+                    <p>There are 10 news update for today. Don’t miss it!</p>
+                    <p>2 min</p>
                   </div>
-                  <div>
-                    <h3>Yesterday</h3>
-                    <div className="d-flex">
-                      <img src={Profile} alt="pict" />
-                      <p>There are 10 news update for today. Don’t miss it!</p>
-                      <p>2 min</p>
-                    </div>
+                </div>
+                <div>
+                  <h3>Yesterday</h3>
+                  <div className="d-flex">
+                    <img src={Profile} alt="pict" />
+                    <p>There are 10 news update for today. Don’t miss it!</p>
+                    <p>2 min</p>
                   </div>
-                </section>
-              ) : (
-                ""
-              )
-            }
-            <div className="menu-items w-100 ps-5" >
+                </div>
+              </section>
+            ) : (
+              ""
+            )}
+            <div className="menu-items w-100 ps-5">
               <Nav className="flex-column align-items-start">
                 <Link className={path === "/" ? "active" : ""} to="/">
                   <i className="fab fa-microsoft"></i>
@@ -97,19 +100,19 @@ function Sidebar(props) {
                   <i className="fas fa-cog"></i>
                   Setting
                 </Link>
-                <Link
-                  className={path === "/help" ? "active" : ""}
-                  to="/help"
-                >
+                <Link className={path === "/help" ? "active" : ""} to="/help">
                   <i className="fas fa-question-circle"></i>
                   Help
                 </Link>
                 <Link
                   className={path === "/logout" ? "active" : ""}
-                  to="/logout"
+                  to="#"
+                  onClick={signOutHandler}
                 >
-                  <span><i className="fas fa-long-arrow-alt-left"></i>
-                  Logout</span>
+                  <span>
+                    <i className="fas fa-long-arrow-alt-left"></i>
+                    Logout
+                  </span>
                 </Link>
               </Nav>
             </div>
@@ -117,8 +120,22 @@ function Sidebar(props) {
         </Navbar>
       </section>
     </>
-  )
+  );
 }
+const mapStateToProps = ({ auth }) => {
+  return {
+    auth,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutAction: (body) => {
+      dispatch(logoutAction(body));
+    },
+  };
+};
 
-
-export default withRouter(Sidebar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Sidebar));

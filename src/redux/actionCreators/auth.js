@@ -1,5 +1,5 @@
-import { SIGNED_IN, SIGN_IN, SIGN_OUT } from "./actionString";
-import { deleteLogout, postLogin } from "../../utils/https/Auth";
+import { SIGN_IN, SIGN_OUT, REGISTER } from "./actionString";
+import { deleteLogout, postLogin, postRegister } from "../../utils/https/Auth";
 
 export const loginAction = (body) => {
   return {
@@ -8,19 +8,16 @@ export const loginAction = (body) => {
   };
 };
 
-export const loggedInAction = () => {
+export const registerAction = (body) => {
   return {
-    type: SIGN_OUT,
+    type: REGISTER,
+    payload: postRegister(body),
   };
-};
-
-export const registerAction = () => {
-  return {};
 };
 
 export const logoutAction = () => {
   return {
-    type: SIGNED_IN,
+    type: SIGN_OUT,
     payload: deleteLogout(),
   };
 };
