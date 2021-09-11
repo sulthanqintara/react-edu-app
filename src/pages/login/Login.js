@@ -14,10 +14,7 @@ function Login(props) {
   const loginHandler = (e) => {
     e.preventDefault();
     if (email.length < 1) {
-      setErrorMessage("Email is Required!");
-      setShowMessage(true);
-    } else if (!email.includes("@")) {
-      setErrorMessage("Please input a Valid Email!");
+      setErrorMessage("Email or Username is Required!");
       setShowMessage(true);
     } else if (password.length < 1) {
       setErrorMessage("Password is Required!");
