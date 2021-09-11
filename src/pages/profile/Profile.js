@@ -11,11 +11,11 @@ function Profile() {
       <main>
         <section className="profile-page">
           {/* <div className="container container-fluid"> */}
-          <div className="row">
-            <div className="col-md-2 col-12">
+          <div className="d-flex">
+            <div className=" flex-fill">
               <Navbar />
             </div>
-            <div className="col-md-9 col-12">
+            <div className=" flex-fill me-3">
               <div class="card">
                 <div className="row">
                   <div className="col">
@@ -38,10 +38,10 @@ function Profile() {
                             <span className=""> Phone Numbers</span>
                           </i>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 d-flex justify-content-end">
                           <i class="fas fa-chevron-right text-end"></i>
                         </div>
-                        <div className="line"></div>
+                        <hr />
                       </div>
                       <div className="row change-settings">
                         <div className="col-md-11">
@@ -49,10 +49,10 @@ function Profile() {
                             <span className=""> Change Password</span>
                           </i>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 d-flex justify-content-end">
                           <i class="fas fa-chevron-right text-end"></i>
                         </div>
-                        <div className="line"></div>
+                        <hr />
                       </div>
                       <div className="row change-settings">
                         <div className="col-md-11">
@@ -60,10 +60,10 @@ function Profile() {
                             <span className=""> Chat Settings</span>
                           </i>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 d-flex justify-content-end">
                           <i class="fas fa-chevron-right text-end"></i>
                         </div>
-                        <div className="line"></div>
+                        <hr />
                       </div>
                       <div className="row change-settings">
                         <div className="col-md-11">
@@ -71,10 +71,10 @@ function Profile() {
                             <span className=""> Push Notifications</span>
                           </i>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 d-flex justify-content-end">
                           <i class="fas fa-chevron-right text-end"></i>
                         </div>
-                        <div className="line"></div>
+                        <hr />
                       </div>
                       <div className="row change-settings">
                         <div className="col-md-11">
@@ -82,10 +82,10 @@ function Profile() {
                             <span className=""> Privacy and Security</span>
                           </i>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 d-flex justify-content-end">
                           <i class="fas fa-chevron-right text-end"></i>
                         </div>
-                        <div className="line"></div>
+                        <hr />
                       </div>
                       <div className="row change-settings">
                         <div className="col-md-11">
@@ -93,10 +93,10 @@ function Profile() {
                             <span className=""> Data and storage</span>
                           </i>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 d-flex justify-content-end">
                           <i class="fas fa-chevron-right text-end"></i>
                         </div>
-                        <div className="line"></div>
+                        <hr />
                       </div>
                     </div>
                   </div>
