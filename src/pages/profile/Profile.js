@@ -9,10 +9,9 @@ function Profile() {
   return (
     <>
       <main>
-        <section className="profile-page">
-          {/* <div className="container container-fluid"> */}
+        <section className="profile-page vh-100">
           <div className="d-flex">
-            <div className=" flex-fill">
+            <div className="">
               <Navbar />
             </div>
             <div className=" flex-fill me-3">
