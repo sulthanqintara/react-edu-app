@@ -7,7 +7,7 @@ function Login() {
   return (
     <>
       <main>
-        <section className="auth-page ">
+        <section className="auth-page vh-100">
           <div className="container container-fluid">
             <div className="row">
               <div className="col-md-12">
@@ -25,7 +25,12 @@ function Login() {
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control"></input>
                   </div>
-                  <button className="btn btn-register">Login</button>
+                  <Link to="/forget-password">
+                    <p className="text-end mt-0">Forgot password?</p>
+                  </Link>
+                  <Link to="/">
+                    <button className="btn btn-register">Login</button>
+                  </Link>
                   <button className="btn btn-register-google">
                     <img
                       src={iconGoogle}
@@ -35,7 +40,7 @@ function Login() {
                     Login with Google
                   </button>
                 </form>
-                <p className="pb-5">
+                <p className="pb-5 mt-5">
                   New user?
                   <Link to="/register">
                     <span> Register</span>
