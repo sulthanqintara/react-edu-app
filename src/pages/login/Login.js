@@ -22,15 +22,15 @@ function Login(props) {
     } else if (password.length < 5) {
       setErrorMessage("Password must have 5 or more characters!");
       setShowMessage(true);
-    } else if (props.auth.error) {
-      setErrorMessage("Invalid E-mail or Password!");
-      setShowMessage(true);
     } else {
       const form = new URLSearchParams();
       form.append("email", email);
       form.append("password", password);
       props.loginAction(form);
-      if (props.auth.isLogin) {
+      if (props.auth.error) {
+        setErrorMessage("Invalid E-mail or Password!");
+        setShowMessage(true);
+      } else if (props.auth.isLogin) {
         setShowMessage(false);
         props.history.push("/");
       }
