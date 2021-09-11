@@ -43,7 +43,7 @@ function Register() {
                     Register with Google
                   </button>
                 </form>
-                <p className="pb-5">
+                <p className="pb-5 mt-5">
                   Already have account?
                   <Link to="/login">
                     <span> login</span>

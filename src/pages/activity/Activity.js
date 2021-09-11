@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 function Activity() {
   return (
     <>
+      {console.log(window.innerWidth)}
       <main>
         <section className="activity-page">
-          <div className="row">
-            <div className="col-md-2 col-6">
-              <Navbar />
+          <div className="d-flex flex-column flex-xl-row">
+            <div className="col-md-2 col-6 flex-grow-1">
+              <Navbar className=" flex-grow-1" />
             </div>
-            <div className="col-md-9 col-6 content-activity">
+            <div className="col-md-9 col-6 content-activity ">
               <div className="row">
                 <div className="col">
                   <h3>Activity</h3>
@@ -82,7 +83,7 @@ function Activity() {
                         </tbody>
                       </table>
                     </div>
-                    <Link>
+                    <Link to="#">
                       <p
                         className="text-center"
                         style={{ color: "black", fontWeight: "500" }}
