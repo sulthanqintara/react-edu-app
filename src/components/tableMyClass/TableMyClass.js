@@ -5,13 +5,13 @@ function TableMyClass() {
   return (
     <>
       <div className="table-responsive my-class">
-        <table class="table ">
+        <table className="table ">
           <thead>
             <tr>
               <th scope="col">
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
@@ -29,9 +29,9 @@ function TableMyClass() {
           <tbody>
             <tr>
               <th scope="row ">
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"

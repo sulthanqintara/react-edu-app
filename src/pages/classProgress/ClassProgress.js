@@ -13,11 +13,9 @@ function ClassProgress() {
   return (
     <>
       <main>
-        <section className="classDetail-page">
-          <div className="d-flex flex-column flex-xl-row">
-            <div className="col-md-2 col-6 flex-grow-1">
-              <Navbar className=" flex-grow-1" />
-            </div>
+        <section className="classDetail-page vh-100">
+          <div className="d-flex flex-column flex-xl-row vh-100">
+            <Navbar />
             <div className="col-md-9 col-6 content-activity ">
               <div className="container container-fluid">
                 <div className="row">
@@ -34,9 +32,9 @@ function ClassProgress() {
                     <h4>Front-end Fundamentals</h4>
                   </div>
                   <div className="col-12">
-                    <div class="card">
-                      <img src={headerImage} class="card-img-top" alt="..." />
-                      <div class="card-body">
+                    <div className="card">
+                      <img src={headerImage} className="card-img-top" alt="..." />
+                      <div className="card-body">
                         <div className="row">
                           <div className="col-4 text-center icon-computer">
                             <img

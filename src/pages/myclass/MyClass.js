@@ -10,19 +10,16 @@ import { Link } from "react-router-dom";
 function MyClass() {
   return (
     <>
-      {console.log(window.innerWidth)}
       <main>
-        <section className="myclass-page">
-          <div className="d-flex flex-column flex-xl-row">
-            <div className="col-md-2 col-6 flex-grow-1">
-              <Navbar className=" flex-grow-1" />
-            </div>
+        <section className="myclass-page vh-100">
+          <div className="d-flex flex-column flex-xl-row justify-content-between vh-100">
+            <Navbar />
             <div className="col-md-9 col-6 content-activity ">
               <div className="container container-fluid">
                 <div className="row">
                   <div className="row">
                     <div className="col-1">
-                      <Link>
+                      <Link to="/activity">
                         <img
                           src={iconBack}
                           alt=""
@@ -35,14 +32,14 @@ function MyClass() {
                     </div>
                   </div>
                   <div className="col-9">
-                    <div class="input-group mb-3">
+                    <div className="input-group mb-3">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Quick search"
                       ></input>
                       <button
-                        class="btn btn-search"
+                        className="btn btn-search"
                         type="button"
                         id="button-addon2"
                       >

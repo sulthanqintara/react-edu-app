@@ -3,27 +3,27 @@ import React from "react";
 function TableNewClass() {
   return (
     <>
-      <div class="card">
-        <div class="card-body">
+      <div className="card">
+        <div className="card-body">
           <div className="row">
             <div className="col-12">
-              <h5 class="card-title">New class</h5>
+              <h5 className="card-title">New class</h5>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Quick Search"
                 ></input>
-                <button class="btn btn-search" type="button" id="button-addon2">
+                <button className="btn btn-search" type="button" id="button-addon2">
                   Button
                 </button>
               </div>
-              <div class="card card-sorting">
-                <div class="card-body">
+              <div className="card card-sorting">
+                <div className="card-body">
                   <div className="row">
                     <div className="col-md-4 col-4">
                       <p>Categories</p>
@@ -38,13 +38,13 @@ function TableNewClass() {
                 </div>
               </div>
               <div className="table-responsive">
-                <table class="table mt-5">
+                <table className="table mt-5">
                   <thead>
                     <tr>
                       <th scope="col">
-                        <div class="form-check">
+                        <div className="form-check">
                           <input
-                            class="form-check-input"
+                            className="form-check-input"
                             type="checkbox"
                             value=""
                             id="flexCheckDefault"
@@ -61,9 +61,9 @@ function TableNewClass() {
                   <tbody>
                     <tr>
                       <th scope="row ">
-                        <div class="form-check">
+                        <div className="form-check">
                           <input
-                            class="form-check-input"
+                            className="form-check-input"
                             type="checkbox"
                             value=""
                             id="flexCheckDefault"
