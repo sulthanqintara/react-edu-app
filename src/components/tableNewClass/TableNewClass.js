@@ -18,7 +18,11 @@ function TableNewClass() {
                   className="form-control"
                   placeholder="Quick Search"
                 ></input>
-                <button className="btn btn-search" type="button" id="button-addon2">
+                <button
+                  className="btn btn-search"
+                  type="button"
+                  id="button-addon2"
+                >
                   Button
                 </button>
               </div>

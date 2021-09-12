@@ -133,10 +133,6 @@
     margin-left: -50px;
   }
 
-  .myclass-page .card {
-    margin-left: -100px;
-  }
-
   .myclass-page .card-sorting {
     margin-left: 0px;
   }
@@ -149,9 +145,5 @@
   .table td {
     font-weight: 600;
     font-size: 12px;
-  }
-
-  .content-activity .my-class {
-    margin-left: -100px;
   }
 }
