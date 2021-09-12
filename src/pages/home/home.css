@@ -1,196 +1,208 @@
-.home {
+.bg-home {
   background-color: #e6edf6;
 }
-
-.section-sidebar {
-  grid-area: left;
-}
-.image-carousel {
-  grid-area: top;
-}
-.schedule {
-  grid-area: bottom;
-}
-.messages {
-  grid-area: right;
-}
-
 .main-home {
-  display: grid;
-  grid-template-areas:
-    "left top right"
-    "left bottom right";
-}
-
-.main-home .image-carousel {
-  width: 835px;
-  height: 430px;
-  position: relative;
-  left: 1rem;
-}
-
-.main-home .img-card img {
-  width: 835px;
-  height: 340px;
-  background-size: cover;
-  background-position: center;
-}
-
-.main-home .title-card,
-.main-home .title-chat,
-.main-home .title-date {
-  height: 80px;
-  background-color: #ffffff;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
   display: flex;
-  align-items: center;
-  padding-left: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.main-home .title-card h1,
-.main-home .title-chat h1,
-.main-home .title-date h1 {
+.column-middle {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* background */
+.bd-slider,
+.bd-schedule,
+.messages {
+  background-color: #ffffff;
+  border-radius: 25px;
+  margin-top: 1rem;
+}
+
+/* desain image slider */
+.bd-slider {
+  margin-bottom: 1rem;
+}
+
+.carousel-inner {
+  border-bottom-right-radius: 20px;
+
+}
+
+.title-slider h1,
+.carousel-caption h3,
+.title-date h1,
+.title-chat h1 {
   font-family: Montserrat;
   font-style: normal;
-  font-weight: bolder;
-  font-size: 26px;
-  line-height: 29px;
+  font-weight: bold;
+  font-size: 23.66px;
+  padding-left: 2rem;
+}
+.title-slider h1,
+.title-date h1,
+.title-chat h1 {
   color: #000000;
-  margin: 0;
+  line-height: 80px;
 }
 
-.main-home .schedule {
-  width: 835px;
-  background: #ffffff;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  position: relative;
-  left: 1rem;
-  top: 0.3rem;
-  height: 485px;
+.carousel-caption h3 {
+  color: #f9f9f9;
+}
+/* desain schedule */
+.bd-schedule {
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+  height: 50%;
 }
 
-.main-home .bg-days h5,
-.main-home .bg-number h5 {
-  width: 2rem;
+.title-date {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-date i {
+  text-align: center;
+  padding-right: 3rem;
+}
+
+.select-date {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.click-day {
+  cursor: pointer;
+  width: 40px;
   text-align: center;
 }
 
-.main-home .bg-days h5 {
-  font-family: Kanit;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #989898;
+.fa-calendar-alt {
+  cursor: pointer;
 }
-.main-home .option-schedule {
+
+.click-day:hover {
+  background-color: #5784ba;
+  border-radius: 10px;
+}
+
+.option-schedule {
+  display: flex;
   justify-content: center;
+  margin: 1rem 0;
+}
+
+.option-schedule h5 {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  margin-top: 1rem;
-}
-
-.main-home .option-all {
-  color: #5784ba;
-  margin-right: 1rem;
-}
-
-.main-home .option-self {
   color: #ada9bb;
-  margin-left: 1rem;
 }
 
-
-.main-home .bg-card {
-  width: 334.29px;
-  background: #e6edf6;
-  border-radius: 10.7679px;
-  margin-left: 2rem;
-  /* padding: 10px 15px 10px 15px; */
+.option-schedule h5:hover {
+  color: #5784ba;
 }
 
-.main-home .bg-card h1 {
-  font-family: Kanit;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 21.5357px;
-  line-height: 22px;
-  color: #000000;
-  padding-right: 4rem;
-}
-
-.main-home .bg-card p {
-  font-family: Kanit;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 22px;
-  color: #000000;
-  padding-left: 1rem;
-  padding-top: 3rem;
-}
-
-.main-home .schedule-scroll {
-  height: 280px;
+.schedule-scroll {
+  overflow-x: hidden;
   overflow-y: scroll;
-  overflow-x: auto;
-
+  height: 50%;
 }
 
-.main-home .messages {
-  width: 500px;
-  background: #ffffff;
-  border-radius: 20px;
-  position: relative;
-  left: 4.2rem;
-  margin-bottom: 1rem;
-  max-height: 1080;
-}
-
-.main-home .title-chat,
-.main-home .title-date {
+.bg-card {
   display: flex;
-  padding-right: 2rem;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.main-home .box-search {
-  text-align: center;
-}
-
-.main-home .box-search i {
-  position: relative;
-  left: 2rem;
-}
-.main-home .box-search input {
-  width: 404px;
-  height: 47.88px;
-  background: #e6edf6;
-  border-radius: 17.9544px;
-}
-
-.main-home .box-search::placeholder {
+.time-classes {
+  height: 185px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 14.8257px;
-  line-height: 17px;
+  font-size: 15.9531px;
   letter-spacing: 0.05em;
   color: #000000;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.main-home .box-search input:focus-visible {
+
+.title-classes {
+  height: 89px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18.5694px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* desain message */
+.messages {
+  height: 96%;
+  margin-right: 1.5rem;
+}
+.title-chat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+}
+.fa-plus-circle {
+  cursor: pointer;
+}
+.chat-scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+.chat-scroll:hover {
+  background-color: #91aed1;
+}
+
+.box-search {
+  text-align: center;
+}
+
+.fa-search {
+  position: relative;
+  left: 2rem;
+}
+
+.box-search input {
+  width: 86%;
+  height: 47.88px;
+  border-radius: 20px;
+}
+
+.box-search input:focus-visible {
   outline: none;
 }
 
-.main-home .text-chat h2 {
+.chat-scroll h1 {
   font-family: Kanit;
   font-style: normal;
   font-weight: normal;
@@ -199,7 +211,7 @@
   color: #000000;
 }
 
-.main-home .text-chat h5 {
+.chat-scroll h5 {
   font-family: Kanit;
   font-style: normal;
   font-weight: normal;
@@ -208,30 +220,55 @@
   color: #787878;
 }
 
-.main-home .text-chat {
-  height: 775px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-.line {
-  border: 1px solid #000000;
-  height: 1px;
-  width: 1px;
-}
-
 /* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 576px) {
+  .main-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0%;
+  }
+
 } */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {...} */
+/* @media only screen and (min-width: 578px) {
+  .main-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0%;
+  }
+  .bd-slider{
+    height: 50%;
+  }
+
+  .bd-schedule{
+    height: 50%;
+  }
+  .schedule-scroll {
+    height: 40%;
+  }
+} */
 
 /* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {...} */
+/* @media only screen and (min-width: 768px) {
+} */
 
 /* Large devices (laptops/desktops, 992px and up) */
-/* @media only screen and (min-width: 992px) {...} */
+/* @media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .main-home {
+    display: flex;
+    flex-direction: column;
+  }
+} */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {...} */
+/* @media only screen and (min-width: 1200px) and (max-width: 1920px) {
+  .main-home {
+    display: flex;
+    flex-direction: row;
+  }
+} */

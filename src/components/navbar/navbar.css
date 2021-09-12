@@ -1,22 +1,108 @@
+/* navbar large untuk ukuran normal
+  navbar resize untuk ukuran < 1200px
+*/
+
+/* desain navbar resize */
+.navbar {
+  background: #5784ba;
+}
+
+.navbar-resize {
+  border-radius: 0rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.navbar-resize .link-profile {
+  margin-left: 2rem;
+}
+
+.navbar-resize i {
+  padding-right: 1rem;
+}
+
+.navbar-resize .navbar-nav a {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.navbar-resize .navbar-nav {
+  align-items: flex-start;
+}
+
+.navbar-resize h1 {
+  line-height: 10px;
+  cursor: pointer;
+  position: relative;
+  bottom: 3rem;
+  left: 10rem;
+  color: #ffffff;
+}
+
+.navbar-resize p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #f9f9f9;
+}
+
+.navbar-resize a {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 80px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar-resize a:hover,
+.navbar-resize a:active,
+.navbar-resize span:active,
+.navbar-resize span:hover {
+  color: #2f2f2f;
+}
+
+.navbar-resize span {
+  color: #ff1313;
+}
+
+.navbar-resize .navbar-collapse {
+  justify-content: center;
+}
+
+/* desain navbar-large */
+
+.navbar-large .navbar-collapse {
+  justify-content: center;
+}
+
+.navbar-large {
+  border-radius: 1rem;
+  height: 100%;
+}
+
 .navbar-profile {
-  margin-bottom: 3rem;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+  padding-left: 4rem;
 }
 
 .navbar-profile img {
   margin-bottom: 2rem;
 }
 
-.icon-notification {
-  width: 616px;
+.link-profile,
+.fa-times {
+  cursor: pointer;
 }
 
-.navbar {
-  background: #5784ba;
-  height: 940px;
-  width: 300px;
-  margin: 1rem 0rem 1rem 1rem;
-  margin-right: 1rem;
-  border-radius: 1rem;
+.navbar-large .navbar-nav {
+  align-items: center;
 }
 
 .navbar-profile .fas {
@@ -27,7 +113,7 @@
   color: #ffffff;
 }
 
-.navbar h1 {
+.navbar-large h1 {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -36,7 +122,7 @@
   color: #f9f9f9;
 }
 
-.navbar p {
+.navbar-large p {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -45,18 +131,20 @@
   color: #f9f9f9;
 }
 
-.menu-items {
+.navbar-large .menu-items {
   margin-bottom: 8rem;
   text-align: center;
+  padding-left: 4rem;
+  width: 100%;
 }
 
-.menu-items i {
+.navbar-large .menu-items i {
   padding-right: 1.5rem;
   font-size: 1.7rem;
   line-height: 80px;
 }
 
-.navbar a {
+.navbar-large a {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -68,14 +156,48 @@
   text-align: center;
 }
 
-.navbar a:hover,
-.navbar a:active,
-.navbar span:active,
-.navbar span:hover {
+.navbar-large a:hover,
+.navbar-large a:active,
+.navbar-large span:active,
+.navbar-large span:hover {
   color: #2f2f2f;
 }
 
-.navbar span {
+.navbar-large span {
   color: #ff1313;
   display: flex;
+}
+
+/* desain click notification bell */
+.open-notification {
+  position: absolute;
+  z-index: 2;
+  bottom: -0.1rem;
+  left: 20rem;
+  border-radius: 15px;
+  padding: 1rem 1rem 1rem 1rem;
+  background: #5784ba;
+  width: 300%;
+  height: 100%;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  
 }
