@@ -2,6 +2,7 @@
   padding: 40px;
   font-family: Montserrat;
   font-weight: 700;
+  margin: auto;
 }
 
 .content-activity {
@@ -78,17 +79,9 @@
 }
 
 @media (max-width: 1024px) {
-  .activity-page .content-activity {
-    margin-top: 40px;
-    margin-left: 85px;
-    font-family: Montserrat;
-    font-weight: 700;
-  }
-
   .activity-page h3 {
     font-family: Montserrat;
     font-weight: 700;
-    margin-left: 60px;
   }
 
   .activity-page h4 {
@@ -96,7 +89,6 @@
     font-family: Montserrat;
     font-weight: 700;
     margin-top: 33px;
-    margin-left: 60px;
   }
 
   .activity-page .card {
@@ -115,17 +107,9 @@
 }
 
 @media (max-width: 768px) {
-  .activity-page .content-activity {
-    margin-top: 40px;
-    margin-left: 85px;
-    font-family: Montserrat;
-    font-weight: 700;
-  }
-
   .activity-page h3 {
     font-family: Montserrat;
     font-weight: 700;
-    margin-left: -70px;
   }
 
   .activity-page h4 {
@@ -133,11 +117,6 @@
     font-family: Montserrat;
     font-weight: 700;
     margin-top: 33px;
-    margin-left: -50px;
-  }
-
-  .activity-page .card {
-    margin-left: -100px;
   }
 
   .activity-page .card-sorting {
@@ -152,9 +131,5 @@
   .table td {
     font-weight: 600;
     font-size: 12px;
-  }
-
-  .content-activity .my-class {
-    margin-left: -100px;
   }
 }
