@@ -50,6 +50,12 @@
   border-radius: 16px;
 }
 
+.desc-scroll{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 340px;
+}
+
 .description-link h5 {
   font-size: 18px;
 }
