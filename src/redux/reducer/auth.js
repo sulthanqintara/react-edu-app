@@ -2,7 +2,9 @@ import { SIGN_IN, SIGN_OUT, REGISTER } from "../actionCreators/actionString";
 import { ActionType } from "redux-promise-middleware";
 
 const defaultState = {
-  authInfo: {},
+  authInfo: localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : {},
   isPending: false,
   isFulfilled: false,
   isRejected: false,

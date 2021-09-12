@@ -41,7 +41,7 @@ function Register(props) {
       form.append("username", userName);
       form.append("email", email);
       form.append("password", password);
-      form.append("role_id", 1);
+      form.append("role_id", 2);
       props.registerAction(form);
       if (props.auth.error) {
         setErrorMessage("Error");
