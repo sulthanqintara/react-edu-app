@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 function Activity() {
   return (
     <>
-      {console.log(window.innerWidth)}
       <main>
         <section className="activity-page">
           <div className="d-flex flex-column flex-xl-row">
