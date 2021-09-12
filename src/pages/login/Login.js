@@ -39,7 +39,7 @@ function Login(props) {
   return (
     <>
       <main>
-        <section className="auth-page h-auto">
+        <section className="auth-page 100vh">
           <div className="container container-fluid">
             <div className="row">
               <div className="col-md-12">

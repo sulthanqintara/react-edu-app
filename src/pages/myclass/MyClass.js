@@ -50,6 +50,49 @@ function MyClass() {
                   <div className="col-12 mt-5">
                     <TableMyClass />
                   </div>
+                  <div className="row">
+                    <div className="col-6">
+                      <p style={{ fontWeight: "600", fontSize: "12px" }}>
+                        Showing out 10 of 21
+                      </p>
+                    </div>
+                    <div className="col-6">
+                      <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item disabled">
+                            <Link
+                              class="page-link"
+                              href="#"
+                              tabindex="-1"
+                              aria-disabled="true"
+                            >
+                              &laquo;
+                            </Link>
+                          </li>
+                          <li class="page-item  ">
+                            <Link class="page-link" href="#">
+                              1
+                            </Link>
+                          </li>
+                          <li class="page-item active">
+                            <Link class="page-link" href="#">
+                              2
+                            </Link>
+                          </li>
+                          <li class="page-item">
+                            <Link class="page-link" href="#">
+                              3
+                            </Link>
+                          </li>
+                          <li class="page-item">
+                            <Link class="page-link" href="#">
+                              &raquo;
+                            </Link>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
