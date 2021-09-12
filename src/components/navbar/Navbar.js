@@ -25,7 +25,6 @@ function Sidebar(props) {
     }
   };
 
-
   const changeCloseIcon = () => {
     if (activeNotification) {
       return <i className="fas fa-times fa-lg " onClick={clickCloseIcon}></i>;
@@ -34,32 +33,30 @@ function Sidebar(props) {
     }
   };
 
+  const useWindowWidth = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
-
-  useEffect(() => {
+    useEffect(() => {
       const handleWindowResize = () => {
-          setWindowWidth(window.innerWidth);
+        setWindowWidth(window.innerWidth);
       };
 
-      window.addEventListener('resize', handleWindowResize);
-      return () => window.removeEventListener('resize', handleWindowResize);
-  },[]);
+      window.addEventListener("resize", handleWindowResize);
+      return () => window.removeEventListener("resize", handleWindowResize);
+    }, []);
 
-  return windowWidth;
-};
+    return windowWidth;
+  };
 
-const signOutHandler = () => {
-  props.logoutAction();
-  !props.auth.isLogin && props.history.push("/login");
-};
+  const signOutHandler = () => {
+    props.logoutAction();
+    !props.auth.isLogin && props.history.push("/login");
+  };
 
   return (
     <>
-      {useWindowWidth()< 1200 ? 
-       (
-        <Navbar className="navbar-resize vw-100" expand="lg">
+      {useWindowWidth() < 1200 ? (
+        <Navbar className="navbar-resize" expand="lg">
           <Navbar.Brand>
             <Link className="link-profile" to="/profile">
               <img src={Profile} height={56} width={56} alt="pict" />
@@ -67,7 +64,7 @@ const signOutHandler = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="">
+            <Nav>
               <Link className={path === "/" ? "active" : ""} to="/">
                 <i className="fab fa-microsoft"></i>
                 Dashboard
@@ -86,28 +83,30 @@ const signOutHandler = () => {
                 <i className="fas fa-cog"></i>
                 Setting
               </Link>
-              <Link
-                className={path === "/help" ? "active" : ""}
-                to="/help"
-              >
+              <Link className={path === "/help" ? "active" : ""} to="/help">
                 <i className="fas fa-question-circle"></i>
                 Help
               </Link>
               <Link
                 className={path === "/logout" ? "active" : ""}
-                to="/logout"
+                to="#"
                 onClick={signOutHandler}
               >
-                <span><i className="fas fa-long-arrow-alt-left"></i>
-                  Logout</span>
+                <span>
+                  <i className="fas fa-long-arrow-alt-left"></i>
+                  Logout
+                </span>
               </Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
       ) : (
-        <section className="col-2 pt-3 pb-3 ps-4">
+        <section className="col-3 pt-3 pb-3 ps-4">
           <Navbar className="navbar-large w-100">
-            <Navbar.Collapse className="flex-column vw-100" id="basic-navbar-nav">
+            <Navbar.Collapse
+              className="flex-column vw-100"
+              id="basic-navbar-nav"
+            >
               <div className="navbar-profile w-100">
                 {changeBellIcon()}
                 <div className="d-flex flex-column">
@@ -118,33 +117,31 @@ const signOutHandler = () => {
                   <p>online</p>
                 </div>
               </div>
-              {activeNotification ?
-                (
-                  <section className="open-notification">
-                    {changeCloseIcon()}
-                    <h1>Notification</h1>
-                    <div>
-                      <h3>Today</h3>
-                      <div className="d-flex">
-                        <img src={Profile} alt="pict" />
-                        <p>There are 10 news update for today. Don’t miss it!</p>
-                        <p>2 min</p>
-                      </div>
+              {activeNotification ? (
+                <section className="open-notification">
+                  {changeCloseIcon()}
+                  <h1>Notification</h1>
+                  <div>
+                    <h3>Today</h3>
+                    <div className="d-flex">
+                      <img src={Profile} alt="pict" />
+                      <p>There are 10 news update for today. Don’t miss it!</p>
+                      <p>2 min</p>
                     </div>
-                    <div>
-                      <h3>Yesterday</h3>
-                      <div className="d-flex">
-                        <img src={Profile} alt="pict" />
-                        <p>There are 10 news update for today. Don’t miss it!</p>
-                        <p>2 min</p>
-                      </div>
+                  </div>
+                  <div>
+                    <h3>Yesterday</h3>
+                    <div className="d-flex">
+                      <img src={Profile} alt="pict" />
+                      <p>There are 10 news update for today. Don’t miss it!</p>
+                      <p>2 min</p>
                     </div>
-                  </section>
-                ) : (
-                  ""
-                )
-              }
-              <div className="menu-items" >
+                  </div>
+                </section>
+              ) : (
+                ""
+              )}
+              <div className="menu-items">
                 <Nav className="flex-column align-items-start">
                   <Link className={path === "/" ? "active" : ""} to="/">
                     <i className="fab fa-microsoft"></i>
@@ -164,29 +161,27 @@ const signOutHandler = () => {
                     <i className="fas fa-cog"></i>
                     Setting
                   </Link>
-                  <Link
-                    className={path === "/help" ? "active" : ""}
-                    to="/help"
-                  >
+                  <Link className={path === "/help" ? "active" : ""} to="/help">
                     <i className="fas fa-question-circle"></i>
                     Help
                   </Link>
                   <Link
                     className={path === "/logout" ? "active" : ""}
-                    to="/logout"
+                    to="#"
                     onClick={signOutHandler}
                   >
-                    <span><i className="fas fa-long-arrow-alt-left"></i>
-                      Logout</span>
+                    <span>
+                      <i className="fas fa-long-arrow-alt-left"></i>
+                      Logout
+                    </span>
                   </Link>
                 </Nav>
               </div>
             </Navbar.Collapse>
           </Navbar>
         </section>
-      )
-    }
-       
+      )}
+
       {/* windowHandlers ? 
         (
           <Navbar className="navbar-resize vw-100" expand="lg">

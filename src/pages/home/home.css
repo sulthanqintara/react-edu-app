@@ -29,7 +29,6 @@
 
 .carousel-inner {
   border-bottom-right-radius: 20px;
-
 }
 
 .title-slider h1,
@@ -126,7 +125,7 @@
 }
 
 .time-classes {
-  height: 185px;
+  padding: 2rem 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -140,7 +139,6 @@
   border: 1px solid #ffffff;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
-
 
 .title-classes {
   height: 89px;
