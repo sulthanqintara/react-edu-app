@@ -1,22 +1,22 @@
-.classDetail-page .content-activity {
+.classProgres-page .content-activity {
   padding: 40px;
   font-family: Montserrat;
   font-weight: 700;
 }
 
-.classDetail-page h3 {
+.classProgres-page h3 {
   font-family: Montserrat;
   font-weight: 700;
 }
 
-.classDetail-page h4 {
+.classProgres-page h4 {
   font-size: 24px;
   font-family: Montserrat;
   font-weight: 700;
   margin-top: 33px;
 }
 
-.classDetail-page h5 {
+.classProgres-page h5 {
   font-size: 16px;
   font-family: Montserrat;
   font-weight: 600;
@@ -41,6 +41,7 @@
 .card p {
   font-weight: 400;
   font-size: 16px;
+  margin-top: -15vh;
 }
 
 .card .description-class h4 {
@@ -96,20 +97,20 @@
 }
 
 @media (max-width: 1024px) {
-  .classDetail-page .content-activity {
+  .classProgres-page .content-activity {
     margin-top: 40px;
     margin-left: 85px;
     font-family: Montserrat;
     font-weight: 700;
   }
 
-  .classDetail-page h3 {
+  .classProgres-page h3 {
     font-family: Montserrat;
     font-weight: 700;
     margin-left: 60px;
   }
 
-  .classDetail-page h4 {
+  .classProgres-page h4 {
     font-size: 18px;
     font-family: Montserrat;
     font-weight: 700;
@@ -119,20 +120,20 @@
 }
 
 @media (max-width: 768px) {
-  .classDetail-page .content-activity {
+  .classProgres-page .content-activity {
     margin-top: 40px;
     margin-left: 85px;
     font-family: Montserrat;
     font-weight: 700;
   }
 
-  .classDetail-page h3 {
+  .classProgres-page h3 {
     font-family: Montserrat;
     font-weight: 700;
     margin-left: -70px;
   }
 
-  .classDetail-page h4 {
+  .classProgres-page h4 {
     font-size: 18px;
     font-family: Montserrat;
     font-weight: 700;

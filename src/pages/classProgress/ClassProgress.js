@@ -13,7 +13,7 @@ function ClassProgress() {
   return (
     <>
       <main>
-        <section className="classDetail-page vh-100">
+        <section className="classProgres-page vh-100">
           <div className="d-flex flex-column flex-xl-row vh-100">
             <Navbar />
             <div className="col-md-9 col-6 content-activity ">
@@ -33,7 +33,11 @@ function ClassProgress() {
                   </div>
                   <div className="col-12">
                     <div className="card">
-                      <img src={headerImage} className="card-img-top" alt="..." />
+                      <img
+                        src={headerImage}
+                        className="card-img-top"
+                        alt="..."
+                      />
                       <div className="card-body">
                         <div className="row">
                           <div className="col-4 text-center icon-computer">
@@ -62,7 +66,10 @@ function ClassProgress() {
                             <p className="score-progress text-start">86</p>
                           </div>
                         </div>
-                        <div className="row mt-5 description-link">
+                        <div
+                          className="row description-link"
+                          style={{ marginTop: "7vh" }}
+                        >
                           <div className="col-2 text-end ">
                             <h5>Information</h5>
                           </div>
