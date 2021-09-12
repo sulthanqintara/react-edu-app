@@ -10,10 +10,8 @@ function Profile() {
     <>
       <main>
         <section className="profile-page vh-100">
-          <div className="d-flex">
-            <div className="">
-              <Navbar />
-            </div>
+          <div className="d-flex flex-column flex-xl-row">
+            <Navbar />
             <div className=" flex-fill me-3">
               <div class="card">
                 <div className="row">
