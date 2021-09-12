@@ -104,7 +104,7 @@ function Sidebar(props) {
         <section className="col-3 pt-3 pb-3 ps-4">
           <Navbar className="navbar-large w-100">
             <Navbar.Collapse
-              className="flex-column vw-100"
+              className="flex-column h-100 vw-100"
               id="basic-navbar-nav"
             >
               <div className="navbar-profile w-100">
@@ -141,7 +141,7 @@ function Sidebar(props) {
               ) : (
                 ""
               )}
-              <div className="menu-items">
+              <div className="menu-items flex-fill">
                 <Nav className="flex-column align-items-start">
                   <Link className={path === "/" ? "active" : ""} to="/">
                     <i className="fab fa-microsoft"></i>
