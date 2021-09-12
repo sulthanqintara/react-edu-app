@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { PrivateRoute, AuthRoute } from "../components/PrivateRoute";
 import reduxStore from "../redux/store";
 import Home from "./home/Home";
@@ -9,6 +9,9 @@ import Register from "./register/Register";
 import ForgetPassword from "./forgetPassword/ForgetPassword";
 import Profile from "./profile/Profile";
 import Activity from "./activity/Activity";
+import MyClass from "./myclass/MyClass";
+import ClassDetail from "./classDetail/ClassDetail";
+import ClassProgress from "./classProgress/ClassProgress";
 
 class App extends Component {
   state = {
@@ -33,9 +36,18 @@ class App extends Component {
           <PrivateRoute path="/profile">
             <Profile />
           </PrivateRoute>
-          <PrivateRoute path="/activity">
+          <Route path="/activity">
             <Activity />
-          </PrivateRoute>
+          </Route>
+          <Route path="/myclass">
+            <MyClass />
+          </Route>
+          <Route path="/class-detail">
+            <ClassDetail />
+          </Route>
+          <Route path="/class-progress">
+            <ClassProgress />
+          </Route>
         </Router>
       </Provider>
     );

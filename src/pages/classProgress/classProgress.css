@@ -1,0 +1,143 @@
+.classDetail-page .content-activity {
+  padding: 40px;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.classDetail-page h3 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.classDetail-page h4 {
+  font-size: 24px;
+  font-family: Montserrat;
+  font-weight: 700;
+  margin-top: 33px;
+}
+
+.classDetail-page h5 {
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+.card .icon-computer {
+  margin-top: -23vh;
+}
+
+.card .description-class {
+  margin-top: -20vh;
+  margin-left: -5vh;
+}
+
+.card .score-progress {
+  font-weight: 700;
+  font-size: 64px;
+  color: #51e72b;
+  margin-top: -3vh;
+}
+
+.card p {
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: -16vh;
+}
+
+.card .description-class h4 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 5vh;
+}
+
+.card .description-class h5 {
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 2vh;
+}
+
+.description-link h5 {
+  font-size: 18px;
+}
+
+.description-information h4 {
+  font-size: 24px;
+  margin-left: -10vh;
+}
+
+.description-information p {
+  margin-left: 8vh;
+  font-family: Roboto;
+  font-weight: 400;
+  margin-top: 24px;
+}
+
+.description-learn h4 {
+  margin-left: -5vh;
+}
+
+.description-learn li {
+  font-family: Roboto;
+  font-weight: 200;
+  font-size: 18px;
+  margin-left: 6vh;
+  margin-top: 2vh;
+}
+
+.description-content h4 {
+  margin-left: -12vh;
+}
+
+.description-content li {
+  font-family: Roboto;
+  font-weight: 200;
+  font-size: 18px;
+  margin-left: 6vh;
+  margin-top: 2vh;
+}
+
+@media (max-width: 1024px) {
+  .classDetail-page .content-activity {
+    margin-top: 40px;
+    margin-left: 85px;
+    font-family: Montserrat;
+    font-weight: 700;
+  }
+
+  .classDetail-page h3 {
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-left: 60px;
+  }
+
+  .classDetail-page h4 {
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-top: 33px;
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .classDetail-page .content-activity {
+    margin-top: 40px;
+    margin-left: 85px;
+    font-family: Montserrat;
+    font-weight: 700;
+  }
+
+  .classDetail-page h3 {
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-left: -70px;
+  }
+
+  .classDetail-page h4 {
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-top: 33px;
+    margin-left: -50px;
+  }
+}

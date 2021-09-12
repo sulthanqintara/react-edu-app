@@ -1,0 +1,157 @@
+.myclass-page .content-activity {
+  padding: 40px;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.myclass-page h3 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.myclass-page h4 {
+  font-size: 32px;
+  font-family: Montserrat;
+  font-weight: 700;
+  margin-top: 33px;
+}
+
+.myclass-page h5 {
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+.table tbody {
+  background-color: white;
+}
+
+.table th {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.table td {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.table .score {
+  font-weight: 700;
+  font-size: 24px;
+  color: #51e72b;
+}
+
+.content-activity .card {
+  border-radius: 18px;
+}
+
+.card-body h5 {
+  margin-top: -30px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.input-group {
+  margin-top: 30px;
+}
+
+.input-group .btn-search {
+  background-color: #5784ba;
+  color: white;
+}
+
+.content-activity .card-sorting {
+  margin-top: -18px;
+  background-color: #eeeeee;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.card-sorting p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -50px;
+}
+
+@media (max-width: 1024px) {
+  .myclass-page .content-activity {
+    margin-top: 40px;
+    margin-left: 85px;
+    font-family: Montserrat;
+    font-weight: 700;
+  }
+
+  .myclass-page h3 {
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-left: 60px;
+  }
+
+  .myclass-page h4 {
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-top: 33px;
+    margin-left: 60px;
+  }
+
+  .myclass-page .card {
+    margin-left: 0px;
+  }
+
+  .table th {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .table td {
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .myclass-page .content-activity {
+    margin-top: 40px;
+    margin-left: 85px;
+    font-family: Montserrat;
+    font-weight: 700;
+  }
+
+  .myclass-page h3 {
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-left: -70px;
+  }
+
+  .myclass-page h4 {
+    font-size: 18px;
+    font-family: Montserrat;
+    font-weight: 700;
+    margin-top: 33px;
+    margin-left: -50px;
+  }
+
+  .myclass-page .card {
+    margin-left: -100px;
+  }
+
+  .myclass-page .card-sorting {
+    margin-left: 0px;
+  }
+
+  .table th {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .table td {
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  .content-activity .my-class {
+    margin-left: -100px;
+  }
+}
