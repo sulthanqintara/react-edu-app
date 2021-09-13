@@ -1,4 +1,4 @@
-import { GET_CLASSES } from "../actionCreators/actionString";
+import { GET_CLASSES, GET_CLASS_BY_USER } from "../actionCreators/actionString";
 import { ActionType } from "redux-promise-middleware";
 
 const defaultState = {
@@ -7,6 +7,7 @@ const defaultState = {
   isRejected: false,
   error: {},
   data: {},
+  dataPerUser: {},
 };
 
 const classesReducer = (prevstate = defaultState, action) => {
@@ -34,7 +35,28 @@ const classesReducer = (prevstate = defaultState, action) => {
         isFulfilled: true,
         data: action.payload,
       };
-
+    case GET_CLASS_BY_USER.concat("_", Pending):
+      return {
+        ...prevstate,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case GET_CLASS_BY_USER.concat("_", Rejected):
+      return {
+        ...prevstate,
+        isPending: false,
+        isRejected: true,
+        error: action.payload,
+      };
+    case GET_CLASS_BY_USER.concat("_", Fulfilled):
+      return {
+        ...prevstate,
+        isPending: false,
+        isRejected: false,
+        isFulfilled: true,
+        dataPerUser: action.payload,
+      };
     default:
       return defaultState;
   }

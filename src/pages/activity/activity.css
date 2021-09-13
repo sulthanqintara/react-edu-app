@@ -77,6 +77,11 @@
   font-size: 14px;
   font-weight: 600;
 }
+.class-search-dropdown {
+  border: none;
+  margin: 8px;
+  background-color: transparent;
+}
 
 @media (max-width: 1024px) {
   .activity-page h3 {
