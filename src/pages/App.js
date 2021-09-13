@@ -17,6 +17,9 @@ import Activity from "./activity/Activity";
 import MyClass from "./myclass/MyClass";
 import ClassDetail from "./classDetail/ClassDetail";
 import ClassProgress from "./classProgress/ClassProgress";
+import FasilitatorClass from "./fasilitatorClass/FasilitatorClass";
+import FasilitatorClassDetail from "./fasilitatorClassDetail/FasilitatorClassDetail";
+import Member from "./member/Member";
 
 class App extends Component {
   state = {
@@ -54,6 +57,15 @@ class App extends Component {
             <StudentRoute>
               <ClassProgress />
             </StudentRoute>
+          </Route>
+          <Route path="/fasilitator/class">
+            <FasilitatorClass/>
+          </Route>
+          <Route path="/fasilitator/class-detail">
+            <FasilitatorClassDetail/>
+          </Route>
+          <Route path="/member">
+            <Member/>
           </Route>
         </Router>
       </Provider>
