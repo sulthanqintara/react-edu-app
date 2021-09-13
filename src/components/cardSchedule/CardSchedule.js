@@ -1,8 +1,20 @@
-import React from 'react'
+// import React, { useState, useEffect } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+// import Axios from "axios";
 
 function CardClass() {
+    // const [schedule, setSchedule] = useState([])
+    // useEffect(() => {
+    //     Axios.get("http://localhost:8000/subjects/")
+    //         .then(({ data }) => {
+    //             setSchedule(data.result)
+    //             console.log(data.result)
+    //         })
+    //         .catch(({ err }) => {
+    //             setSchedule(err)
+    //         })
+    // }, [])
     return (
         <>
             <div>

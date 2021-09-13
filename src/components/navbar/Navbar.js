@@ -27,9 +27,9 @@ function Sidebar(props) {
 
   const changeCloseIcon = () => {
     if (activeNotification) {
-      return <i className="fas fa-times fa-lg " onClick={clickCloseIcon}></i>;
+      return <i className="fas fa-times-circle" onClick={clickCloseIcon}></i>;
     } else {
-      return <i className="fas fa-times fa-lg d-none"></i>;
+      return <i className="fas fa-times-circle fa-lg d-none"></i>;
     }
   };
 
