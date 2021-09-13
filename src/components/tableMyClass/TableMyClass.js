@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory, useLocation, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -28,12 +28,15 @@ function TableMyClass(props) {
     (acc, curr, idx) => acc + curr.score,
     0
   );
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     getAverage();
     let query = `?user_id=${props.auth.authInfo.user_id}`;
     if (props.keyword) query = query + `&keyword=${props.keyword}`;
     getClassByUserAction(query);
+    if (location.search) return history.push(`${location.search}`);
   }, [getClassByUserAction, props.auth.authInfo.user_id, props.keyword]);
 
   return (
@@ -63,7 +66,7 @@ function TableMyClass(props) {
 
           {props.classes.dataPerUser?.data?.result.data.map((data) => {
             return (
-              <tbody key={data.class_name}>
+              <tbody key={data.class_id}>
                 <tr>
                   <th scope="row ">
                     <div className="form-check">
@@ -88,7 +91,8 @@ function TableMyClass(props) {
                     </div>
                   </td>
                   <td>
-                    <button
+                    <Link
+                      to={`/class-detail/${data.class_id}`}
                       className="btn btn-status"
                       style={{
                         borderRadius: "24px",
@@ -97,7 +101,7 @@ function TableMyClass(props) {
                       }}
                     >
                       ongoing
-                    </button>
+                    </Link>
                   </td>
                   <td className="score">
                     {averageScoreHandler / averageScore.length}

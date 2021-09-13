@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../myclass/myclass.css";
 
 import iconBack from "../../assets/img/icon/icon3.png";
@@ -8,6 +8,9 @@ import Navbar from "../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 
 function MyClass() {
+  const [keyword, setKeyword] = useState("");
+  const [sendKeyword, setSendKeyword] = useState("");
+
   return (
     <>
       <main>
@@ -32,12 +35,21 @@ function MyClass() {
                     </div>
                   </div>
                   <div className="col-9">
-                    <div className="input-group mb-3">
+                    <form
+                      className="input-group mb-3"
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        setSendKeyword(keyword);
+                      }}
+                    >
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Quick search"
-                      ></input>
+                        onChange={(e) => {
+                          setKeyword(e.target.value);
+                        }}
+                      />
                       <button
                         className="btn btn-search"
                         type="button"
@@ -45,10 +57,10 @@ function MyClass() {
                       >
                         Search
                       </button>
-                    </div>
+                    </form>
                   </div>
                   <div className="col-12 mt-5">
-                    <TableMyClass />
+                    <TableMyClass keyword={sendKeyword} />
                   </div>
                   <div className="row">
                     <div className="col-6">

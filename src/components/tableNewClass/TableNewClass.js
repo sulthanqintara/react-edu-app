@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { getClassAction } from "../../redux/actionCreators/classes";
 
 function TableNewClass(props) {
@@ -221,14 +222,15 @@ function TableNewClass(props) {
                           <td>{switchLevel(data.level_id)}</td>
                           <td>{switchPrice(data.pricing)}</td>
                           <td>
-                            <button
+                            <Link
+                              to={`/class-detail/${data.id}`}
                               className="btn btn-success"
                               style={{
                                 borderRadius: "24px",
                               }}
                             >
                               Register
-                            </button>
+                            </Link>
                           </td>
                         </tr>
                       </tbody>

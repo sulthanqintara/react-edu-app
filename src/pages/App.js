@@ -57,11 +57,11 @@ class App extends Component {
               <ClassProgress />
             </StudentRoute>
           </Route>
-          <Route path="/fasilitator/class">
+          <PrivateRoute path="/fasilitator/class">
             <FacilitatorRoute>
               <FasilitatorClass />
             </FacilitatorRoute>
-          </Route>
+          </PrivateRoute>
           <Route path="/fasilitator/class-detail">
             <FacilitatorRoute>
               <FasilitatorClassDetail />

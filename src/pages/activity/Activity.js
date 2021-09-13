@@ -23,7 +23,7 @@ function Activity() {
                 <h4>My class</h4>
                 <div className="col-12 mt-5">
                   <TableMyClass />
-                  <Link to="#">
+                  <Link to="/myclass">
                     <p
                       className="text-center"
                       style={{ color: "black", fontWeight: "500" }}
