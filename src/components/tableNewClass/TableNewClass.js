@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function TableNewClass() {
   return (
@@ -23,7 +24,7 @@ function TableNewClass() {
                   type="button"
                   id="button-addon2"
                 >
-                  Button
+                  Search
                 </button>
               </div>
               <div className="card card-sorting">
