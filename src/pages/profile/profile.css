@@ -39,13 +39,35 @@
 .profile-background {
   height: 20rem;
   background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 20px 20px 0 0;
   margin: 12px;
 }
+
 .profile-icon {
-  width: 180px;
-  height: 180px;
-  margin: auto;
+  width: 200px;
+  height: 200px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 100%;
+}
+
+.profile-icon:hover {
+  cursor: pointer;
+}
+
+.change-settings-number input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid black;
+}
+
+.card-body .btn-submit {
+  background-color: #5784ba;
+  color: white;
+  font-family: Montserrat;
+  border-radius: 8px;
 }
 
 @media (max-width: 1440px) {
