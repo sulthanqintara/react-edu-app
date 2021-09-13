@@ -39,7 +39,7 @@ const authReducer = (prevstate = defaultState, action) => {
         ...prevstate,
         isPending: false,
         isFulfilled: true,
-        authInfo: action.payload.data.result,
+        authInfo: action.payload.data.result.userInfo,
         isLogin: true,
       };
     case SIGN_OUT.concat("_", Pending):
