@@ -1,10 +1,21 @@
-.member a {
-  text-decoration: none;
-  color: #000000;
+.bg-select p,
+.bg-member p {
   font-family: Kanit;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
   color: #000000;
+}
+
+.bg-select {
+  border-bottom: 3.05559px solid #e6edf6;
+}
+
+.bg-member .form-check .form-check-input {
+  margin: 0rem;
+}
+
+.bg-member .fa-ellipsis-v {
+  padding-right: 2.1rem;
 }

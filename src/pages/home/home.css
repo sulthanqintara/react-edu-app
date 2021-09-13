@@ -118,19 +118,20 @@
 .bg-card {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-.time-classes {
-  padding: 2rem 0;
+.bg-card .time-classes {
+  padding: 0rem 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 15.9531px;
   letter-spacing: 0.05em;
+  max-height: 185px;
+  height: 100%;
   color: #000000;
   display: flex;
   align-items: center;
@@ -140,7 +141,8 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.title-classes {
+
+.bg-card .title-classes {
   height: 89px;
   font-family: Montserrat;
   font-style: normal;
@@ -153,8 +155,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -264,9 +266,9 @@
 } */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) and (max-width: 1920px) {
+@media only screen and (max-width: 1200px) {
   .main-home {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
-} */
+}
