@@ -1,0 +1,32 @@
+.bg-progress h2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+
+.bg-progress p {
+  max-width: 84px;
+  max-height: 24px;
+  width: 100%;
+  height: 100%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #59ba57;
+  background: #d4edd2;
+  border-radius: 15px;
+}
+
+.bg-progress {
+  max-width: 490px;
+  max-height: 68px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
