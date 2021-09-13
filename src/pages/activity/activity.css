@@ -78,6 +78,11 @@
   font-weight: 600;
   margin-top: -5vh;
 }
+.class-search-dropdown {
+  border: none;
+  margin: 8px;
+  background-color: transparent;
+}
 
 @media (max-width: 1024px) {
   .activity-page h3 {

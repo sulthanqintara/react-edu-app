@@ -32,7 +32,6 @@ function Activity() {
                     </p>
                   </Link>
                 </div>
-
                 <TableNewClass />
               </div>
             </div>

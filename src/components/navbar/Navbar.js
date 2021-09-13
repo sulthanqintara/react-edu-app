@@ -167,7 +167,7 @@ function Sidebar(props) {
                   </Link>
                   <Link
                     className={path === "/logout" ? "active" : ""}
-                    to="#"
+                    to=""
                     onClick={signOutHandler}
                   >
                     <span>
