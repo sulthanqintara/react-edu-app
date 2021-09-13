@@ -3,13 +3,14 @@ import Navbar from "../../components/navbar/Navbar";
 import Carousel from "react-bootstrap/Carousel";
 import Pict1 from "../../assets/img/icon/carousel1.png";
 import ChatMessage from "../../components/ChatMessage";
-
 import CardSchedule from "../../components/cardSchedule/CardSchedule";
+import CreateClass from "../../components/createCardClass/CreateCardClass";
 import "./home.css"
 
-function Home(props) {
-  const windows = window.innerWidth;
+function Home() {
+    const windows = window.innerWidth;
 
+    const fasilitator = false
     return (
         <div>
             <main className="main-home vh-100 vw-100">
@@ -35,10 +36,25 @@ function Home(props) {
                         </div>
                     </div>
                     <div className="bd-schedule">
-                        <div className="title-date">
-                            <h1>Today, October 16</h1>
-                            <i className="far fa-calendar-alt fa-lg"></i>
-                        </div>
+                        {fasilitator ?
+                            (
+                                <div className="mb-4">
+                                    <div className="title-date">
+                                        <h1>My Class</h1>
+                                        <i className="far fa-calendar-alt fa-lg"></i>
+                                    </div>
+                                    <div className="text-center">
+                                        <h4>October 2016</h4>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="title-date">
+                                    <h1>Today, October 16</h1>
+                                    <i className="far fa-calendar-alt fa-lg"></i>
+                                </div>
+                            )
+                        }
+
                         <div className="select-date">
                             <div className="click-day ">
                                 <h5>Mo</h5>
@@ -69,22 +85,26 @@ function Home(props) {
                                 <h5>18</h5>
                             </div>
                         </div>
-                        <div className="option-schedule">
-                            <h5 className="option-all me-1">All schedule</h5>
-                            <h5 className="option-self ms-1">For you</h5>
-                        </div>
+                        {fasilitator ?
+                            (
+                                <div className="mb-4">
+
+                                </div>
+                            ) : (
+                                <div className="option-schedule">
+                                    <h5 className="option-all me-1">All schedule</h5>
+                                    <h5 className="option-self ms-1">For you</h5>
+                                </div>
+                            )
+                        }
                         <div className="schedule-scroll">
-                            <div className="bg-card mt-2">
-                                <div className="time-classes mb-1">
-                                    <h5>08.00 - 09.40</h5>
-                                </div>
-                                <CardSchedule/>
-                                <div className="time-classes mb-1">
-                                    <h5>08.00 - 09.40</h5>
-                                </div>
-                                <CardSchedule/>
-                                <br/>               
-                            </div>
+                            {fasilitator ?
+                                (
+                                    <CreateClass />
+                                ) : (
+                                    <CardSchedule />
+                                )
+                            }
 
                         </div>
                     </div>
@@ -102,10 +122,13 @@ function Home(props) {
                                 <i className="fas fa-search"></i>
                                 <input className="ps-5" placeholder="Search" />
                             </div>
-                            <ChatMessage/>
+                            <ChatMessage />
                         </section>
                     )
                 }
+                <section>
+
+                </section>
             </main>
         </div >
     )
