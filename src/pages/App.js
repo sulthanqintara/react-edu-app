@@ -59,13 +59,19 @@ class App extends Component {
             </StudentRoute>
           </Route>
           <Route path="/fasilitator/class">
-            <FasilitatorClass/>
+            <FacilitatorRoute>
+              <FasilitatorClass />
+            </FacilitatorRoute>
           </Route>
           <Route path="/fasilitator/class-detail">
-            <FasilitatorClassDetail/>
+            <FacilitatorRoute>
+              <FasilitatorClassDetail />
+            </FacilitatorRoute>
           </Route>
           <Route path="/member">
-            <Member/>
+            <FacilitatorRoute>
+              <Member />
+            </FacilitatorRoute>
           </Route>
         </Router>
       </Provider>
