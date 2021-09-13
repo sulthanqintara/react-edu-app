@@ -89,8 +89,8 @@ function FasilitatorClass() {
                                     </Form.Group>
                                 </div>
                                 <div className="text-end">
-                                    <Link to="/">
-                                        <Button className="text-right" variant="success">Success</Button>
+                                    <Link to="/fasilitator/class-detail">
+                                        <Button className="text-right" variant="success">Create</Button>
                                     </Link>
                                 </div>
 

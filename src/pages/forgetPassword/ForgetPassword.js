@@ -42,6 +42,17 @@ function ForgetPassword() {
                             Verify
                         </button>
                     </div> */}
+                    {/* <h1>Create New Password</h1>
+                    <div className="form-reset">
+                        <p>Your new password must be different from previous used password!</p>
+                        <form className="d-flex flex-column align-items-center mt-5 mb-5">
+                        <input className="mb-4" type="password" placeholder="Please input old password"></input>
+                            <input className="mb-4" type="password" placeholder="Please input new passwor"></input>
+                            <button className="btn-login mb-3" type="submit">
+                                Create
+                            </button>
+                        </form>
+                    </div> */}
                 </section>
             </main>
         </>
