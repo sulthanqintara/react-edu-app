@@ -3,7 +3,7 @@ import "../profile/profile.css";
 import Navbar from "../../components/navbar/Navbar";
 
 import backgroundProfile from "../../assets/img/icon/background-profile.png";
-// import profileImage from "../../assets/img/icon/pp.png";
+import profileImage from "../../assets/img/icon/pp.png";
 
 function Profile() {
   return (
@@ -15,12 +15,11 @@ function Profile() {
             <div className=" flex-fill me-3">
               <div class="card">
                 <div className="row">
-                  <div className="col">
-                    <img
-                      src={backgroundProfile}
-                      class="card-img-top"
-                      alt="..."
-                    ></img>
+                  <div
+                    className="col profile-background d-flex justify-content-center"
+                    style={{ background: `url(${backgroundProfile})` }}
+                  >
+                    <img src={profileImage} class="profile-icon" alt="..." />
                   </div>
                 </div>
                 <div className="container container-fluid">

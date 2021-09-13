@@ -36,6 +36,17 @@
   margin: 1rem 0;
   padding-right: 3rem;
 }
+.profile-background {
+  height: 20rem;
+  background-repeat: no-repeat;
+  border-radius: 20px 20px 0 0;
+  margin: 12px;
+}
+.profile-icon {
+  width: 180px;
+  height: 180px;
+  margin: auto;
+}
 
 @media (max-width: 1440px) {
   .profile-page .card {
