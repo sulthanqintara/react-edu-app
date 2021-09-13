@@ -10,8 +10,6 @@ import "./home.css"
 function Home(props) {
   const windows = window.innerWidth;
 
-    const windows = window.innerWidth
-
     return (
         <div>
             <main className="main-home vh-100 vw-100">
