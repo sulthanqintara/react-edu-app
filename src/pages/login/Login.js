@@ -38,8 +38,8 @@ function Login(props) {
   };
   return (
     <>
-      <main>
-        <section className="auth-page h-auto">
+      <main className="min-vh-100">
+        <section className="auth-page ">
           <div className="container container-fluid">
             <div className="row">
               <div className="col-md-12">

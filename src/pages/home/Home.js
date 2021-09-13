@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Carousel from "react-bootstrap/Carousel";
 import Pict1 from "../../assets/img/icon/carousel1.png";
 import ChatMessage from "../../components/ChatMessage";
+
 import CardSchedule from "../../components/cardSchedule/CardSchedule";
 import "./home.css"
 
 function Home(props) {
+  const windows = window.innerWidth;
 
     const windows = window.innerWidth
 
@@ -109,6 +111,7 @@ function Home(props) {
             </main>
         </div >
     )
+
 }
 
-export default Home
+export default Home;

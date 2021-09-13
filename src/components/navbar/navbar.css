@@ -168,6 +168,10 @@
   display: flex;
 }
 
+.navbar-toggler {
+  margin: 0 1rem;
+}
+
 /* desain click notification bell */
 .open-notification {
   position: absolute;
@@ -182,7 +186,6 @@
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -196,4 +199,3 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (max-width: 1200px) {
   
-}

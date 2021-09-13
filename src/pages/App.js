@@ -1,7 +1,12 @@
 import { Component } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { PrivateRoute, AuthRoute } from "../components/PrivateRoute";
+import {
+  PrivateRoute,
+  AuthRoute,
+  StudentRoute,
+  FacilitatorRoute,
+} from "../components/PrivateRoute";
 import reduxStore from "../redux/store";
 import Home from "./home/Home";
 import Login from "./login/Login";
@@ -49,7 +54,9 @@ class App extends Component {
             <ClassDetail />
           </Route>
           <Route path="/class-progress">
-            <ClassProgress />
+            <StudentRoute>
+              <ClassProgress />
+            </StudentRoute>
           </Route>
           <Route path="/fasilitator/class">
             <FasilitatorClass/>
