@@ -51,9 +51,13 @@
 }
 
 .desc-scroll{
+  margin-top: 1px;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 340px;
+  margin-left: 0.1rem;
+  margin-right: 4rem;
+  max-height: 330px;
+  height: 100%;
 }
 
 .description-link h5 {
@@ -94,6 +98,18 @@
   font-size: 18px;
   margin-left: 6vh;
   margin-top: 2vh;
+}
+
+
+.card-sorting p {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -50px;
+}
+
+.icon-back a, .description-link a {
+  color: #000000;
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {

@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Carousel from "react-bootstrap/Carousel";
 import Pict1 from "../../assets/img/icon/carousel1.png";
 import ChatMessage from "../../components/ChatMessage";
-import CardClass from "../../components/CardClass";
+import CardSchedule from "../../components/cardSchedule/CardSchedule";
 import "./home.css"
 
 function Home(props) {
@@ -12,7 +12,7 @@ function Home(props) {
 
     return (
         <div>
-            <main className="row main-home vh-100 vw-100">
+            <main className="main-home vh-100 vw-100">
                 <Navbar />
                 <section className="column-middle col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4">
                     <div className="bd-slider ">
@@ -78,11 +78,11 @@ function Home(props) {
                                 <div className="time-classes mb-1">
                                     <h5>08.00 - 09.40</h5>
                                 </div>
-                                <CardClass/>
+                                <CardSchedule/>
                                 <div className="time-classes mb-1">
                                     <h5>08.00 - 09.40</h5>
                                 </div>
-                                <CardClass/>
+                                <CardSchedule/>
                                 <br/>               
                             </div>
 

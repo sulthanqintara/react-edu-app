@@ -1,0 +1,153 @@
+.fasilitator .my-class h1,
+.fasilitator .my-class h2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  color: #000000;
+}
+
+.fasilitator .my-class h1 {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.fasilitator .my-class h2 {
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 2rem;
+  margin-top: 2rem;
+}
+
+.fasilitator .my-class h3 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin: 0%;
+}
+
+.table-class {
+  max-height: 272px;
+}
+
+.fa-ellipsis-v,
+.form-check-input,
+.table-class h6 {
+  cursor: pointer;
+}
+
+.fa-ellipsis-v:hover,
+.table-class h6:hover {
+  color: #5784ba;
+}
+
+.header-table,
+.bd-table {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 68px;
+}
+
+.form-check {
+  padding-bottom: 8px;
+  margin-right: 1rem;
+}
+
+.form-check-input {
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.bd-table p {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin: 0%;
+}
+
+.bd-table {
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.table-class h6 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+/* desain create class */
+
+.create-class {
+  max-height: 508px;
+  height: 93%;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.input-name input {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  line-height: 20rem;
+}
+
+.input-name input,
+.input-categories .form-select,
+.input-schedule .form-select,
+.input-schedule input {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.input-name p,
+.input-categories p,
+.input-schedule p, .input-price p {
+  width: 15%;
+  margin: 0%;
+}
+
+.create-class span {
+  padding-right: 1rem;
+}
+
+.input-categories .form-select,
+.input-schedule .form-select {
+  width: 30%;
+  margin-right: 2rem;
+}
+
+.input-price input {
+  background-color: #ebebeb;
+}
+
+.input-description .form-control {
+  background: #ebebeb;
+  border-radius: 5px;
+  height: 15rem;
+}
+
+.create-class button {
+  max-width: 320px;
+  width: 100%;
+  background: #57BA61;
+border-radius: 20px;
+}

@@ -68,11 +68,7 @@
   border-radius: 8px;
 }
 
-.card-sorting p {
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: -50px;
-}
+
 
 @media (max-width: 1024px) {
   .myclass-page .content-activity {
