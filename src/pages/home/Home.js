@@ -5,12 +5,23 @@ import Pict1 from "../../assets/img/icon/carousel1.png";
 import ChatMessage from "../../components/ChatMessage";
 import CardSchedule from "../../components/cardSchedule/CardSchedule";
 import CreateClass from "../../components/createCardClass/CreateCardClass";
+import { useSelector } from "react-redux";
 import "./home.css"
 
 function Home() {
+    const userInfo = useSelector((reduxState) => reduxState.auth);
     const windows = window.innerWidth;
+    // const [roleId, setRoleId] = useState(userInfo.authInfo.role_id);
+    // const [profle, setProfile] = useState(userInfo.authInfo.image);
+    // const [name, setName] = useState(null);
+    // const fasilitator = false
+    // useEffect(() => {
+    //     setRoleId(roleId)
+    //     console.log(userInfo.authInfo.role_id)
 
-    const fasilitator = false
+    // }, [])
+    
+
     return (
         <div>
             <main className="main-home vh-100 vw-100">
@@ -36,7 +47,7 @@ function Home() {
                         </div>
                     </div>
                     <div className="bd-schedule">
-                        {fasilitator ?
+                        {userInfo.authInfo.role_id === 1 ?
                             (
                                 <div className="mb-4">
                                     <div className="title-date">
@@ -85,7 +96,7 @@ function Home() {
                                 <h5>18</h5>
                             </div>
                         </div>
-                        {fasilitator ?
+                        {userInfo.authInfo.role_id === 2?
                             (
                                 <div className="mb-4">
 
@@ -98,7 +109,7 @@ function Home() {
                             )
                         }
                         <div className="schedule-scroll">
-                            {fasilitator ?
+                            {userInfo.authInfo.role_id === 1 ?
                                 (
                                     <CreateClass />
                                 ) : (
