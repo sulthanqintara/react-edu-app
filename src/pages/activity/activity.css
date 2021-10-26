@@ -3,6 +3,7 @@
   font-family: Montserrat;
   font-weight: 700;
   margin: auto;
+  min-height: 100vh;
 }
 
 .content-activity {
