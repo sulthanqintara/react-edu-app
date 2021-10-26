@@ -50,6 +50,7 @@
   margin-top: auto;
   margin-bottom: auto;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 .profile-icon:hover {
@@ -68,6 +69,18 @@
   color: white;
   font-family: Montserrat;
   border-radius: 8px;
+}
+
+.profile-name-text {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  text-align: center;
+}
+.profile-name-text:focus-visible {
+  outline: 0px;
 }
 
 @media (max-width: 1440px) {

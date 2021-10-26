@@ -87,6 +87,28 @@ const authReducer = (prevstate = defaultState, action) => {
         isFulfilled: true,
         authInfo: action.payload.data.result,
       };
+    case "PATCH_PROFILE".concat("_", Pending):
+      return {
+        ...prevstate,
+        isPending: true,
+        isFulfilled: false,
+        isRejected: false,
+      };
+    case "PATCH_PROFILE".concat("_", Rejected):
+      return {
+        ...prevstate,
+        isPending: false,
+        isRejected: true,
+        error: action.payload,
+      };
+    case "PATCH_PROFILE".concat("_", Fulfilled):
+      console.log(action.payload);
+      return {
+        ...prevstate,
+        isPending: false,
+        isFulfilled: true,
+        authInfo: action.payload.data.result,
+      };
     default:
       return prevstate;
   }

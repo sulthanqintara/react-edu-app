@@ -1,24 +1,28 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "../profile/profile.css";
 import Navbar from "../../components/navbar/Navbar";
+import { patchProfileAction } from "../../redux/actionCreators/auth";
+import axios from "axios";
 
 import backgroundProfile from "../../assets/img/icon/background-profile.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProfilePlaceholder from "../../assets/img/icon/pp.png";
-import axios from "axios";
+import Swal from "sweetalert2";
 
 function Profile() {
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState(null);
+  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
   const [newPass, setNewPass] = useState("");
   const [oldPass, setOldPass] = useState("");
-  // const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const [id, setId] = useState(0);
-  const userInfo = useSelector((reduxState) => reduxState.auth);
+  const auth = useSelector((reduxState) => reduxState.auth);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const id = userInfo.authInfo.user_id;
+    const id = auth.authInfo.user_id;
     const token = localStorage.getItem("token");
     if (id) {
       axios
@@ -32,83 +36,113 @@ function Profile() {
           console.log(data);
           setPhone(data.phone);
           setImage(data.image);
-          // setImagePreview(data.image);
+          setImagePreview(data.image);
           setId(data.id);
+          setName(data.name);
+          setUserName(data.username);
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [auth.authInfo.user_id]);
 
   const onSubmitProfile = (e) => {
     const data = new FormData();
     data.append("id", id);
     data.append("phone", phone);
     data.append("image", image);
-
+    name && data.append("name", name);
     const token = localStorage.getItem("token");
-    // const id = userInfo.authInfo.user_id;
-    axios
-      .patch(`http://localhost:8000/users/edit-user`, data, {
-        headers: {
-          "x-access-token": `Bearer ${token}`,
-          "content-type": "multipart/form-data",
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    dispatch(patchProfileAction(data, token));
+    return Swal.fire(
+      "Profile Changed",
+      "Your profile has been changed.",
+      "success"
+    );
   };
 
   const onImageUpload = (e) => {
     const file = e.target.files[0];
-    setImage(file);
-    // setImagePreview(URL.createObjectURL(file));
+    if (file) {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
   };
 
   const onSubmitPassword = (e) => {
+    if (oldPass.length < 5) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Old Password",
+        text: "Old Password must have 5 or more characters!",
+      });
+    }
+    if (newPass.length < 5) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid New Password",
+        text: "New Password must have 5 or more characters!",
+      });
+    }
     const data = {
       id: id,
       oldPass: oldPass,
       newPass: newPass,
     };
-
     const token = localStorage.getItem("token");
-    // const id = userInfo.authInfo.user_id;
-    axios
+    return axios
       .patch(`http://localhost:8000/users/update-password`, data, {
         headers: {
           "x-access-token": `Bearer ${token}`,
         },
       })
       .then((res) => {
-        window.alert("Password berhasil diganti!");
         console.log(res);
+        return Swal.fire({
+          icon: "success",
+          title: "Password Changed",
+          text: "Your password has been changed!",
+        });
       })
       .catch((err) => {
-        window.alert("Password lama salah!");
         console.log(err);
+        return Swal.fire({
+          icon: "error",
+          title: "Your old password is invalid",
+          text: "Please check your old password again.",
+        });
       });
   };
-
   return (
     <>
       <main>
-        <section className="profile-page vh-100">
+        <section className="profile-page py-3">
           <div className="d-flex flex-column flex-xl-row">
             <Navbar />
             <div className=" flex-fill me-3">
               <div className="card">
                 <div className="row">
                   <div
-                    className="col profile-background d-flex justify-content-center"
+                    className="col profile-background d-flex justify-content-center flex-column align-items-center"
                     style={{ backgroundImage: `url(${backgroundProfile})` }}
                   >
-                    <label htmlFor="upload-photo">
+                    <label
+                      htmlFor="upload-photo"
+                      className="d-flex flex-column"
+                    >
                       <img
-                        src={image ? image : ProfilePlaceholder}
-                        className="profile-icon mt-5"
-                        alt="..."
+                        src={imagePreview ? imagePreview : ProfilePlaceholder}
+                        className="profile-icon"
+                        alt="profile"
                       />
                     </label>
+                    <input
+                      type="text"
+                      defaultValue={name ? name : userName}
+                      className="profile-name-text mt-2"
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                    />
                     <input
                       type="file"
                       name="photo"
@@ -139,7 +173,22 @@ function Profile() {
                         <div className="mb-2 mt-4">
                           <button
                             className="btn btn-submit"
-                            onClick={onSubmitProfile}
+                            onClick={() => {
+                              Swal.fire({
+                                title:
+                                  "Are you sure you want to update your profile?",
+                                text: "You won't be able to revert this!",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Yes, delete it!",
+                              }).then((result) => {
+                                if (result.isConfirmed) {
+                                  onSubmitProfile();
+                                }
+                              });
+                            }}
                           >
                             Edit Profile
                           </button>
@@ -170,7 +219,22 @@ function Profile() {
                         <div className="mb-2 mt-4">
                           <button
                             className="btn btn-submit"
-                            onClick={onSubmitPassword}
+                            onClick={() => {
+                              Swal.fire({
+                                title:
+                                  "Are you sure you want to change password?",
+                                text: "You won't be able to revert this!",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Yes, change it!",
+                              }).then((result) => {
+                                if (result.isConfirmed) {
+                                  onSubmitPassword();
+                                }
+                              });
+                            }}
                           >
                             Edit Password
                           </button>
