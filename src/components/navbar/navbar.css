@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.navbar-resize .link-profile {
+.navbar-resize .link-image {
   margin-left: 2rem;
 }
 
@@ -75,45 +75,58 @@
   justify-content: center;
 }
 
-/* desain navbar-large */
-
-.navbar-large .navbar-collapse {
-  justify-content: center;
+/* desain sidebar */
+.sidebar {
+  height: 100vh;
+  padding: 1rem 0 1rem 1rem;
 }
 
-.navbar-large {
-  border-radius: 1rem;
+.full-border {
+  border-radius: 2rem;
+}
+.half-border {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+.navbar-container {
+  width: 100%;
   height: 100%;
 }
 
-.navbar-profile {
-  margin-top: 6rem;
+.sidebar .navbar-image {
+  margin-top: 3rem;
   margin-bottom: 4rem;
   padding-left: 4rem;
 }
 
-.navbar-profile img {
+.navbar-image img {
   margin-bottom: 2rem;
 }
 
-.link-profile,
+.link-image,
 .fa-times {
   cursor: pointer;
 }
 
-.navbar-large .navbar-nav {
+.sidebar .navbar-nav {
   align-items: center;
 }
 
-.navbar-profile .fas {
+.navbar-image .fas {
   cursor: pointer;
-  position: relative;
-  bottom: 3rem;
-  left: 10rem;
+  margin-bottom: 4rem;
+  padding-left: 70%;
+  padding-right: 25%;
   color: #ffffff;
 }
+.navbar-image .change-icon {
+  cursor: pointer;
+  margin-bottom: 4rem;
+  padding-left: 9rem;
+  color: #5784ba;
+}
 
-.navbar-large h1 {
+.sidebar h1 {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -122,7 +135,7 @@
   color: #f9f9f9;
 }
 
-.navbar-large p {
+.sidebar p {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -131,22 +144,21 @@
   color: #f9f9f9;
 }
 
-.navbar-large .menu-items {
-  margin-bottom: 8rem;
-  text-align: center;
-  padding-left: 4rem;
-  width: 100%;
+.sidebar .menu-items {
+  margin-top: 9rem;
+  margin-bottom: 4rem;
 }
 
-.navbar-large .menu-items i {
-  padding-right: 1.5rem;
+.sidebar .menu-items i {
+  padding-right: 5%;
   font-size: 1.7rem;
   line-height: 80px;
 }
 
-.navbar-large a {
+.sidebar .menu-items a {
   font-family: Montserrat;
   font-style: normal;
+  width: 100%;
   font-weight: 600;
   font-size: 16px;
   line-height: 80px;
@@ -154,33 +166,108 @@
   text-decoration: none;
   display: flex;
   text-align: center;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 
-.navbar-large a:hover,
-.navbar-large a:active,
-.navbar-large span:active,
-.navbar-large span:hover {
+.sidebar .menu-items .active,
+.navbar-resize .active,
+.sidebar .menu-items a:hover,
+.sidebar .menu-items span:hover {
   color: #2f2f2f;
 }
 
-.navbar-large span {
+.sidebar .menu-items span {
   color: #ff1313;
   display: flex;
 }
 
-.navbar-toggler {
-  margin: 0 1rem;
+/* desain click notification bell */
+.notification-container,
+.bg-notification {
+  position: absolute;
+  z-index: 1000;
+}
+.notification-container {
+  bottom: 0.1rem;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.53);
+  width: 101%;
+  height: 100%;
 }
 
-/* desain click notification bell */
-.open-notification {
-  position: absolute;
-  z-index: 2;
-  bottom: -0.1rem;
-  left: 20rem;
-  border-radius: 15px;
-  padding: 1rem 1rem 1rem 1rem;
+.bg-notification {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  margin-left: 99%;
+  padding: 15% 15%;
   background: #5784ba;
   width: 300%;
   height: 100%;
+}
+
+.notification-container .fas {
+  font-size: 25px;
+  padding-left: 95%;
+  color: #f9f9f9;
+}
+
+.notification-container .title {
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 900;
+  padding: 2rem 0;
+  text-align: center;
+}
+.notification-container .date-duration {
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #f9f9f9;
+}
+
+.notification-container .body {
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3% 0;
+}
+.notification-container .body:hover {
+  background-color: rgba(22, 40, 63, 0.53);
+  border-radius: 2rem;
+}
+
+.notification-container .image {
+  height: 50px;
+  width: 50px;
+}
+
+.notification-container .text,
+.notification-container .time {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.notification-container .text {
+  padding-left: 2%;
+  padding-right: 38%;
+  width: auto;
+}
+
+.notification-container .time {
+  width: auto;
+}
+
+.active {
+  background-color: #ffffff;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
 }

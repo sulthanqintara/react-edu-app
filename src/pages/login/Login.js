@@ -38,7 +38,7 @@ function Login(props) {
   };
   return (
     <>
-      <main className="min-vh-100">
+      <main className="main-login min-vh-100">
         <section className="auth-page ">
           <div className="container container-fluid">
             <div className="row">
