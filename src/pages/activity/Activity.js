@@ -10,8 +10,8 @@ function Activity() {
   return (
     <>
       <main>
-        <section className="activity-page vh-100">
-          <div className="d-flex flex-column flex-xl-row justify-content-between vh-100">
+        <section className="activity-page">
+          <div className="d-flex flex-column flex-xl-row justify-content-between">
             <Navbar />
             <div className="col-11 col-md-9 content-activity ">
               <div className="row">
@@ -22,7 +22,7 @@ function Activity() {
               <div className="container container-fluid">
                 <h4>My class</h4>
                 <div className="col-12 mt-5">
-                  <TableMyClass />
+                  <TableMyClass limit={4} />
                   <Link to="/myclass">
                     <p
                       className="text-center"

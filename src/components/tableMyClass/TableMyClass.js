@@ -1,40 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { withRouter, useHistory, useLocation, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { withRouter, useHistory, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { getClassByUserAction } from "../../redux/actionCreators/classes";
-import axios from "axios";
+import ColumnMyClass from "../columnMyClass/columnMyClass";
 
 function TableMyClass(props) {
   const { getClassByUserAction } = props;
-  const [averageScore, setAverageScore] = useState([]);
-
-  const getAverage = () => {
-    const url = process.env.REACT_APP_BASE_URL;
-    axios
-      .get(
-        `${url}/subjects/scoring?class_id=${2}&user_id=${
-          props.auth.authInfo.user_id
-        }`
-      )
-      .then((res) => {
-        return setAverageScore(res.data.result.scResult);
-      });
-  };
-  const averageScoreHandler = averageScore.reduce(
-    (acc, curr, idx) => acc + curr.score,
-    0
-  );
   const history = useHistory();
   const location = useLocation();
-
   useEffect(() => {
-    getAverage();
     let query = `?user_id=${props.auth.authInfo.user_id}`;
     if (props.keyword) query = query + `&keyword=${props.keyword}`;
+    if (props.limit) query = query + `&limit=${props.limit}`;
+    console.log(query);
     getClassByUserAction(query);
     if (location.search) return history.push(`${location.search}`);
   }, [getClassByUserAction, props.auth.authInfo.user_id, props.keyword]);
@@ -65,52 +46,10 @@ function TableMyClass(props) {
           </thead>
 
           {props.classes.dataPerUser?.data?.result.data.map((data) => {
-            return (
-              <tbody key={data.class_id}>
-                <tr>
-                  <th scope="row ">
-                    <div className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                      ></input>
-                    </div>
-                  </th>
-                  <td>{data.class_name}</td>
-                  <td>{data.category}</td>
-                  <td>{data.description}</td>
-                  <td>
-                    <div style={{ width: 35, height: 35 }}>
-                      <CircularProgressbar
-                        value={50}
-                        text="50%"
-                        styles={buildStyles({ textSize: "1.5rem" })}
-                      />
-                    </div>
-                  </td>
-                  <td>
-                    <Link
-                      to={`/class-detail/${data.class_id}`}
-                      className="btn btn-status"
-                      style={{
-                        borderRadius: "24px",
-                        backgroundColor: "#D2DEED",
-                        color: "#5784BA",
-                      }}
-                    >
-                      ongoing
-                    </Link>
-                  </td>
-                  <td className="score">
-                    {averageScoreHandler / averageScore.length}
-                  </td>
-                </tr>
-              </tbody>
-            );
+            return <ColumnMyClass data={data} key={data.class_id} />;
           })}
         </table>
+        {!props.classes.dataPerUser.data.result.data && <text>No data</text>}
       </div>
     </>
   );

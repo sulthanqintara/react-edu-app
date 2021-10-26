@@ -40,7 +40,7 @@ function Sidebar(props) {
     props.logoutAction();
     !props.auth.isLogin && props.history.push("/login");
   };
-  console.log(reduxState.authInfo.image);
+
   return (
     <>
       {width < 1200 ? (
@@ -226,7 +226,6 @@ function Sidebar(props) {
                         Activity
                       </Link>
                     )}
-
                     <Link
                       className={path === "/profile" ? "active" : ""}
                       to="/profile"

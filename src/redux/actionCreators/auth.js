@@ -1,5 +1,6 @@
 import { SIGN_IN, SIGN_OUT, REGISTER } from "./actionString";
 import { deleteLogout, postLogin, postRegister } from "../../utils/https/Auth";
+import { profilePatch } from "../../utils/https/profile";
 
 export const loginAction = (body) => {
   return {
@@ -19,5 +20,12 @@ export const logoutAction = () => {
   return {
     type: SIGN_OUT,
     payload: deleteLogout(),
+  };
+};
+
+export const patchProfileAction = (body, token) => {
+  return {
+    type: "PATCH_PROFILE",
+    payload: profilePatch(body, token),
   };
 };

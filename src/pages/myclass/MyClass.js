@@ -70,34 +70,34 @@ function MyClass() {
                     </div>
                     <div className="col-6">
                       <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                          <li class="page-item disabled">
+                        <ul className="pagination justify-content-end">
+                          <li className="page-item disabled">
                             <Link
-                              class="page-link"
+                              className="page-link"
                               href="#"
-                              tabindex="-1"
                               aria-disabled="true"
+                              to="#"
                             >
                               &laquo;
                             </Link>
                           </li>
-                          <li class="page-item  ">
-                            <Link class="page-link" href="#">
+                          <li className="page-item  ">
+                            <Link className="page-link" to="#">
                               1
                             </Link>
                           </li>
-                          <li class="page-item active">
-                            <Link class="page-link" href="#">
+                          <li className="page-item active">
+                            <Link className="page-link" to="#">
                               2
                             </Link>
                           </li>
-                          <li class="page-item">
-                            <Link class="page-link" href="#">
+                          <li className="page-item">
+                            <Link className="page-link" to="#">
                               3
                             </Link>
                           </li>
-                          <li class="page-item">
-                            <Link class="page-link" href="#">
+                          <li className="page-item">
+                            <Link className="page-link" to="#">
                               &raquo;
                             </Link>
                           </li>
