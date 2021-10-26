@@ -141,7 +141,6 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-
 .bg-card .title-classes {
   height: 89px;
   font-family: Montserrat;
@@ -218,6 +217,9 @@
   font-size: 14.1341px;
   line-height: 21px;
   color: #787878;
+}
+.active {
+  color: #2f2f2f !important;
 }
 
 /* Extra small devices (phones, 600px and down) */
