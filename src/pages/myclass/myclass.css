@@ -67,8 +67,15 @@
   height: 40px;
   border-radius: 8px;
 }
-
-
+.yellow {
+  color: #cce72b !important;
+}
+.orange {
+  color: #e7852b !important;
+}
+.red {
+  color: #e6422b !important;
+}
 
 @media (max-width: 1024px) {
   .myclass-page .content-activity {
