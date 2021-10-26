@@ -6,6 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./navbar.css";
 import Profile from "../../assets/img/icon/pp.png";
+import { useSelector } from "react-redux";
+
 
 function Sidebar(props) {
   const [activeNotification, setActiveNotification] = useState(false);
@@ -53,13 +55,18 @@ function Sidebar(props) {
     !props.auth.isLogin && props.history.push("/login");
   };
 
+  const userInfo = useSelector((reduxState) => reduxState.auth);
+  const image = `http://localhost:8000${userInfo.authInfo.image}`
+  console.log(image)
+  const name = userInfo.authInfo.name
+
   return (
     <>
       {useWindowWidth() < 1200 ? (
         <Navbar className="navbar-resize" expand="lg">
           <Navbar.Brand>
             <Link className="link-profile" to="/profile">
-              <img src={Profile} height={56} width={56} alt="pict" />
+              <img src={image} height={56} width={56} className="rounded-circle" alt="pict" />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -111,9 +118,9 @@ function Sidebar(props) {
                 {changeBellIcon()}
                 <div className="d-flex flex-column">
                   <Link className="link-profile" to="/profile">
-                    <img src={Profile} height={56} width={56} alt="pict" />
+                    <img src={image} height={56} width={56} className="rounded-circle" alt="pict" />
                   </Link>
-                  <h1>Emir Kharisma</h1>
+                  <h1>{name}</h1>
                   <p>online</p>
                 </div>
               </div>
@@ -147,13 +154,26 @@ function Sidebar(props) {
                     <i className="fab fa-microsoft"></i>
                     Dashboard
                   </Link>
-                  <Link
-                    className={path === "/activity" ? "active" : ""}
-                    to="/activity"
-                  >
-                    <i className="fas fa-book"></i>
-                    Activity
-                  </Link>
+                  {userInfo.authInfo.role_id === 1 ?
+                    (
+                      <Link
+                        className={path === "/fasilitator/class" ? "active" : ""}
+                        to="/fasilitator/class"
+                      >
+                        <i className="fas fa-book"></i>
+                        Activity
+                      </Link>
+                    ) : (
+                      <Link
+                        className={path === "/activity" ? "active" : ""}
+                        to="/activity"
+                      >
+                        <i className="fas fa-book"></i>
+                        Activity
+                      </Link>
+                    )
+                  }
+
                   <Link
                     className={path === "/profile" ? "active" : ""}
                     to="/profile"
