@@ -8,7 +8,6 @@ import "./navbar.css";
 import Profile from "../../assets/img/icon/pp.png";
 import { useSelector } from "react-redux";
 
-
 function Sidebar(props) {
   const [activeNotification, setActiveNotification] = useState(false);
   const path = props.location.pathname;
@@ -56,9 +55,11 @@ function Sidebar(props) {
   };
 
   const userInfo = useSelector((reduxState) => reduxState.auth);
-  const image = `http://localhost:8000${userInfo.authInfo.image}`
-  console.log(image)
-  const name = userInfo.authInfo.name
+  const image = userInfo.authInfo.image
+    ? `http://localhost:8000${userInfo.authInfo.image}`
+    : Profile;
+  console.log(image);
+  const name = userInfo.authInfo.name;
 
   return (
     <>
@@ -66,7 +67,13 @@ function Sidebar(props) {
         <Navbar className="navbar-resize" expand="lg">
           <Navbar.Brand>
             <Link className="link-profile" to="/profile">
-              <img src={image} height={56} width={56} className="rounded-circle" alt="pict" />
+              <img
+                src={image}
+                height={56}
+                width={56}
+                className="rounded-circle"
+                alt="pict"
+              />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -118,7 +125,13 @@ function Sidebar(props) {
                 {changeBellIcon()}
                 <div className="d-flex flex-column">
                   <Link className="link-profile" to="/profile">
-                    <img src={image} height={56} width={56} className="rounded-circle" alt="pict" />
+                    <img
+                      src={image}
+                      height={56}
+                      width={56}
+                      className="rounded-circle"
+                      alt="pict"
+                    />
                   </Link>
                   <h1>{name}</h1>
                   <p>online</p>
@@ -154,25 +167,23 @@ function Sidebar(props) {
                     <i className="fab fa-microsoft"></i>
                     Dashboard
                   </Link>
-                  {userInfo.authInfo.role_id === 1 ?
-                    (
-                      <Link
-                        className={path === "/fasilitator/class" ? "active" : ""}
-                        to="/fasilitator/class"
-                      >
-                        <i className="fas fa-book"></i>
-                        Activity
-                      </Link>
-                    ) : (
-                      <Link
-                        className={path === "/activity" ? "active" : ""}
-                        to="/activity"
-                      >
-                        <i className="fas fa-book"></i>
-                        Activity
-                      </Link>
-                    )
-                  }
+                  {userInfo.authInfo.role_id === 1 ? (
+                    <Link
+                      className={path === "/fasilitator/class" ? "active" : ""}
+                      to="/fasilitator/class"
+                    >
+                      <i className="fas fa-book"></i>
+                      Activity
+                    </Link>
+                  ) : (
+                    <Link
+                      className={path === "/activity" ? "active" : ""}
+                      to="/activity"
+                    >
+                      <i className="fas fa-book"></i>
+                      Activity
+                    </Link>
+                  )}
 
                   <Link
                     className={path === "/profile" ? "active" : ""}

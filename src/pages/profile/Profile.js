@@ -5,6 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 
 import backgroundProfile from "../../assets/img/icon/background-profile.png";
 import { useSelector } from "react-redux";
+import ProfilePlaceholder from "../../assets/img/icon/pp.png";
 import axios from "axios";
 
 function Profile() {
@@ -103,12 +104,11 @@ function Profile() {
                   >
                     <label htmlFor="upload-photo">
                       <img
-                        src={image}
+                        src={image ? image : ProfilePlaceholder}
                         className="profile-icon mt-5"
                         alt="..."
                       />
                     </label>
-                    {console.log(image)}
                     <input
                       type="file"
                       name="photo"
