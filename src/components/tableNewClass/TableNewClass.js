@@ -119,66 +119,58 @@ function TableNewClass(props) {
                   Search
                 </button>
               </form>
-              <div className="card card-sorting">
-                <div className="">
-                  <div className="row text-center">
-                    <div className="col-md-4 col-4">
-                      <select
-                        className="class-search-dropdown"
-                        defaultValue="0"
-                        onChange={(e) => {
-                          setCategories(e.target.value);
-                        }}
-                      >
-                        <option value="0" disabled>
-                          Categories
-                        </option>
-                        <option value="1">Software</option>
-                        <option value="2">History</option>
-                        <option value="3">Psychology</option>
-                        <option value="4">Finance</option>
-                        <option value="5">Math</option>
-                        <option value="">Any</option>
-                      </select>
-                    </div>
-                    <div className="col-md-4 col-4">
-                      <select
-                        className="class-search-dropdown"
-                        defaultValue="0"
-                        onChange={(e) => {
-                          setLevel(e.target.value);
-                        }}
-                      >
-                        <option value="0" disabled>
-                          Level
-                        </option>
-                        <option value="1">Beginner</option>
-                        <option value="2">Intermediate</option>
-                        <option value="3">Expert</option>
-                        <option value="4">Finance</option>
-                        <option value="5">Math</option>
-                      </select>
-                    </div>
-                    <div className="col-md-4 col-4">
-                      <select
-                        className="class-search-dropdown"
-                        defaultValue="default"
-                        onChange={(e) => {
-                          setPrice(e.target.value);
-                        }}
-                      >
-                        <option value="default" disabled>
-                          Price
-                        </option>
-                        <option value="1">Free</option>
-                        <option value="2">100k and under</option>
-                        <option value="3">250k and under</option>
-                        <option value="4">500k and under</option>
-                        <option value="5">1000k and under</option>
-                        <option value="6">Any</option>
-                      </select>
-                    </div>
-                  </div>
+              <div className="card card-sorting table-responsive">
+                <div className="d-flex flex-row justify-content-between">
+                  <select
+                    className="class-search-dropdown"
+                    defaultValue="0"
+                    onChange={(e) => {
+                      setCategories(e.target.value);
+                    }}
+                  >
+                    <option value="0" disabled>
+                      Categories
+                    </option>
+                    <option value="1">Software</option>
+                    <option value="2">History</option>
+                    <option value="3">Psychology</option>
+                    <option value="4">Finance</option>
+                    <option value="5">Math</option>
+                    <option value="">Any</option>
+                  </select>
+                  <select
+                    className="class-search-dropdown"
+                    defaultValue="0"
+                    onChange={(e) => {
+                      setLevel(e.target.value);
+                    }}
+                  >
+                    <option value="0" disabled>
+                      Level
+                    </option>
+                    <option value="1">Beginner</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">Expert</option>
+                    <option value="4">Finance</option>
+                    <option value="5">Math</option>
+                  </select>
+                  <select
+                    className="class-search-dropdown"
+                    defaultValue="default"
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                  >
+                    <option value="default" disabled>
+                      Price
+                    </option>
+                    <option value="1">Free</option>
+                    <option value="2">100k and under</option>
+                    <option value="3">250k and under</option>
+                    <option value="4">500k and under</option>
+                    <option value="5">1000k and under</option>
+                    <option value="6">Any</option>
+                  </select>
                 </div>
               </div>
               <div className="table-responsive">
@@ -186,7 +178,7 @@ function TableNewClass(props) {
                   <thead>
                     <tr>
                       <th scope="col">
-                        <div className="form-check">
+                        <div className="">
                           <input
                             className="form-check-input"
                             type="checkbox"
@@ -207,7 +199,7 @@ function TableNewClass(props) {
                       <tbody key={data.id}>
                         <tr>
                           <th scope="row ">
-                            <div className="form-check">
+                            <div className="">
                               <input
                                 className="form-check-input"
                                 type="checkbox"

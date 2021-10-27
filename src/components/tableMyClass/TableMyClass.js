@@ -27,7 +27,7 @@ function TableMyClass(props) {
           <thead>
             <tr>
               <th scope="col">
-                <div className="form-check">
+                <div className="">
                   <input
                     className="form-check-input"
                     type="checkbox"

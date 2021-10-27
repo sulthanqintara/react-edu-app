@@ -13,15 +13,15 @@ function Activity() {
         <section className="activity-page">
           <div className="d-flex flex-column flex-xl-row justify-content-between">
             <Navbar />
-            <div className="col-11 col-md-9 content-activity ">
+            <div className="" style={{ padding: "5vw" }}>
               <div className="row">
                 <div className="col">
                   <h3>Activity</h3>
                 </div>
               </div>
-              <div className="container container-fluid">
+              <div className="">
                 <h4>My class</h4>
-                <div className="col-12 mt-5">
+                <div className="mt-5">
                   <TableMyClass limit={4} />
                   <Link to="/myclass">
                     <p
