@@ -103,6 +103,10 @@ const authReducer = (prevstate = defaultState, action) => {
       };
     case "PATCH_PROFILE".concat("_", Fulfilled):
       console.log(action.payload);
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify(action.payload.data.result)
+      );
       return {
         ...prevstate,
         isPending: false,

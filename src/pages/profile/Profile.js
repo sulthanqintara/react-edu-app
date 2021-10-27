@@ -33,7 +33,6 @@ function Profile() {
         })
         .then((res) => {
           const data = res.data.result;
-          console.log(data);
           setPhone(data.phone);
           setImage(data.image);
           setImagePreview(data.image);
@@ -156,7 +155,7 @@ function Profile() {
                   <div className="card-body">
                     <div className="row">
                       <div className="col-12">
-                        <h5 class="card-title">Profile Settings</h5>
+                        <h5 className="card-title">Profile Settings</h5>
                       </div>
                       <div className="row change-settings-number">
                         <div className="mb-2 mt-4">
@@ -182,7 +181,7 @@ function Profile() {
                                 showCancelButton: true,
                                 confirmButtonColor: "#3085d6",
                                 cancelButtonColor: "#d33",
-                                confirmButtonText: "Yes, delete it!",
+                                confirmButtonText: "Yes, update!",
                               }).then((result) => {
                                 if (result.isConfirmed) {
                                   onSubmitProfile();
@@ -196,7 +195,7 @@ function Profile() {
                       </div>
                       <div className="row change-settings-number">
                         <div className="col-12 mt-5">
-                          <h5 class="card-title">Change Password</h5>
+                          <h5 className="card-title">Change Password</h5>
                         </div>
                         <div className="mb-2 mt-4">
                           <input
@@ -240,69 +239,55 @@ function Profile() {
                           </button>
                         </div>
                       </div>
-                      {/* <div className="row change-settings">
-                        <div className="col-md-11">
-                          <i class="fas fa-phone-alt">
-                            <span className=""> Phone Numbers</span>
-                          </i>
-                        </div>
-                        <div className="col-md-1 d-flex justify-content-end">
-                          <i class="fas fa-chevron-right text-end"></i>
-                        </div>
-                        <hr />
-                      </div> */}
-                      {/* <div className="row change-settings">
-                        <div className="col-md-11">
-                          <i class="fas fa-star">
-                            <span className=""> Change Password</span>
-                          </i>
-                        </div>
-                        <div className="col-md-1 d-flex justify-content-end">
-                          <i class="fas fa-chevron-right text-end"></i>
-                        </div>
-                        <hr />
-                      </div> */}
-                      <div className="row change-settings">
-                        <div className="col-md-11">
-                          <i className="fas fa-comment-dots">
-                            <span className=""> Chat Settings</span>
-                          </i>
-                        </div>
-                        <div className="col-md-1 d-flex justify-content-end">
-                          <i className="fas fa-chevron-right text-end"></i>
-                        </div>
-                      </div>
-                      <hr />
-                      <div className="row change-settings">
-                        <div className="col-md-11">
-                          <i className="fas fa-bell">
-                            <span className=""> Push Notifications</span>
-                          </i>
-                        </div>
-                        <div className="col-md-1 d-flex justify-content-end">
-                          <i className="fas fa-chevron-right text-end"></i>
+                      <div className="change-settings">
+                        <div className="d-flex flex-row justify-content-between ps-3">
+                          <div>
+                            <i className="fas fa-comment-dots">
+                              <span className=""> Chat Settings</span>
+                            </i>
+                          </div>
+                          <div className="d-flex justify-content-end">
+                            <i className="fas fa-chevron-right text-end me-3"></i>
+                          </div>
                         </div>
                         <hr />
                       </div>
-                      <div className="row change-settings">
-                        <div className="col-md-11">
-                          <i className="fas fa-lock">
-                            <span className=""> Privacy and Security</span>
-                          </i>
-                        </div>
-                        <div className="col-md-1 d-flex justify-content-end">
-                          <i className="fas fa-chevron-right text-end"></i>
+                      <div className="change-settings">
+                        <div className="d-flex flex-row justify-content-between ps-3">
+                          <div>
+                            <i className="fas fa-bell">
+                              <span className=""> Push Notifications</span>
+                            </i>
+                          </div>
+                          <div className="d-flex justify-content-end">
+                            <i className="fas fa-chevron-right text-end me-3"></i>
+                          </div>
                         </div>
                         <hr />
                       </div>
-                      <div className="row change-settings">
-                        <div className="col-md-11">
-                          <i className="fas fa-server">
-                            <span className=""> Data and storage</span>
-                          </i>
+                      <div className="change-settings">
+                        <div className="d-flex flex-row justify-content-between ps-3">
+                          <div>
+                            <i className="fas fa-lock">
+                              <span className=""> Privacy and Security</span>
+                            </i>
+                          </div>
+                          <div className="d-flex justify-content-end">
+                            <i className="fas fa-chevron-right text-end me-3"></i>
+                          </div>
                         </div>
-                        <div className="col-md-1 d-flex justify-content-end">
-                          <i className="fas fa-chevron-right text-end"></i>
+                        <hr />
+                      </div>
+                      <div className="change-settings">
+                        <div className="d-flex flex-row justify-content-between ps-3">
+                          <div>
+                            <i className="fas fa-server">
+                              <span className=""> Data and storage</span>
+                            </i>
+                          </div>
+                          <div className="d-flex justify-content-end">
+                            <i className="fas fa-chevron-right text-end me-3"></i>
+                          </div>
                         </div>
                         <hr />
                       </div>
@@ -312,7 +297,6 @@ function Profile() {
               </div>
             </div>
           </div>
-          {/* </div> */}
         </section>
       </main>
     </>
