@@ -15,24 +15,16 @@ function MyClass() {
     <>
       <main>
         <section className="myclass-page vh-100">
-          <div className="d-flex flex-column flex-xl-row justify-content-between vh-100">
+          <div className="d-flex flex-column flex-xl-row">
             <Navbar />
-            <div className="col-md-9 col-6 content-activity ">
-              <div className="container container-fluid">
+            <div className="mx-auto mt-3 container container-fluid pt-5">
+              <div className="">
                 <div className="row">
-                  <div className="row">
-                    <div className="col-1">
-                      <Link to="/activity">
-                        <img
-                          src={iconBack}
-                          alt=""
-                          style={{ marginTop: "40px" }}
-                        />
-                      </Link>
-                    </div>
-                    <div className="col-2">
-                      <h4>My class</h4>
-                    </div>
+                  <div className="d-flex flex-row align-items-center">
+                    <Link to="/activity">
+                      <img src={iconBack} alt="" />
+                    </Link>
+                    <h4 className="ms-5">My class</h4>
                   </div>
                   <div className="col-9">
                     <form

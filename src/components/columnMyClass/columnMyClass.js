@@ -35,7 +35,7 @@ function ColumnMyClass({ data }) {
     <tbody key={data.class_id}>
       <tr>
         <th scope="row ">
-          <div className="form-check">
+          <div className="">
             <input
               className="form-check-input"
               type="checkbox"

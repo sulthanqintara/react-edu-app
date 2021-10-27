@@ -12,8 +12,8 @@
 .myclass-page h4 {
   font-size: 32px;
   font-family: Montserrat;
+  margin-bottom: 0px;
   font-weight: 700;
-  margin-top: 33px;
 }
 
 .myclass-page h5 {
@@ -76,6 +76,12 @@
 .red {
   color: #e6422b !important;
 }
+.pagination > .active > .page-link {
+  background-color: #5784ba !important;
+}
+.pagination > .active {
+  width: min-content;
+}
 
 @media (max-width: 1024px) {
   .myclass-page .content-activity {
@@ -94,9 +100,8 @@
   .myclass-page h4 {
     font-size: 18px;
     font-family: Montserrat;
+    margin-bottom: 0px;
     font-weight: 700;
-    margin-top: 33px;
-    margin-left: 60px;
   }
 
   .myclass-page .card {
@@ -132,8 +137,7 @@
     font-size: 18px;
     font-family: Montserrat;
     font-weight: 700;
-    margin-top: 33px;
-    margin-left: -50px;
+    margin-bottom: 0px;
   }
 
   .myclass-page .card-sorting {
