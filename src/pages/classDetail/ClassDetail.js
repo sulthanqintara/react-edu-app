@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import "../classDetail/classDetail.css";
+import { withRouter } from "react-router-dom";
+import { detailClass, registerClass } from "../../utils/https/classes";
+import { useSelector } from "react-redux";
 
 import iconBack from "../../assets/img/icon/icon3.png";
 import iconComputer from "../../assets/img/icon/icon-computer.png";
@@ -8,7 +12,40 @@ import headerImage from "../../assets/img/icon/header-class.png";
 
 import Navbar from "../../components/navbar/Navbar";
 
-function ClassDetail() {
+function ClassDetail(props) {
+  const classId = props.match.params.id;
+  const userId = useSelector((state) => state.auth.authInfo.user_id);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    if (classId) {
+      detailClass(classId)
+        .then((res) => {
+          const data = res.data.result[0];
+          setName(data.course_name);
+          setDescription(data.description);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [classId]);
+
+  const onRegister = () => {
+    const data = new URLSearchParams();
+    data.append("user_id", userId);
+    data.append("class_id", classId);
+    registerClass(data)
+      .then((res) => {
+        console.log(res);
+        return Swal.fire({
+          icon: "success",
+          title: "Register success!",
+          text: "Your has been join with this class!",
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <main>
@@ -28,11 +65,15 @@ function ClassDetail() {
                     </Link>
                   </div>
                   <div className="col-6 mb-3">
-                    <h4>Know more Javacript</h4>
+                    <h4>{name}</h4>
                   </div>
                   <div className="col-12">
                     <div className="card">
-                      <img src={headerImage} className="card-img-top" alt="..." />
+                      <img
+                        src={headerImage}
+                        className="card-img-top"
+                        alt="..."
+                      />
                       <div className="card-body">
                         <div className="row">
                           <div className="col-4 text-center icon-computer">
@@ -40,7 +81,7 @@ function ClassDetail() {
                               src={iconComputer}
                               alt=""
                               className="img-fluid"
-                            //   style={{ marginTop: "-30vh" }}
+                              //   style={{ marginTop: "-30vh" }}
                             />
                           </div>
                           <div className="col-5 description-classDetail">
@@ -58,7 +99,24 @@ function ClassDetail() {
                             </div>
                           </div>
                           <div className="col-3">
-                            <button className="btn btn-register">
+                            <button
+                              className="btn btn-register"
+                              onClick={() => {
+                                Swal.fire({
+                                  title: "Confirm for register",
+                                  text: "Are you sure you want to register?",
+                                  icon: "warning",
+                                  showCancelButton: true,
+                                  confirmButtonColor: "#3085d6",
+                                  cancelButtonColor: "#d33",
+                                  confirmButtonText: "Yes",
+                                }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    onRegister();
+                                  }
+                                });
+                              }}
+                            >
                               Register
                             </button>
                           </div>
@@ -83,21 +141,14 @@ function ClassDetail() {
                               <h4 className="text-center ml-5 ">Description</h4>
                             </div>
                             <div className="col-12">
-                              <p>
-                                Javascript from the basic for beginner. JavaScript
-                                is a programming language that adds interactivity
-                                to your website. This happens in games, in the
-                                behavior of responses when buttons are pressed or
-                                with data entry on forms; with dynamic styling;
-                                with animation, etc. This class helps you get
-                                started with JavaScript and furthers your
-                                understanding of what is possible.
-                              </p>
+                              <p>{description}</p>
                             </div>
                           </div>
                           <div className="row description-learn">
                             <div className="col-4 ">
-                              <h4 className="text-center ">What will i learn</h4>
+                              <h4 className="text-center ">
+                                What will i learn
+                              </h4>
                             </div>
                             <div className="col-12">
                               <ul>
@@ -142,4 +193,4 @@ function ClassDetail() {
   );
 }
 
-export default ClassDetail;
+export default withRouter(ClassDetail);
