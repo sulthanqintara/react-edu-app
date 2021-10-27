@@ -6,6 +6,7 @@ import Navbar from "../../components/navbar/Navbar";
 import "./fasilitatorClass.css";
 import { useSelector } from "react-redux";
 import { createClass } from "../../utils/https/classes";
+import Swal from "sweetalert2";
 // import { Link } from "react-router-dom";
 
 function FasilitatorClass() {
@@ -19,8 +20,73 @@ function FasilitatorClass() {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
+  console.log(category);
 
   const onCreate = () => {
+    if (className === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid class name",
+        text: "Class name are required!",
+      });
+    }
+    if (category === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid category class",
+        text: "Category are required!",
+      });
+    }
+    if (level === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid level class",
+        text: "Level are required!",
+      });
+    }
+    if (schedule === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid schedule",
+        text: "Schedule are required!",
+      });
+    }
+    if (startTime === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid start time",
+        text: "Start time are required!",
+      });
+    }
+    if (endTime === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid end time",
+        text: "End time are required!",
+      });
+    }
+    if (date === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid start date",
+        text: "Start date are required!",
+      });
+    }
+    if (pricing === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid pricing",
+        text: "Pricing are required!",
+      });
+    }
+    if (description === "") {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid description",
+        text: "Description are required!",
+      });
+    }
+
     const data = new URLSearchParams();
     data.append("name", className);
     data.append("category_id", category);
@@ -34,8 +100,22 @@ function FasilitatorClass() {
     data.append("pricing", pricing);
 
     createClass(data)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        console.log(res);
+        return Swal.fire({
+          icon: "success",
+          title: "Success create class",
+          text: "Your class has been created!",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        return Swal.fire({
+          icon: "error",
+          title: "Your input not valid",
+          text: "Please check your input again.",
+        });
+      });
   };
 
   return (
@@ -185,7 +265,20 @@ function FasilitatorClass() {
                   <Button
                     className="text-right"
                     variant="success"
-                    onClick={onCreate}
+                    onClick={() => {
+                      Swal.fire({
+                        title: "Are you sure you want to create class?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, create it!",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          onCreate();
+                        }
+                      });
+                    }}
                   >
                     Create
                   </Button>
