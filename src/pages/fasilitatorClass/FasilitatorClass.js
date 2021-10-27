@@ -20,7 +20,6 @@ function FasilitatorClass() {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
-  console.log(schedule);
 
   const onCreate = () => {
     if (className === "") {
