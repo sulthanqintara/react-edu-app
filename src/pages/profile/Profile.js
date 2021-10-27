@@ -114,7 +114,7 @@ function Profile() {
   return (
     <>
       <main>
-        <section className="profile-page py-3">
+        <section className="profile-page">
           <div className="d-flex flex-column flex-xl-row">
             <Navbar />
             <div className=" flex-fill me-3">

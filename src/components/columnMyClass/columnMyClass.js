@@ -7,16 +7,10 @@ import { Link } from "react-router-dom";
 function ColumnMyClass({ data }) {
   const [averageScoreData, setAverageScoreData] = useState([]);
   const [subjectsTotal, setSubjectsTotal] = useState([]);
+  const [averageScore, setAverageScore] = useState([]);
   const authState = useSelector((state) => state.auth.authInfo);
 
-  const averageScoreHandler = averageScoreData.reduce(
-    (prevValue, currValue, idx) => Number(prevValue) + Number(currValue.score),
-    0
-  );
-  const progress = (averageScoreData.length / subjectsTotal.length) * 100;
-  const averageScore = averageScoreHandler
-    ? Math.round(averageScoreHandler / averageScoreData.length)
-    : 0;
+  const progress = (averageScoreData / subjectsTotal.length) * 100;
   useEffect(() => {
     const url = process.env.REACT_APP_BASE_URL;
     axios
@@ -27,10 +21,12 @@ function ColumnMyClass({ data }) {
         `${url}/subjects/scoring?class_id=${data.class_id}&user_id=${authState.user_id}`
       )
       .then((res) => {
-        setAverageScoreData(res.data.result.scResult);
+        setAverageScoreData(res.data.result.finishedClass);
+        setAverageScore(
+          res.data.result.avgResult ? res.data.result.avgResult : 0
+        );
       });
   }, [authState.user_id, data.class_id]);
-
   return (
     <tbody key={data.class_id}>
       <tr>
@@ -66,7 +62,7 @@ function ColumnMyClass({ data }) {
               color: "#5784BA",
             }}
           >
-            ongoing
+            {progress === 100 ? "complete" : "ongoing"}
           </Link>
         </td>
         {averageScore > 70 && (

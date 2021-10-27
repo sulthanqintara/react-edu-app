@@ -11,9 +11,9 @@ function Activity() {
     <>
       <main>
         <section className="activity-page">
-          <div className="d-flex flex-column flex-xl-row justify-content-between">
+          <div className="d-flex flex-column flex-xl-row">
             <Navbar />
-            <div className="" style={{ padding: "5vw" }}>
+            <div className="flex-grow-1" style={{ padding: "5vw" }}>
               <div className="row">
                 <div className="col">
                   <h3>Activity</h3>
