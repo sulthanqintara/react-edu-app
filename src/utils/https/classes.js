@@ -17,3 +17,10 @@ export const getClassByUser = (query) => {
     headers: { "x-access-token": `Bearer ${token}` },
   });
 };
+
+export const createClass = (data) => {
+  const token = localStorage.getItem("token");
+  return axios.post("http://localhost:8000/classes", data, {
+    headers: { "x-access-token": `Bearer ${token}` },
+  });
+};
