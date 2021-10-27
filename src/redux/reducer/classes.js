@@ -49,6 +49,7 @@ const classesReducer = (prevstate = defaultState, action) => {
         isPending: false,
         isRejected: true,
         error: action.payload,
+        dataPerUser: {},
       };
     case GET_CLASS_BY_USER.concat("_", Fulfilled):
       return {
