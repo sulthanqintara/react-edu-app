@@ -20,7 +20,7 @@ function FasilitatorClass() {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
-  console.log(category);
+  console.log(schedule);
 
   const onCreate = () => {
     if (className === "") {
@@ -200,13 +200,13 @@ function FasilitatorClass() {
                         onChange={(e) => setSchedule(e.target.value)}
                       >
                         <option defaultValue>Open this select menu</option>
-                        <option value="1">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
                       </select>
                       <input
                         type="time"
