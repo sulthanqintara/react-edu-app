@@ -152,7 +152,7 @@ function Profile() {
                     />
                   </div>
                 </div>
-                <div className="container container-fluid">
+                <div className="">
                   <div className="card-body">
                     <div className="row">
                       <div className="col-12">
@@ -271,8 +271,8 @@ function Profile() {
                         <div className="col-md-1 d-flex justify-content-end">
                           <i className="fas fa-chevron-right text-end"></i>
                         </div>
-                        <hr />
                       </div>
+                      <hr />
                       <div className="row change-settings">
                         <div className="col-md-11">
                           <i className="fas fa-bell">

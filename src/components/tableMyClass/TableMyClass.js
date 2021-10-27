@@ -45,11 +45,11 @@ function TableMyClass(props) {
             </tr>
           </thead>
 
-          {props.classes.dataPerUser?.data?.result.data.map((data) => {
+          {props.classes.dataPerUser?.data?.result?.data.map((data) => {
             return <ColumnMyClass data={data} key={data.class_id} />;
           })}
         </table>
-        {!props.classes.dataPerUser.data.result.data && <text>No data</text>}
+        {!props.classes.dataPerUser?.data?.result?.data && <text>No data</text>}
       </div>
     </>
   );
