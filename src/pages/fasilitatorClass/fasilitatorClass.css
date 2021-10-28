@@ -92,7 +92,6 @@
 /* desain create class */
 
 .create-class {
-  max-height: 508px;
   height: 93%;
   background: #ffffff;
   border-radius: 20px;
@@ -120,7 +119,8 @@
 
 .input-name p,
 .input-categories p,
-.input-schedule p, .input-price p {
+.input-schedule p,
+.input-price p {
   width: 15%;
   margin: 0%;
 }
@@ -148,6 +148,6 @@
 .create-class button {
   max-width: 320px;
   width: 100%;
-  background: #57BA61;
-border-radius: 20px;
+  background: #57ba61;
+  border-radius: 20px;
 }

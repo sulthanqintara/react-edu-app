@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import MyClass from "../../components/fasilitatorMyClass/FasilitatorMyClass";
@@ -7,7 +7,7 @@ import "./fasilitatorClass.css";
 import { useSelector } from "react-redux";
 import { createClass } from "../../utils/https/classes";
 import Swal from "sweetalert2";
-// import { Link } from "react-router-dom";
+import axios from "axios";
 
 function FasilitatorClass() {
   const faciliator_id = useSelector((state) => state.auth.authInfo.user_id);
@@ -20,6 +20,8 @@ function FasilitatorClass() {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
+  const url = process.env.REACT_APP_BASE_URL;
+  const [data, setData] = useState([]);
 
   const onCreate = () => {
     if (className === "") {
@@ -116,28 +118,35 @@ function FasilitatorClass() {
         });
       });
   };
+  useEffect(() => {
+    axios
+      .get(
+        `${url}/users/facilitator-classes?facilitator_id=${faciliator_id}&page=1&limit=10`
+      )
+      .then((data) => {
+        setData(data.data.result);
+      });
+  }, [faciliator_id, url]);
 
   return (
     <>
-      <main className="fasilitator d-flex vh-100">
+      <main className="fasilitator d-flex">
         <Navbar />
         <section className="container-fluid my-class d-flex flex-column pt-4 pb-4 pe-5 ps-5 ms-4 me-5">
-          <div className="mb-2">
+          <div>
             <h1>Activity</h1>
             <h2>My Class</h2>
-            <div className="container-fluid table-class ps-4">
+            <div className="container-fluid ps-4">
               <div className="header-table d-flex justify-content-start ps-3">
-                <Form.Check aria-label="option 1" />
                 <h3 className="col-2 text-start">Class Name</h3>
                 <h3 className="col-2">Category</h3>
                 <h3 className="col-4 text-start">Description</h3>
                 <h3 className="col-2">Schedule</h3>
                 <h3 className="col-1">Students</h3>
               </div>
-              <MyClass />
-              <MyClass />
-              <MyClass />
-              <h6 className="text-center mt-3">view all {">"}</h6>
+              {data?.data?.map((mappedData) => {
+                return <MyClass data={mappedData} key={mappedData.class_id} />;
+              })}
             </div>
           </div>
           <div className="bd-new-class mt-4">
