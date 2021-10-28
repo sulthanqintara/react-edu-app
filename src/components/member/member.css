@@ -19,3 +19,9 @@
 .bg-member .fa-ellipsis-v {
   padding-right: 2.1rem;
 }
+
+.modal-score-card-container {
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 26px 44px;
+}
