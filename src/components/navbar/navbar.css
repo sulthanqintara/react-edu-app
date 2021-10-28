@@ -271,3 +271,28 @@
   padding: 0%;
   margin: 0%;
 }
+@media (max-width: 1200px) {
+  .navbar-resize a {
+    line-height: normal;
+  }
+  .active {
+    border-radius: 10px;
+    margin: auto;
+    padding: 2% 0;
+  }
+  .navbar-nav {
+    align-items: center !important;
+  }
+  .navbar {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+}
+@media (max-width: 990px) {
+  .navbar-nav a {
+    padding: 10px 0 !important;
+  }
+  .navbar-nav {
+    padding: 0 20vw !important;
+  }
+}
