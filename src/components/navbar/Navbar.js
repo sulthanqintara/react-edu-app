@@ -64,13 +64,23 @@ function Sidebar(props) {
                 <i className="fab fa-microsoft"></i>
                 Dashboard
               </Link>
-              <Link
-                className={path === "/activity" ? "active" : ""}
-                to="/activity"
-              >
-                <i className="fas fa-book"></i>
-                Activity
-              </Link>
+              {reduxState.authInfo.role_id === 1 ? (
+                <Link
+                  className={path === "/fasilitator/class" ? "active" : ""}
+                  to="/fasilitator/class"
+                >
+                  <i className="fas fa-book"></i>
+                  Activity
+                </Link>
+              ) : (
+                <Link
+                  className={path === "/activity" ? "active" : ""}
+                  to="/activity"
+                >
+                  <i className="fas fa-book"></i>
+                  Activity
+                </Link>
+              )}
               <Link
                 className={path === "/profile" ? "active" : ""}
                 to="/profile"
