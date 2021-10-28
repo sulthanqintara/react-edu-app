@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../classProgress/classProgress.css";
+import { withRouter } from "react-router-dom";
 
 import iconBack from "../../assets/img/icon/icon3.png";
 import iconComputer from "../../assets/img/icon/icon-computer.png";
 import headerImage from "../../assets/img/icon/header-class.png";
 
 import Navbar from "../../components/navbar/Navbar";
-import TableMyClass from "../../components/tableMyClass/TableMyClass";
+import TableClassProgress from "../../components/tableClassProgress/TableClassProgress";
+import { detailClass } from "../../utils/https/classes";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
-function ClassProgress() {
+function ClassProgress(props) {
+  const classId = props.match.params.id;
+  const userId = useSelector((state) => state.auth.authInfo.user_id);
+  const [name, setName] = useState("");
+  const [level, setLevel] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [average, setAverage] = useState("");
+
+  useEffect(() => {
+    if (classId) {
+      detailClass(classId)
+        .then((res) => {
+          const data = res.data.result[0];
+          setName(data.course_name);
+          setLevel(data.level);
+          setCategory(data.category);
+          setPrice(data.pricing);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [classId]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/subjects/scoring?class_id=${classId}&user_id=${userId}`
+      )
+      .then((res) => {
+        console.log(res);
+        setAverage(res.data.result.avgResult);
+      })
+      .catch((err) => console.log(err));
+  }, [classId, userId]);
+
   return (
     <>
       <main>
@@ -29,7 +67,7 @@ function ClassProgress() {
                     </Link>
                   </div>
                   <div className="col-6">
-                    <h4>Front-end Fundamentals</h4>
+                    <h4>{name}</h4>
                   </div>
                   <div className="col-12">
                     <div className="card">
@@ -48,22 +86,24 @@ function ClassProgress() {
                             />
                           </div>
                           <div className="col-5 description-class">
-                            <h4>frontend Fundamentals</h4>
+                            <h4>{name}</h4>
                             <div className="row ">
                               <div className="col-4">
-                                <h5>Level : Beginner</h5>
+                                <h5>Level : {level}</h5>
                               </div>
                               <div className="col-5">
-                                <h5>Category : Software</h5>
+                                <h5>Category : {category}</h5>
                               </div>
                               <div className="col-3">
-                                <h5>Price : Free</h5>
+                                <h5>Price : {price === 0 ? "Free" : price}</h5>
                               </div>
                             </div>
                           </div>
                           <div className="col-3">
                             <p>Your Score</p>
-                            <p className="score-progress text-start">86</p>
+                            <p className="score-progress text-start">
+                              {average}
+                            </p>
                           </div>
                         </div>
                         <div
@@ -85,7 +125,7 @@ function ClassProgress() {
                         </div>
                         <div className="row"></div>
                         <div className="col-12 mt-5">
-                          <TableMyClass />
+                          <TableClassProgress id={classId} />
                         </div>
                       </div>
                     </div>
@@ -100,4 +140,4 @@ function ClassProgress() {
   );
 }
 
-export default ClassProgress;
+export default withRouter(ClassProgress);

@@ -38,6 +38,13 @@
   margin-top: -3vh;
 }
 
+.card .score-progress-table {
+  font-weight: 700;
+  font-size: 24px;
+  color: #51e72b;
+  margin-top: -3vh;
+}
+
 .card p {
   font-weight: 400;
   font-size: 16px;
