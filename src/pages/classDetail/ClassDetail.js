@@ -126,7 +126,9 @@ function ClassDetail(props) {
                             <h5>Information</h5>
                           </div>
                           <div className="col-2 text-end ">
-                            <h5>Class Progress</h5>
+                            <Link to={`/class-progress/${classId}`}>
+                              <h5>Class Progress</h5>
+                            </Link>
                           </div>
                           <div className="col-2 text-end ">
                             <h5>Class Discussion</h5>
