@@ -132,11 +132,11 @@ function FasilitatorClass() {
     <>
       <main className="fasilitator d-flex">
         <Navbar />
-        <section className="container-fluid my-class d-flex flex-column pt-4 pb-4 pe-5 ps-5 ms-4 me-5">
-          <div>
+        <section className="container-fluid my-class d-flex flex-column facilitator-activity-container">
+          <div style={{ overflowX: "auto" }}>
             <h1>Activity</h1>
             <h2>My Class</h2>
-            <div className="container-fluid ps-4">
+            <div className="container-fluid ps-4 facilitator-table-container">
               <div className="header-table d-flex justify-content-start ps-3">
                 <h3 className="col-2 text-start">Class Name</h3>
                 <h3 className="col-2">Category</h3>
@@ -153,8 +153,8 @@ function FasilitatorClass() {
             <h2>Create New class</h2>
             <div className="container-fluid create-class ps-5 pt-4 pe-5 ms-4 me-5">
               <form>
-                <div className="d-flex mb-4">
-                  <div className="col-6">
+                <div className="d-flex flex-column flex-lg-row mb-4">
+                  <div className="flex-grow-1">
                     <div className="input-name d-flex mb-3">
                       <p>Class Name</p>
                       <span>:</span>
@@ -197,32 +197,35 @@ function FasilitatorClass() {
                       </select>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="input-schedule d-flex mt-4">
-                      <p>Schedule</p>
-                      <span>:</span>
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        value={schedule}
-                        onChange={(e) => setSchedule(e.target.value)}
-                      >
-                        <option defaultValue>Open this select menu</option>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                      </select>
+                  <div className="flex-grow-1">
+                    <div className="input-schedule flex-column flex-sm-row d-flex mt-4">
+                      <div className="d-flex">
+                        <p>Schedule</p>
+                        <span>:</span>
+                        <select
+                          className="form-select"
+                          aria-label="Default select example"
+                          value={schedule}
+                          onChange={(e) => setSchedule(e.target.value)}
+                        >
+                          <option defaultValue>Open this select menu</option>
+                          <option value="Monday">Monday</option>
+                          <option value="Tuesday">Tuesday</option>
+                          <option value="Wednesday">Wednesday</option>
+                          <option value="Thursday">Thursday</option>
+                          <option value="Friday">Friday</option>
+                          <option value="Saturday">Saturday</option>
+                          <option value="Sunday">Sunday</option>
+                        </select>
+                      </div>
                       <input
                         type="time"
-                        className="me-2"
+                        className="mx-1 my-1"
                         value={startTime}
                         onChange={(e) => setStartTime(e.target.value)}
                       />
                       <input
+                        className="mx-1 my-1"
                         type="time"
                         value={endTime}
                         onChange={(e) => setEndTime(e.target.value)}
