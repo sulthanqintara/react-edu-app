@@ -1,16 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect, useRef } from "react";
+import { connect, useSelector } from "react-redux";
 import { withRouter, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { getClassAction } from "../../redux/actionCreators/classes";
+import NumberTable from "../tableMyClass/NumberTable";
 
 function TableNewClass(props) {
   const [keyword, setKeyword] = useState("");
   const [categories, setCategories] = useState("");
   const [level, setLevel] = useState(0);
   const [price, setPrice] = useState(0);
-
+  const [page, setPage] = useState(1);
+  const dataState = useSelector((state) => state.classes.data);
+  const totalData = dataState?.data?.result?.totalData
+    ? dataState?.data?.result?.totalData
+    : 0;
+  const data = dataState?.data?.result?.data;
+  const totalPage = dataState?.data?.result?.totalPage
+    ? dataState?.data?.result?.totalPage
+    : 0;
+  const shownData = data ? data.length : 0;
+  const limit = 4;
   const switchCategory = (params) => {
     switch (params) {
       case 1:
@@ -50,13 +61,14 @@ function TableNewClass(props) {
     }
   };
   const location = useLocation();
+  const { getClassAction } = props;
 
   const newClassHandler = (e) => {
-    e.preventDefault();
-    let query = "?";
-    if (keyword !== "") query = query + `&keyword=${keyword}`;
-    if (categories !== "") query = query + `&category_id=${categories}`;
-    if (level !== 0) query = query + `&level_id=${level}`;
+    e?.preventDefault();
+    let query = `?&limit=${limit}&page=${page}`;
+    if (keyword !== "") query += `&keyword=${keyword}`;
+    if (categories !== "") query += `&category_id=${categories}`;
+    if (level) query += `&level_id=${level}`;
     switch (price) {
       case "1":
         query = query + `&price=0`;
@@ -82,14 +94,21 @@ function TableNewClass(props) {
     props.getClassAction(query);
     props.history.push("/activity" + query);
   };
-
-  const { getClassAction } = props;
-
   useEffect(() => {
-    console.log(location.search);
-    getClassAction(location.search);
-  }, [getClassAction]);
+    location.search && getClassAction(location.search);
+    !location.search && getClassAction(`?&limit=${limit}&page=${page}`);
+  }, []);
 
+  let ref2 = useRef(true);
+  useEffect(() => {
+    console.log("pass2", ref2);
+    if (ref2.current) {
+      ref2.current = false;
+    } else {
+      newClassHandler();
+    }
+  }, [page]);
+  console.log(page);
   return (
     <>
       <div className="card">
@@ -119,66 +138,57 @@ function TableNewClass(props) {
                   Search
                 </button>
               </form>
-              <div className="card card-sorting">
-                <div className="">
-                  <div className="row text-center">
-                    <div className="col-md-4 col-4">
-                      <select
-                        className="class-search-dropdown"
-                        defaultValue="0"
-                        onChange={(e) => {
-                          setCategories(e.target.value);
-                        }}
-                      >
-                        <option value="0" disabled>
-                          Categories
-                        </option>
-                        <option value="1">Software</option>
-                        <option value="2">History</option>
-                        <option value="3">Psychology</option>
-                        <option value="4">Finance</option>
-                        <option value="5">Math</option>
-                        <option value="">Any</option>
-                      </select>
-                    </div>
-                    <div className="col-md-4 col-4">
-                      <select
-                        className="class-search-dropdown"
-                        defaultValue="0"
-                        onChange={(e) => {
-                          setLevel(e.target.value);
-                        }}
-                      >
-                        <option value="0" disabled>
-                          Level
-                        </option>
-                        <option value="1">Beginner</option>
-                        <option value="2">Intermediate</option>
-                        <option value="3">Expert</option>
-                        <option value="4">Finance</option>
-                        <option value="5">Math</option>
-                      </select>
-                    </div>
-                    <div className="col-md-4 col-4">
-                      <select
-                        className="class-search-dropdown"
-                        defaultValue="default"
-                        onChange={(e) => {
-                          setPrice(e.target.value);
-                        }}
-                      >
-                        <option value="default" disabled>
-                          Price
-                        </option>
-                        <option value="1">Free</option>
-                        <option value="2">100k and under</option>
-                        <option value="3">250k and under</option>
-                        <option value="4">500k and under</option>
-                        <option value="5">1000k and under</option>
-                        <option value="6">Any</option>
-                      </select>
-                    </div>
-                  </div>
+              <div className="card card-sorting table-responsive">
+                <div className="d-flex flex-row justify-content-between">
+                  <select
+                    className="class-search-dropdown"
+                    defaultValue="0"
+                    onChange={(e) => {
+                      setCategories(e.target.value);
+                    }}
+                  >
+                    <option value="0" disabled>
+                      Categories
+                    </option>
+                    <option value="4">Finance</option>
+                    <option value="2">History</option>
+                    <option value="5">Math</option>
+                    <option value="3">Psychology</option>
+                    <option value="1">Software</option>
+                    <option value="">Any</option>
+                  </select>
+                  <select
+                    className="class-search-dropdown"
+                    defaultValue="0"
+                    onChange={(e) => {
+                      setLevel(Number(e.target.value));
+                    }}
+                  >
+                    <option value="0" disabled>
+                      Level
+                    </option>
+                    <option value="1">Beginner</option>
+                    <option value="2">Intermediate</option>
+                    <option value="3">Expert</option>
+                    <option value={0}>Any</option>
+                  </select>
+                  <select
+                    className="class-search-dropdown"
+                    defaultValue="default"
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                  >
+                    <option value="default" disabled>
+                      Price
+                    </option>
+                    <option value="1">Free</option>
+                    <option value="2">100k and under</option>
+                    <option value="3">250k and under</option>
+                    <option value="4">500k and under</option>
+                    <option value="5">1000k and under</option>
+                    <option value="6">Any</option>
+                  </select>
                 </div>
               </div>
               <div className="table-responsive">
@@ -186,7 +196,7 @@ function TableNewClass(props) {
                   <thead>
                     <tr>
                       <th scope="col">
-                        <div className="form-check">
+                        <div className="">
                           <input
                             className="form-check-input"
                             type="checkbox"
@@ -207,7 +217,7 @@ function TableNewClass(props) {
                       <tbody key={data.id}>
                         <tr>
                           <th scope="row ">
-                            <div className="form-check">
+                            <div className="">
                               <input
                                 className="form-check-input"
                                 type="checkbox"
@@ -238,6 +248,40 @@ function TableNewClass(props) {
                   })}
                 </table>
               </div>
+              <div style={{ fontWeight: "600", fontSize: "12px" }}>
+                Showing {shownData} out of {totalData}
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul className="pagination justify-content-end">
+                  <li className="page-item">
+                    <button
+                      className="page-link"
+                      href="#"
+                      to="#"
+                      onClick={() => {
+                        if (page > 1) setPage(page - 1);
+                      }}
+                    >
+                      &laquo;
+                    </button>
+                  </li>
+                  <NumberTable
+                    totalPage={totalPage}
+                    page={page}
+                    setPage={setPage}
+                  />
+                  <li className="page-item">
+                    <button
+                      className="page-link"
+                      onClick={() => {
+                        if (page < totalPage) setPage(page + 1);
+                      }}
+                    >
+                      &raquo;
+                    </button>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

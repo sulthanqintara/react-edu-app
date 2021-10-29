@@ -82,7 +82,7 @@
 .class-search-dropdown {
   border: none;
   margin: 8px;
-  background-color: transparent;
+  width: auto;
 }
 
 @media (max-width: 1024px) {

@@ -49,12 +49,12 @@ class App extends Component {
           <Route path="/myclass">
             <MyClass />
           </Route>
-          <Route path="/class-detail">
-            <ClassDetail />
+          <Route path="/class-detail/:id">
+            <ClassDetail {...this.props} />
           </Route>
-          <Route path="/class-progress">
+          <Route path="/class-progress/:id">
             <StudentRoute>
-              <ClassProgress />
+              <ClassProgress {...this.props} />
             </StudentRoute>
           </Route>
           <PrivateRoute path="/fasilitator/class">

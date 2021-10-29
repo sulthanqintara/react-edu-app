@@ -16,3 +16,17 @@ export const createClass = (data) => {
     headers: { "x-access-token": `Bearer ${token}` },
   });
 };
+
+export const detailClass = (id) => {
+  const token = localStorage.getItem("token");
+  return axios.get(`http://localhost:8000/classes/${id}`, {
+    headers: { "x-access-token": `Bearer ${token}` },
+  });
+};
+
+export const registerClass = (data) => {
+  const token = localStorage.getItem("token");
+  return axios.post(`http://localhost:8000/classes/apply`, data, {
+    headers: { "x-access-token": `Bearer ${token}` },
+  });
+};

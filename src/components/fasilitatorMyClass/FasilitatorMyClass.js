@@ -1,23 +1,37 @@
-import React from 'react'
-import Form from "react-bootstrap/Form";
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function FasilitatorMyClass() {
-    return (
-        <>
-            <Link to="/fasilitator/class-detail">
-                <div className="bd-table d-flex justify-content-start mb-1 ps-3">
-                    <Form.Check aria-label="option 1" />
-                    <p className="col-2 text-start">Front-end fundamentals</p>
-                    <p className="col-2">Software</p>
-                    <p className="col-4 text-start">Learn the fundamentals of front end...</p>
-                    <p className="col-2">Friday, 08:00 - 09:40</p>
-                    <p className="col-1">24 <i className="fas fa-graduation-cap"></i></p>
-                    <i className="col-1 fas fa-ellipsis-v"></i>
-                </div>
-            </Link>
-        </>
-    )
+function FasilitatorMyClass({ data }) {
+  const url = process.env.REACT_APP_BASE_URL;
+  const [students, setStudents] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${url}/classes/${data.class_id}`)
+      .then((data) => setStudents(data.data.result));
+  }, [data.class_id, url]);
+  return (
+    <>
+      <Link
+        to={`/fasilitator/class-detail/${data.class_id}`}
+        style={{ overflowX: "auto" }}
+      >
+        <div className="bd-table d-flex justify-content-start mb-1 ps-3">
+          <p className="col-2 text-start">{data.class_name}</p>
+          <p className="col-2">{data.category}</p>
+          <p className="col-4 text-start">{data.description}</p>
+          <p className="col-2">
+            {data.day}, {data.start_time.split(":")[0]}:
+            {data.start_time.split(":")[1]} - {data.end_time.split(":")[0]}:
+            {data.end_time.split(":")[1]}
+          </p>
+          <p className="col-1">
+            {students.length} <i className="fas fa-graduation-cap" />
+          </p>
+        </div>
+      </Link>
+    </>
+  );
 }
 
-export default FasilitatorMyClass
+export default FasilitatorMyClass;

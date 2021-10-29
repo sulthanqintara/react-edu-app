@@ -13,13 +13,17 @@ function TableMyClass(props) {
   const location = useLocation();
   useEffect(() => {
     let query = `?user_id=${props.auth.authInfo.user_id}`;
-    if (props.keyword) query = query + `&keyword=${props.keyword}`;
-    if (props.limit) query = query + `&limit=${props.limit}`;
-    console.log(query);
+    if (props.keyword) query += `&keyword=${props.keyword}`;
+    if (props.limit) query += `&limit=${props.limit}`;
+    if (props.page) query = query + `&page=${props.page}`;
     getClassByUserAction(query);
     if (location.search) return history.push(`${location.search}`);
-  }, [getClassByUserAction, props.auth.authInfo.user_id, props.keyword]);
-
+  }, [
+    getClassByUserAction,
+    props.auth.authInfo.user_id,
+    props.keyword,
+    props.page,
+  ]);
   return (
     <>
       <div className="table-responsive my-class">
@@ -27,7 +31,7 @@ function TableMyClass(props) {
           <thead>
             <tr>
               <th scope="col">
-                <div className="form-check">
+                <div className="">
                   <input
                     className="form-check-input"
                     type="checkbox"
@@ -49,7 +53,7 @@ function TableMyClass(props) {
             return <ColumnMyClass data={data} key={data.class_id} />;
           })}
         </table>
-        {!props.classes.dataPerUser?.data?.result?.data && <text>No data</text>}
+        {!props.classes.dataPerUser?.data?.result?.data && <p>No data</p>}
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import MyClass from "../../components/fasilitatorMyClass/FasilitatorMyClass";
@@ -7,7 +7,7 @@ import "./fasilitatorClass.css";
 import { useSelector } from "react-redux";
 import { createClass } from "../../utils/https/classes";
 import Swal from "sweetalert2";
-// import { Link } from "react-router-dom";
+import axios from "axios";
 
 function FasilitatorClass() {
   const faciliator_id = useSelector((state) => state.auth.authInfo.user_id);
@@ -20,7 +20,8 @@ function FasilitatorClass() {
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [description, setDescription] = useState("");
-  console.log(category);
+  const url = process.env.REACT_APP_BASE_URL;
+  const [data, setData] = useState([]);
 
   const onCreate = () => {
     if (className === "") {
@@ -117,36 +118,43 @@ function FasilitatorClass() {
         });
       });
   };
+  useEffect(() => {
+    axios
+      .get(
+        `${url}/users/facilitator-classes?facilitator_id=${faciliator_id}&page=1&limit=10`
+      )
+      .then((data) => {
+        setData(data.data.result);
+      });
+  }, [faciliator_id, url]);
 
   return (
     <>
-      <main className="fasilitator d-flex vh-100">
+      <main className="fasilitator d-flex">
         <Navbar />
-        <section className="container-fluid my-class d-flex flex-column pt-4 pb-4 pe-5 ps-5 ms-4 me-5">
-          <div className="mb-2">
+        <section className="container-fluid my-class d-flex flex-column facilitator-activity-container">
+          <div style={{ overflowX: "auto" }}>
             <h1>Activity</h1>
             <h2>My Class</h2>
-            <div className="container-fluid table-class ps-4">
+            <div className="container-fluid ps-4 facilitator-table-container">
               <div className="header-table d-flex justify-content-start ps-3">
-                <Form.Check aria-label="option 1" />
                 <h3 className="col-2 text-start">Class Name</h3>
                 <h3 className="col-2">Category</h3>
                 <h3 className="col-4 text-start">Description</h3>
                 <h3 className="col-2">Schedule</h3>
                 <h3 className="col-1">Students</h3>
               </div>
-              <MyClass />
-              <MyClass />
-              <MyClass />
-              <h6 className="text-center mt-3">view all {">"}</h6>
+              {data?.data?.map((mappedData) => {
+                return <MyClass data={mappedData} key={mappedData.class_id} />;
+              })}
             </div>
           </div>
           <div className="bd-new-class mt-4">
             <h2>Create New class</h2>
             <div className="container-fluid create-class ps-5 pt-4 pe-5 ms-4 me-5">
               <form>
-                <div className="d-flex mb-4">
-                  <div className="col-6">
+                <div className="d-flex flex-column flex-lg-row mb-4">
+                  <div className="flex-grow-1">
                     <div className="input-name d-flex mb-3">
                       <p>Class Name</p>
                       <span>:</span>
@@ -189,32 +197,35 @@ function FasilitatorClass() {
                       </select>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="input-schedule d-flex mt-4">
-                      <p>Schedule</p>
-                      <span>:</span>
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                        value={schedule}
-                        onChange={(e) => setSchedule(e.target.value)}
-                      >
-                        <option defaultValue>Open this select menu</option>
-                        <option value="1">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                      </select>
+                  <div className="flex-grow-1">
+                    <div className="input-schedule flex-column flex-sm-row d-flex mt-4">
+                      <div className="d-flex">
+                        <p>Schedule</p>
+                        <span>:</span>
+                        <select
+                          className="form-select"
+                          aria-label="Default select example"
+                          value={schedule}
+                          onChange={(e) => setSchedule(e.target.value)}
+                        >
+                          <option defaultValue>Open this select menu</option>
+                          <option value="Monday">Monday</option>
+                          <option value="Tuesday">Tuesday</option>
+                          <option value="Wednesday">Wednesday</option>
+                          <option value="Thursday">Thursday</option>
+                          <option value="Friday">Friday</option>
+                          <option value="Saturday">Saturday</option>
+                          <option value="Sunday">Sunday</option>
+                        </select>
+                      </div>
                       <input
                         type="time"
-                        className="me-2"
+                        className="mx-1 my-1"
                         value={startTime}
                         onChange={(e) => setStartTime(e.target.value)}
                       />
                       <input
+                        className="mx-1 my-1"
                         type="time"
                         value={endTime}
                         onChange={(e) => setEndTime(e.target.value)}

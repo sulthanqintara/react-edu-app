@@ -72,6 +72,9 @@
   letter-spacing: 0.05em;
   color: #000000;
   margin: 0%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 55px;
 }
 
 .bd-table {
@@ -88,11 +91,15 @@
   line-height: 15px;
   color: #000000;
 }
-
+.facilitator-table-container {
+  min-width: 600px;
+}
+.facilitator-activity-container {
+  padding: 3vw !important;
+}
 /* desain create class */
 
 .create-class {
-  max-height: 508px;
   height: 93%;
   background: #ffffff;
   border-radius: 20px;
@@ -117,11 +124,15 @@
   line-height: 15px;
   color: #000000;
 }
+.input-schedule input {
+  width: 100px;
+}
 
 .input-name p,
 .input-categories p,
-.input-schedule p, .input-price p {
-  width: 15%;
+.input-schedule p,
+.input-price p {
+  width: 100px;
   margin: 0%;
 }
 
@@ -148,6 +159,24 @@
 .create-class button {
   max-width: 320px;
   width: 100%;
-  background: #57BA61;
-border-radius: 20px;
+  background: #57ba61;
+  border-radius: 20px;
+}
+
+@media (max-width: 1200px) {
+  .fasilitator {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .title-new-class-facilitator {
+    flex: 1 1;
+  }
+}
+
+@media (max-width: 580px) {
+  .input-schedule input {
+    margin-left: 120px !important;
+  }
 }
