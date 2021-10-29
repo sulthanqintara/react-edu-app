@@ -62,9 +62,9 @@ class App extends Component {
               <FasilitatorClass />
             </FacilitatorRoute>
           </PrivateRoute>
-          <Route path="/fasilitator/class-detail">
+          <Route path="/fasilitator/class-detail/:id">
             <FacilitatorRoute>
-              <FasilitatorClassDetail />
+              <FasilitatorClassDetail {...this.props} />
             </FacilitatorRoute>
           </Route>
         </Router>

@@ -173,7 +173,7 @@ function FasilitatorClass() {
                         onChange={(e) => setCategory(e.target.value)}
                         value={category}
                       >
-                        <option defaultValue>Open this select menu</option>
+                        <option hidden>Open this select menu</option>
                         <option value="1">Software</option>
                         <option value="2">History</option>
                         <option value="3">Psychology</option>
@@ -190,7 +190,7 @@ function FasilitatorClass() {
                         onChange={(e) => setLevel(e.target.value)}
                         value={level}
                       >
-                        <option defaultValue>Open this select menu</option>
+                        <option hidden>Open this select menu</option>
                         <option value="1">Beginner</option>
                         <option value="2">Intermediate</option>
                         <option value="3">Advanced</option>
@@ -208,7 +208,7 @@ function FasilitatorClass() {
                           value={schedule}
                           onChange={(e) => setSchedule(e.target.value)}
                         >
-                          <option defaultValue>Open this select menu</option>
+                          <option hidden>Open this select menu</option>
                           <option value="Monday">Monday</option>
                           <option value="Tuesday">Tuesday</option>
                           <option value="Wednesday">Wednesday</option>
@@ -249,7 +249,7 @@ function FasilitatorClass() {
                         onChange={(e) => setPricing(e.target.value)}
                         value={pricing}
                       >
-                        <option defaultValue>Open this select menu</option>
+                        <option hidden>Open this select menu</option>
                         <option value="0">Free : Rp. 0</option>
                         <option value="60000">Paid : Rp. 60.000</option>
                         <option value="40000">Paid : Rp. 40.000</option>

@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Profile from "../../assets/img/icon/member1.png";
 import "./member.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MemberCard from "../memberCard/MemberCard";
+import axios from "axios";
 
 function MyVerticallyCenteredModal(props) {
+  const classId = props.classId;
+  const studentId = props.studentId;
+  const [subjects, setSubject] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/subjects/scoring?class_id=${classId}&user_id=${studentId}`
+      )
+      .then((res) => {
+        console.log(res.data.result.scResult);
+        setSubject(res.data.result.scResult);
+      })
+      .catch((err) => console.log(err));
+  }, [classId, studentId]);
+
   return (
     <Modal
       {...props}
@@ -24,10 +41,16 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         {/* MAP DATA DI SINI */}
-        <MemberCard score={100} subject="HTML Essential Training" />
-        <MemberCard score={60} subject="CSS Essential Training" />
-        <MemberCard score={21} subject="Javascript Essential Training" />
-        <MemberCard score={null} subject="Responsive Layout" />
+        {subjects.map((data) => {
+          return (
+            <MemberCard
+              score={data.score}
+              subject={data.subject}
+              studentId={studentId}
+              subjectId={data.subject_id}
+            />
+          );
+        })}
         {/* MAP DATA DI SINI */}
       </Modal.Body>
       <Modal.Footer>
@@ -36,7 +59,7 @@ function MyVerticallyCenteredModal(props) {
     </Modal>
   );
 }
-function Member() {
+function Member({ name, studentId, classId }) {
   const [modalShow, setModalShow] = useState(false);
 
   return (
@@ -48,9 +71,11 @@ function Member() {
         show={modalShow}
         onHide={() => setModalShow(false)}
         profile={Profile}
+        studentId={studentId}
+        classId={classId}
       />
-      <img src={Profile} height={64} width={64} alt="pict" />
-      <p className="col-7 m-0 pt-1 text-center">Deddy Corbuzier</p>
+      <img src={Profile} height={64} className="ms-2" width={64} alt="pict" />
+      <p className="col-7 m-0 pt-1 text-center">{name}</p>
       <i className="col-2 fas fa-ellipsis-v text-end mt-0"></i>
     </div>
   );
