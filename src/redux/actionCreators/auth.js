@@ -16,10 +16,10 @@ export const registerAction = (body) => {
   };
 };
 
-export const logoutAction = () => {
+export const logoutAction = (token) => {
   return {
     type: SIGN_OUT,
-    payload: deleteLogout(),
+    payload: deleteLogout(token),
   };
 };
 
