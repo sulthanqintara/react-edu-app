@@ -30,3 +30,10 @@ export const registerClass = (data) => {
     headers: { "x-access-token": `Bearer ${token}` },
   });
 };
+
+export const updateClass = (id, data) => {
+  const token = localStorage.getItem("token");
+  return axios.patch(`http://localhost:8000/classes/${id}`, data, {
+    headers: { "x-access-token": `Bearer ${token}` },
+  });
+};

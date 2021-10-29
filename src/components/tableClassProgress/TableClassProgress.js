@@ -11,15 +11,6 @@ function TableClassProgress(props) {
   const [subjectClass, setSubjectClass] = useState([]);
   const userId = useSelector((state) => state.auth.authInfo.user_id);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:8000/subjects/classes/${id}`)
-  //     .then((res) => {
-  //       // console.log(res.data.result);
-  //       setSubjectClass(res.data.result);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [id]);
   useEffect(() => {
     axios
       .get(
@@ -54,7 +45,6 @@ function TableClassProgress(props) {
           </thead>
           {subjectClass.map((data) => {
             const day = new Date(data.date);
-            console.log(day);
             return (
               <tbody key={data.id}>
                 <tr>
