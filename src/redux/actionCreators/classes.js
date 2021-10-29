@@ -1,15 +1,15 @@
 import { GET_CLASSES, GET_CLASS_BY_USER } from "../actionCreators/actionString";
 import { getClasses, getClassByUser } from "../../utils/https/classes";
 
-export const getClassAction = (body) => {
+export const getClassAction = (query) => {
   return {
     type: GET_CLASSES,
-    payload: getClasses(body),
+    payload: getClasses(query),
   };
 };
-export const getClassByUserAction = (body) => {
+export const getClassByUserAction = (query) => {
   return {
     type: GET_CLASS_BY_USER,
-    payload: getClassByUser(body),
+    payload: getClassByUser(query),
   };
 };
