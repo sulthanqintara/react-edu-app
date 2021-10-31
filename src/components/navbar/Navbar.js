@@ -27,13 +27,10 @@ function Sidebar(props) {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", () => {
-        setWidth(window.innerWidth);
-      });
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -48,13 +45,23 @@ function Sidebar(props) {
         <Navbar className="navbar-resize" expand="lg">
           <Navbar.Brand>
             <Link className="link-profile" to="/profile">
-              <img
-                src={`http://localhost:8000${reduxState.authInfo.image}`}
-                height={56}
-                width={56}
-                className="rounded-circle"
-                alt="pict"
-              />
+              {reduxState.authInfo.image ? (
+                <img
+                  src={`http://localhost:8000${reduxState.authInfo.image}`}
+                  height={56}
+                  width={56}
+                  className="rounded-circle"
+                  alt="pict"
+                />
+              ) : (
+                <img
+                  src={defaultPicture}
+                  height={56}
+                  width={56}
+                  className="rounded-circle"
+                  alt="pict"
+                />
+              )}
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

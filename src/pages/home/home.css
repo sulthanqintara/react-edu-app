@@ -8,6 +8,7 @@
 .column-middle {
   display: flex;
   flex-direction: column;
+  margin-right: 34%;
 }
 
 /* background */
@@ -222,10 +223,11 @@ ul.indicators {
 
 /* desain message */
 .messages {
-  height: 100vh;
-  margin-right: 1.5rem;
+  height: 100%;
   padding-bottom: 1rem;
   padding-top: 1rem;
+  position: fixed;
+  right: 1%;
 }
 .bg-messages {
   height: 100%;
@@ -330,7 +332,8 @@ ul.indicators {
   height: 40px;
   align-self: center;
 }
-.schedule-class .capacity, .schedule-class .icon{
+.schedule-class .capacity,
+.schedule-class .icon {
   align-self: center;
 }
 .btn-class button {
@@ -347,56 +350,156 @@ ul.indicators {
   line-height: 28px;
   color: #ffffff;
 }
-
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 576px) {
-  .main-home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0%;
-  }
-
-} */
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 578px) {
-  .main-home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    margin: 0%;
-  }
-  .bd-slider{
-    height: 50%;
-  }
-
-  .bd-schedule{
-    height: 50%;
-  }
-  .schedule-scroll {
-    height: 40%;
-  }
-} */
-
-/* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {
-} */
-
-/* Large devices (laptops/desktops, 992px and up) */
-/* @media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 576px) and (max-width: 768px) {
   .main-home {
     display: flex;
     flex-direction: column;
   }
-} */
+  .column-middle {
+    align-self: center;
+    margin-right: 5%;
+  }
+  .bd-slider,
+  .bd-schedule {
+    width: 120%;
+  }
+  .icon-message {
+    bottom: 3%;
+    margin-right: 2%;
+    font-size: 4rem;
+    position: fixed;
+    right: 1%;
+  }
+  .message-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.53);
+    z-index: 500;
+    height: 130vh;
+    width: 100%;
+  }
+  .messages {
+    z-index: 1000;
+    right: 50%;
+    width: 50%;
+    padding-bottom: 1rem;
+    top: 9%;
+  }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (max-width: 1200px) {
+  .bg-messages {
+    z-index: 900;
+    width: 200%;
+    height: 90%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .main-home {
     display: flex;
     flex-direction: column;
+  }
+  .column-middle {
+    align-self: center;
+    margin-right: 5%;
+  }
+  .bd-slider,
+  .bd-schedule {
+    width: 120%;
+  }
+  .icon-message {
+    bottom: 3%;
+    margin-right: 2%;
+    font-size: 4rem;
+    position: fixed;
+    right: 1%;
+  }
+  .message-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.53);
+    z-index: 500;
+    height: 130vh;
+    width: 100%;
+  }
+  .messages {
+    z-index: 1000;
+    right: 50%;
+    width: 50%;
+    padding-bottom: 1rem;
+    top: 9%;
+  }
+
+  .bg-messages {
+    z-index: 900;
+    width: 200%;
+    height: 90%;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .main-home {
+    display: flex;
+    flex-direction: column;
+  }
+  .column-middle {
+    align-self: center;
+    margin-right: 5%;
+  }
+  .bd-slider,
+  .bd-schedule {
+    width: 120%;
+  }
+  .icon-message {
+    bottom: 3%;
+    margin-right: 2%;
+    font-size: 4rem;
+    position: fixed;
+    right: 1%;
+  }
+  .message-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.53);
+    z-index: 500;
+    height: 130vh;
+    width: 100%;
+  }
+  .messages {
+    z-index: 1000;
+    right: 50%;
+    width: 50%;
+    padding-bottom: 1rem;
+    top: 9%;
+  }
+
+  .bg-messages {
+    z-index: 900;
+    width: 200%;
+    height: 90%;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .main-home {
+    display: flex;
+    flex-direction: row;
+  }
+  .title-slider h1,
+  .carousel-caption h3,
+  .title-date h1,
+  .title-chat h1 {
+    font-size: 1.5rem;
+  }
+  .slide-container {
+    max-height: 300px;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+  .image-item {
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .main-home {
+    display: flex;
+    flex-direction: row;
   }
 }
