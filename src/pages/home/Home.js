@@ -22,6 +22,8 @@ function Home(props) {
   const [active, setActive] = useState(0);
   const [data, setData] = useState([]);
   const [changeSchedule, setChangeSchedule] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [openMessage, setOpenMessage] = useState(false);
   const auth = useSelector((reduxState) => reduxState.auth);
   const monthNames = [
     "January",
@@ -110,7 +112,6 @@ function Home(props) {
     axios
       .get(`${url}/classes/day?day=${filter}&facilitator_id=${id}`)
       .then(({ data }) => {
-        
         setData(data.result);
       })
       .catch((err) => {
@@ -139,6 +140,13 @@ function Home(props) {
     ];
     setActive(date);
     getByDay(days[date]);
+
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -269,7 +277,7 @@ function Home(props) {
                 }}
               >
                 <h5>Su</h5>
-                <h5>{whatDate(7)}</h5>
+                <h5>{whatDate(0)}</h5>
               </div>
             </div>
             {auth.authInfo.role_id === 1 ? (
@@ -329,19 +337,49 @@ function Home(props) {
             ) : null}
           </div>
         </section>
-        <section className="messages col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-          <div className="bg-messages">
-            <div className="title-chat">
-              <h1>Messages</h1>
-              <i className="fas fa-plus-circle fa-lg"></i>
+        {width < 1200 ? (
+          <>
+            <i
+              className="icon-message far fa-comment-dots"
+              onClick={() => setOpenMessage(true)}
+            ></i>
+            {openMessage === false ? null : (
+              <>
+                <div className="message-container"></div>
+                <section className="messages col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                  <div className="bg-messages">
+                    <div className="title-chat">
+                      <h1>Messages</h1>
+                      <i
+                        className="fas fa-plus-circle fa-lg"
+                        onClick={() => setOpenMessage(false)}
+                      ></i>
+                    </div>
+                    <div className="box-search mb-4">
+                      <i className="fas fa-search"></i>
+                      <input className="ps-5" placeholder="Search" />
+                    </div>
+                    <ChatMessage />
+                  </div>
+                </section>
+              </>
+            )}
+          </>
+        ) : (
+          <section className="messages col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+            <div className="bg-messages">
+              <div className="title-chat">
+                <h1>Messages</h1>
+                <i className="fas fa-plus-circle fa-lg"></i>
+              </div>
+              <div className="box-search mb-4">
+                <i className="fas fa-search"></i>
+                <input className="ps-5" placeholder="Search" />
+              </div>
+              <ChatMessage />
             </div>
-            <div className="box-search mb-4">
-              <i className="fas fa-search"></i>
-              <input className="ps-5" placeholder="Search" />
-            </div>
-            <ChatMessage />
-          </div>
-        </section>
+          </section>
+        )}
       </main>
     </div>
   );
