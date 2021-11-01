@@ -98,7 +98,6 @@ function Home(props) {
     axios
       .get(`${url}/classes/day?day=${filter}&user_id=${id}`)
       .then(({ data }) => {
-        console.log(data);
         setData(data.result);
       })
       .catch((err) => {
@@ -110,7 +109,6 @@ function Home(props) {
     axios
       .get(`${url}/classes/day?day=${filter}&facilitator_id=${id}`)
       .then(({ data }) => {
-        
         setData(data.result);
       })
       .catch((err) => {
@@ -141,7 +139,6 @@ function Home(props) {
     getByDay(days[date]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <div>
       <main className="main-home">
@@ -191,7 +188,7 @@ function Home(props) {
                 className={active === 1 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(1);
-                  changeSchedule
+                  !changeSchedule
                     ? getByDay("Monday")
                     : dataClass("Monday", auth.authInfo.user_id);
                 }}
@@ -203,7 +200,7 @@ function Home(props) {
                 className={active === 2 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(2);
-                  changeSchedule
+                  !changeSchedule
                     ? getByDay("Tuesday")
                     : dataClass("Tuesday", auth.authInfo.user_id);
                 }}
@@ -215,7 +212,7 @@ function Home(props) {
                 className={active === 3 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(3);
-                  changeSchedule
+                  !changeSchedule
                     ? getByDay("Wednesday")
                     : dataClass("Wednesday", auth.authInfo.user_id);
                 }}
@@ -227,7 +224,7 @@ function Home(props) {
                 className={active === 4 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(4);
-                  changeSchedule
+                  !changeSchedule
                     ? getByDay("Thursday")
                     : dataClass("Thursday", auth.authInfo.user_id);
                 }}
@@ -239,7 +236,7 @@ function Home(props) {
                 className={active === 5 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(5);
-                  changeSchedule
+                  !changeSchedule
                     ? getByDay("Friday")
                     : dataClass("Friday", auth.authInfo.user_id);
                 }}
@@ -251,7 +248,7 @@ function Home(props) {
                 className={active === 6 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(6);
-                  changeSchedule
+                  !changeSchedule
                     ? getByDay("Saturday")
                     : dataClass("Saturday", auth.authInfo.user_id);
                 }}
@@ -263,7 +260,7 @@ function Home(props) {
                 className={active === 0 ? "click-day" : "non-click"}
                 onClick={() => {
                   setActive(0);
-                  changeSchedule === false
+                  !changeSchedule
                     ? getByDay("Sunday")
                     : dataClass("Sunday", auth.authInfo.user_id);
                 }}
