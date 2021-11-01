@@ -36,7 +36,7 @@ function MyVerticallyCenteredModal(props) {
           className="d-flex flex-row flex-grow-1 align-items-center"
         >
           <img src={props.profile} height={64} width={64} alt="pict" />
-          <p className="text-center m-0 ps-4">Deddy Corbuzier</p>
+          <p className="text-center m-0 ps-4">{props.name}</p>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -46,8 +46,7 @@ function MyVerticallyCenteredModal(props) {
             <MemberCard
               score={data.score}
               subject={data.subject}
-              studentId={studentId}
-              subjectId={data.subject_id}
+              id={data.id}
             />
           );
         })}
@@ -73,6 +72,7 @@ function Member({ name, studentId, classId }) {
         profile={Profile}
         studentId={studentId}
         classId={classId}
+        name={name}
       />
       <img src={Profile} height={64} className="ms-2" width={64} alt="pict" />
       <p className="col-7 m-0 pt-1 text-center">{name}</p>

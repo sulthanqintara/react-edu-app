@@ -23,7 +23,8 @@ function ClassDetail(props) {
       detailClass(classId)
         .then((res) => {
           const data = res.data.result[0];
-          setName(data.course_name);
+          console.log(data);
+          setName(data.name);
           setDescription(data.description);
         })
         .catch((err) => console.log(err));

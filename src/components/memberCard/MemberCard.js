@@ -1,18 +1,16 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-function MemberCard({ score, subject, studentId, subjectId }) {
+function MemberCard({ score, id, subject }) {
   const [newScore, setNewScore] = useState(null);
-  console.log(newScore);
   const token = localStorage.getItem("token");
 
   const onAddScore = () => {
     const data = new URLSearchParams();
-    data.append("user_id", studentId);
-    data.append("subject_id", subjectId);
+    data.append("id", id);
     data.append("score", newScore);
     axios
-      .post(`http://localhost:8000/subjects/scoring`, data, {
+      .patch(`http://localhost:8000/subjects/scoring`, data, {
         headers: { "x-access-token": `Bearer ${token}` },
       })
       .then((res) => console.log(res))
@@ -38,7 +36,6 @@ function MemberCard({ score, subject, studentId, subjectId }) {
       )}
       {score < 70 && score > 50 && (
         <h3 className="score orange text-center">
-          {" "}
           <input
             type="text"
             placeholder={score}

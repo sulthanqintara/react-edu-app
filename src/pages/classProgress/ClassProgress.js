@@ -27,9 +27,9 @@ function ClassProgress(props) {
       detailClass(classId)
         .then((res) => {
           const data = res.data.result[0];
-          setName(data.course_name);
-          setLevel(data.level);
-          setCategory(data.category);
+          setName(data.name);
+          setLevel(data.level_id);
+          setCategory(data.category_id);
           setPrice(data.pricing);
         })
         .catch((err) => console.log(err));
@@ -42,7 +42,6 @@ function ClassProgress(props) {
         `http://localhost:8000/subjects/scoring?class_id=${classId}&user_id=${userId}`
       )
       .then((res) => {
-        console.log(res);
         setAverage(res.data.result.avgResult);
       })
       .catch((err) => console.log(err));
@@ -89,10 +88,32 @@ function ClassProgress(props) {
                             <h4>{name}</h4>
                             <div className="row ">
                               <div className="col-4">
-                                <h5>Level : {level}</h5>
+                                <h5>
+                                  Level :{" "}
+                                  {level === 1
+                                    ? "Beginner"
+                                    : level === 2
+                                    ? "Intermediate"
+                                    : level === 3
+                                    ? "Advanced"
+                                    : ""}
+                                </h5>
                               </div>
                               <div className="col-5">
-                                <h5>Category : {category}</h5>
+                                <h5>
+                                  Category :{" "}
+                                  {category === 1
+                                    ? "Software"
+                                    : category === 2
+                                    ? "History"
+                                    : category === 3
+                                    ? "Psychology"
+                                    : category === 4
+                                    ? "Finance"
+                                    : category === 5
+                                    ? "Math"
+                                    : ""}
+                                </h5>
                               </div>
                               <div className="col-3">
                                 <h5>Price : {price === 0 ? "Free" : price}</h5>
