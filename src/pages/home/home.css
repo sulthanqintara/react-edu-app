@@ -350,7 +350,7 @@ ul.indicators {
   line-height: 28px;
   color: #ffffff;
 }
-@media only screen and (min-width: 576px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .main-home {
     display: flex;
     flex-direction: column;
