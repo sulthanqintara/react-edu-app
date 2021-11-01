@@ -76,11 +76,18 @@
 .red {
   color: #e6422b !important;
 }
-.pagination > .active > .page-link {
+.pagination > .active-button-my-class > .page-link {
   background-color: #5784ba !important;
+  color: #eeeeee;
 }
-.pagination > .active {
+.pagination > .active-button-my-class {
   width: min-content;
+}
+
+@media (max-width: 1200px) {
+  .pagination {
+    margin-top: 0.5rem;
+  }
 }
 
 @media (max-width: 1024px) {

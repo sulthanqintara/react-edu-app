@@ -5,7 +5,7 @@ function NumberTable({ totalPage, page, setPage }) {
   for (let index = 1; index <= totalPage; index++) {
     if (page === index) {
       array.push(
-        <li className="page-item active" key={index}>
+        <li className="page-item active-button-my-class" key={index}>
           <button
             className="page-link"
             onClick={() => {

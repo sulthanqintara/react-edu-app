@@ -152,7 +152,7 @@ function Home(props) {
     <div>
       <main className="main-home">
         <Navbar />
-        <section className="column-middle col-6 col-sm-6 col-md-6 col-lg-5 col-xl-5">
+        <section className="column-middle col-8 col-sm-8 col-md-8 col-lg-5 col-xl-5">
           <div className="bd-slider ">
             <div className="title-slider">
               <h1>News</h1>
@@ -166,6 +166,7 @@ function Home(props) {
                       src={fadeImage.url}
                       alt="First slide"
                       className="image-item"
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 ))}
@@ -344,7 +345,7 @@ function Home(props) {
             {openMessage === false ? null : (
               <>
                 <div className="message-container"></div>
-                <section className="messages col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                <section className="messages col-5 col-sm-5 col-md-5 col-lg-5 col-xl-3">
                   <div className="bg-messages">
                     <div className="title-chat">
                       <h1>Messages</h1>
