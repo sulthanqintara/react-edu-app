@@ -27,17 +27,18 @@ function Member(props) {
 
   // Students
   const [students, setStudent] = useState([]);
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/classes/students/${id}`)
+      .get(`${url}/classes/students/${id}`)
       .then((res) => {
         // console.log(res.data.result);
         const data = res.data.result;
         setStudent(data);
       })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, [id, url]);
 
   useEffect(() => {
     detailClass(id)

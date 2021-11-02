@@ -10,12 +10,11 @@ function TableClassProgress(props) {
   const { id } = props;
   const [subjectClass, setSubjectClass] = useState([]);
   const userId = useSelector((state) => state.auth.authInfo.user_id);
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:8000/subjects/scoring?class_id=${id}&user_id=${userId}`
-      )
+      .get(`${url}/subjects/scoring?class_id=${id}&user_id=${userId}`)
       .then((res) => {
         // console.log(res.data.result.scResult);
         setSubjectClass(res.data.result.scResult);

@@ -4,20 +4,29 @@ import { Link } from "react-router-dom";
 import "../classDetail/classDetail.css";
 import { withRouter } from "react-router-dom";
 import { detailClass, registerClass } from "../../utils/https/classes";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import iconBack from "../../assets/img/icon/icon3.png";
 import iconComputer from "../../assets/img/icon/icon-computer.png";
 import headerImage from "../../assets/img/icon/header-class.png";
 
 import Navbar from "../../components/navbar/Navbar";
+import { getClassByUserAction } from "../../redux/actionCreators/classes";
 
 function ClassDetail(props) {
   const classId = props.match.params.id;
   const userId = useSelector((state) => state.auth.authInfo.user_id);
+  const classes = useSelector(
+    (state) => state.classes.dataPerUser.data.result.data
+  );
+  const classesData = classes || [];
+  const filtered = classesData?.filter(
+    (data) => data.class_id === Number(classId)
+  );
+  console.log(filtered, "filter");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (classId) {
       detailClass(classId)
@@ -28,8 +37,9 @@ function ClassDetail(props) {
         })
         .catch((err) => console.log(err));
     }
-  }, [classId]);
-
+    let query = `?user_id=${userId}`;
+    dispatch(getClassByUserAction(query));
+  }, [classId, dispatch, userId]);
   const onRegister = () => {
     const data = new URLSearchParams();
     data.append("user_id", userId);
@@ -99,26 +109,28 @@ function ClassDetail(props) {
                             </div>
                           </div>
                           <div className="col-3">
-                            <button
-                              className="btn btn-register"
-                              onClick={() => {
-                                Swal.fire({
-                                  title: "Confirm for register",
-                                  text: "Are you sure you want to register?",
-                                  icon: "warning",
-                                  showCancelButton: true,
-                                  confirmButtonColor: "#3085d6",
-                                  cancelButtonColor: "#d33",
-                                  confirmButtonText: "Yes",
-                                }).then((result) => {
-                                  if (result.isConfirmed) {
-                                    onRegister();
-                                  }
-                                });
-                              }}
-                            >
-                              Register
-                            </button>
+                            {filtered.length === 0 && (
+                              <button
+                                className="btn btn-register"
+                                onClick={() => {
+                                  Swal.fire({
+                                    title: "Confirm for register",
+                                    text: "Are you sure you want to register?",
+                                    icon: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Yes",
+                                  }).then((result) => {
+                                    if (result.isConfirmed) {
+                                      onRegister();
+                                    }
+                                  });
+                                }}
+                              >
+                                Register
+                              </button>
+                            )}
                           </div>
                         </div>
                         <div className="row mt-5 description-link">
@@ -146,7 +158,7 @@ function ClassDetail(props) {
                               <p>{description}</p>
                             </div>
                           </div>
-                          <div className="row description-learn">
+                          {/* <div className="row description-learn">
                             <div className="col-4 ">
                               <h4 className="text-center ">
                                 What will i learn
@@ -180,7 +192,7 @@ function ClassDetail(props) {
                                 </li>
                               </ul>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>

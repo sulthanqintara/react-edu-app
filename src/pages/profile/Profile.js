@@ -16,17 +16,18 @@ function Profile() {
   const [userName, setUserName] = useState("");
   const [newPass, setNewPass] = useState("");
   const [oldPass, setOldPass] = useState("");
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState(ProfilePlaceholder);
   const [id, setId] = useState(0);
   const auth = useSelector((reduxState) => reduxState.auth);
   const dispatch = useDispatch();
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const id = auth.authInfo.user_id;
     const token = localStorage.getItem("token");
     if (id) {
       axios
-        .get(`http://localhost:8000/users/?id=${id}`, {
+        .get(`${url}/users/?id=${id}`, {
           headers: {
             "x-access-token": `Bearer ${token}`,
           },
@@ -35,14 +36,16 @@ function Profile() {
           const data = res.data.result;
           setPhone(data.phone);
           setImage(data.image);
-          setImagePreview(data.image);
+          data?.image
+            ? setImagePreview(url + data.image)
+            : setImagePreview(ProfilePlaceholder);
           setId(data.id);
           setName(data.name);
           setUserName(data.username);
         })
         .catch((err) => console.log(err));
     }
-  }, [auth.authInfo.user_id]);
+  }, [auth.authInfo.user_id, url]);
 
   const onSubmitProfile = (e) => {
     const data = new FormData();
@@ -89,7 +92,7 @@ function Profile() {
     };
     const token = localStorage.getItem("token");
     return axios
-      .patch(`http://localhost:8000/users/update-password`, data, {
+      .patch(`${url}/users/update-password`, data, {
         headers: {
           "x-access-token": `Bearer ${token}`,
         },
@@ -111,6 +114,7 @@ function Profile() {
         });
       });
   };
+
   return (
     <>
       <main>
@@ -129,7 +133,7 @@ function Profile() {
                       className="d-flex flex-column"
                     >
                       <img
-                        src={imagePreview ? imagePreview : ProfilePlaceholder}
+                        src={imagePreview}
                         className="profile-icon"
                         alt="profile"
                       />
