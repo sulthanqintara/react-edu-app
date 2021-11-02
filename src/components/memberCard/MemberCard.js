@@ -5,6 +5,7 @@ function MemberCard({ score, subject, studentId, subjectId }) {
   const [newScore, setNewScore] = useState(null);
   console.log(newScore);
   const token = localStorage.getItem("token");
+  const url = process.env.REACT_APP_BASE_URL;
 
   const onAddScore = () => {
     const data = new URLSearchParams();
@@ -12,7 +13,7 @@ function MemberCard({ score, subject, studentId, subjectId }) {
     data.append("subject_id", subjectId);
     data.append("score", newScore);
     axios
-      .post(`http://localhost:8000/subjects/scoring`, data, {
+      .post(`${url}/subjects/scoring`, data, {
         headers: { "x-access-token": `Bearer ${token}` },
       })
       .then((res) => console.log(res))

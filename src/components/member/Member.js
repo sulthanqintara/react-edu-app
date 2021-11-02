@@ -10,18 +10,17 @@ function MyVerticallyCenteredModal(props) {
   const classId = props.classId;
   const studentId = props.studentId;
   const [subjects, setSubject] = useState([]);
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:8000/subjects/scoring?class_id=${classId}&user_id=${studentId}`
-      )
+      .get(`${url}/subjects/scoring?class_id=${classId}&user_id=${studentId}`)
       .then((res) => {
         console.log(res.data.result.scResult);
         setSubject(res.data.result.scResult);
       })
       .catch((err) => console.log(err));
-  }, [classId, studentId]);
+  }, [classId, studentId, url]);
 
   return (
     <Modal

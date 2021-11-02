@@ -21,6 +21,7 @@ function ClassProgress(props) {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [average, setAverage] = useState("");
+  const url = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     if (classId) {
@@ -38,15 +39,13 @@ function ClassProgress(props) {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:8000/subjects/scoring?class_id=${classId}&user_id=${userId}`
-      )
+      .get(`${url}/subjects/scoring?class_id=${classId}&user_id=${userId}`)
       .then((res) => {
         console.log(res);
         setAverage(res.data.result.avgResult);
       })
       .catch((err) => console.log(err));
-  }, [classId, userId]);
+  }, [classId, url, userId]);
 
   return (
     <>

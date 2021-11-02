@@ -15,6 +15,7 @@ function Sidebar(props) {
   const [changeIcon, setChangeIcon] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const path = props.location.pathname;
+  const url = process.env.REACT_APP_BASE_URL;
 
   const clickBellIcon = () => {
     setActiveNotification(true);
@@ -47,7 +48,7 @@ function Sidebar(props) {
             <Link className="link-profile" to="/profile">
               {reduxState.authInfo.image ? (
                 <img
-                  src={`http://localhost:8000${reduxState.authInfo.image}`}
+                  src={`${url}${reduxState.authInfo.image}`}
                   height={56}
                   width={56}
                   className="rounded-circle"
@@ -150,7 +151,7 @@ function Sidebar(props) {
                     <Link className="link-profile" to="/profile">
                       {reduxState.authInfo.image ? (
                         <img
-                          src={`http://localhost:8000${reduxState.authInfo.image}`}
+                          src={`${url}${reduxState.authInfo.image}`}
                           height={56}
                           width={56}
                           className="rounded-circle"
