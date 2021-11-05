@@ -17,6 +17,9 @@ function ClassDetail(props) {
   const userId = useSelector((state) => state.auth.authInfo.user_id);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [level, setLevel] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
 
   useEffect(() => {
     if (classId) {
@@ -26,6 +29,9 @@ function ClassDetail(props) {
           console.log(data);
           setName(data.name);
           setDescription(data.description);
+          setCategory(data.category_id);
+          setLevel(data.level_id);
+          setPrice(data.pricing);
         })
         .catch((err) => console.log(err));
     }
@@ -89,13 +95,35 @@ function ClassDetail(props) {
                             <h4>Know More Javascript</h4>
                             <div className="row ">
                               <div className="col-4">
-                                <h5>Level : Beginner</h5>
+                                <h5>
+                                  Level :{" "}
+                                  {level === 1
+                                    ? "Beginner"
+                                    : level === 2
+                                    ? "Intermediate"
+                                    : level === 3
+                                    ? "Advanced"
+                                    : ""}
+                                </h5>
                               </div>
                               <div className="col-5">
-                                <h5>Category : Software</h5>
+                                <h5>
+                                  Category :{" "}
+                                  {category === 1
+                                    ? "Software"
+                                    : category === 2
+                                    ? "History"
+                                    : category === 3
+                                    ? "Psychology"
+                                    : category === 4
+                                    ? "Finance"
+                                    : category === 5
+                                    ? "Math"
+                                    : ""}
+                                </h5>
                               </div>
                               <div className="col-3">
-                                <h5>Price : Free</h5>
+                                <h5>Price : {price === 0 ? "Free" : price}</h5>
                               </div>
                             </div>
                           </div>
